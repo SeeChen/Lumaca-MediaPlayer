@@ -1,11 +1,11 @@
 package com.MediaPlayer;
 
 // 导入应用所需的包
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Control;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -26,6 +26,9 @@ public class Main extends Application {
 
         // 设置一个 Scene ， 并设置宽为 1080，高为 720
         Scene scene = new Scene(root, 1080, 720);
+
+        // 对播放器进行宽高绑定，实时调整宽高
+        controller.mediaViewBind(scene);
 
         primaryStage.setScene(scene);   // 设置初始 stage 的 scene
         primaryStage.setMinHeight(720);primaryStage.setMinWidth(1080);  // 设置 stage 的最小高度以及最小宽度
