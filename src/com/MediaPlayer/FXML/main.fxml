@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.media.MediaView?>
+
+<?import javafx.scene.input.KeyCodeCombination?>
+<!-- 父级容器 -->
+<?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane fx:controller="com.MediaPlayer.mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@CSS/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <!-- 菜单元素 -->
+        <MenuBar layoutX="14.0" layoutY="-2.0" prefHeight="45.0" prefWidth="1080.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <!-- 菜单 File
+                子级元素：
+                    Open    ->  打开电脑里的媒体文件
+                    Close   ->  关闭此应用
+            -->
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <!-- 子级菜单 Open -->
+                        <MenuItem mnemonicParsing="false" text="Open" >
+                            <accelerator>
+                                <!-- 设置 Open 的快捷键为 Crtl + O -->
+                                <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+                        <!-- 子级菜单 Close -->
+                        <MenuItem mnemonicParsing="false" text="Close" >
+                            <accelerator>
+                                <!-- 设置 Close 的快捷键为 Alt + F4 -->
+                                <KeyCodeCombination alt="DOWN" code="F4" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+                    </items>
+                </Menu>
+                <!-- 菜单 Help
+                    子级元素：
+                        About       ->  关于此应用的详细信息
+                        How to Use  ->  应用的使用叫教程
+                -->
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <!-- 菜单子级 About -->
+                        <MenuItem mnemonicParsing="false" text="About" >
+                            <accelerator>
+                                <!-- 设置 About 的快捷键为 Crtl + A -->
+                                <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+                        <!-- 子级菜单 How to Use -->
+                        <MenuItem mnemonicParsing="false" text="How to Use" >
+                            <accelerator>
+                                <!-- 设置 How to Use 的快捷键为 Crtl + Shift + T -->
+                                <KeyCodeCombination alt="UP" code="T" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <BorderPane layoutX="68.0" layoutY="229.0" prefHeight="200.0" prefWidth="1080.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0">
+            <!-- MediaView 元素，用于播放媒体内容 -->
+            <center>
+                <MediaView fitHeight="600.0" fitWidth="1080.0" BorderPane.alignment="CENTER" />
+            </center>
+        </BorderPane>
+        <AnchorPane id="control_bar" layoutX="14.0" layoutY="570.0" prefHeight="75.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <!-- 使用一个 ImageView 作为按钮的图片，比较菜，暂时还没有找到别的方法 -->
+                <ImageView fx:id="img_play" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="15.0" />
+                <ImageView fx:id="img_stop" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="85.0" />
+                <ImageView fx:id="img_full" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="15.0" />
+                <ImageView fx:id="img_volu" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="250.0" />
+
+                <!-- 建立各个操作的按钮 -->
+                <JFXButton fx:id="btn_play" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="15.0" />
+                <JFXButton fx:id="btn_stop" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="85.0" />
+                <JFXButton fx:id="btn_full" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="15.0" />
+                <JFXButton fx:id="btn_mute" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="250.0" />
+                <JFXSlider layoutX="880.0" layoutY="29.0" prefWidth="150.0" AnchorPane.rightAnchor="85.0" />
+                <JFXSlider layoutX="157.0" layoutY="29.0" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="29.0" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

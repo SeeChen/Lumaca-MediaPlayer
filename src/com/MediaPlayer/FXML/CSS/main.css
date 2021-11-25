@@ -1,0 +1,49 @@
+.menu-bar {
+    -fx-background-color: #3BC8FF ;
+    -fx-border-width: 2.0;
+
+}
+.menu-bar .label {
+    -fx-font-size: 14.0 pt;
+    -fx-font-family: "Bookman Old Style";
+    -fx-text-fill: white;
+    -fx-font-weight: bold; 
+    -fx-padding: 10.0px;
+
+}
+.menu-bar .menu-button:hover, .menu-bar .menu-button:focused, .menu-bar .menu-button:showing {
+    -fx-background: rgba(255, 255, 255, 0.5);
+    -fx-text-fill: white;
+}
+
+.menu-item {
+    -fx-padding: 0.0em 0.0em 0.0em 0.0em;
+    -fx-text-fill: white;
+    -fx-background: rgba(255, 255, 255, 0.5) ;
+}
+.menu-item .label{
+    -fx-font-size: 14.0 pt;
+    -fx-text-fill: white;
+}
+.menu-item .label:hover{
+    -fx-font-size: 14.0 pt;
+    -fx-background: rgba(255, 255, 255, 0.5) ;
+    -fx-text-fill: white;
+}
+.context-menu {
+    -fx-background-color:#3BC8FF ;
+    -fx-border-width: 0.2px;
+	-fx-border-radius:10;
+    -fx-border-color: black;
+    -fx-background-insets: 0.0, 1.0, 2.0;
+    -fx-background-radius: 10;
+    -fx-opacity: 0.9;
+}
+
+#control_bar{
+	-fx-background-color:#3BC8FF;
+}
+
+.jfx-button{
+	-fx-background-color: rgba(255, 255, 255, 0);
+}
