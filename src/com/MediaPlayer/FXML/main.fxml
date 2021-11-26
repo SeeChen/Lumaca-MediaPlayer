@@ -14,9 +14,10 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.input.KeyCharacterCombination?>
 
 <!-- 父级容器 -->
-<AnchorPane fx:controller="com.MediaPlayer.mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@CSS/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="parentPane" fx:controller="com.MediaPlayer.mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@CSS/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <!-- 菜单元素 -->
         <MenuBar layoutX="14.0" layoutY="-2.0" prefHeight="45.0" prefWidth="1080.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -26,17 +27,17 @@
                     Close   ->  关闭此应用
             -->
             <menus>
-                <Menu mnemonicParsing="false" text="File">
+                <Menu mnemonicParsing="false" text="_File">
                     <items>
                         <!-- 子级菜单 Open -->
-                        <MenuItem mnemonicParsing="false" text="Open" onAction="#openFile" >
+                        <MenuItem mnemonicParsing="true" text="_Open" onAction="#openFile" >
                             <accelerator>
                                 <!-- 设置 Open 的快捷键为 Crtl + O -->
                                 <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                             </accelerator>
                         </MenuItem>
                         <!-- 子级菜单 Close -->
-                        <MenuItem mnemonicParsing="false" text="Close" onAction="#closeApp" >
+                        <MenuItem mnemonicParsing="true" text="_Close" onAction="#closeApp" >
                             <accelerator>
                                 <!-- 设置 Close 的快捷键为 Alt + F4 -->
                                 <KeyCodeCombination alt="DOWN" code="F4" control="UP" meta="UP" shift="UP" shortcut="UP" />
@@ -44,22 +45,40 @@
                         </MenuItem>
                     </items>
                 </Menu>
+
+                <!-- 菜单 View
+                    子级元素：
+                        Full Screen     -> 全屏显示视图
+                -->
+                <Menu mnemonicParsing="true" text="_View">
+                    <items>
+                        <!-- 子级菜单 View -->
+                        <MenuItem fx:id="menu_fullScreen" mnemonicParsing="true" text="_Full Screen Mode" onAction="#setFullScreen">
+                            <accelerator>
+                                <!-- 设置 Full Screen 的快捷键为 F -->
+                                <KeyCodeCombination alt="UP" code="F" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+                    </items>
+                </Menu>
+
                 <!-- 菜单 Help
                     子级元素：
                         About       ->  关于此应用的详细信息
-                        How to Use  ->  应用的使用叫教程
+                        How to Use  ->  应用的使用教程
                 -->
-                <Menu mnemonicParsing="false" text="Help">
+                <Menu mnemonicParsing="true" text="_Help">
                     <items>
                         <!-- 菜单子级 About -->
-                        <MenuItem mnemonicParsing="false" text="About" >
+                        <MenuItem mnemonicParsing="true" text="_About" >
                             <accelerator>
                                 <!-- 设置 About 的快捷键为 Crtl + A -->
                                 <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                             </accelerator>
                         </MenuItem>
+
                         <!-- 子级菜单 How to Use -->
-                        <MenuItem mnemonicParsing="false" text="How to Use" >
+                        <MenuItem mnemonicParsing="true" text="How _to Use" >
                             <accelerator>
                                 <!-- 设置 How to Use 的快捷键为 Crtl + Shift + T -->
                                 <KeyCodeCombination alt="UP" code="T" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
@@ -69,7 +88,7 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <BorderPane layoutX="68.0" layoutY="229.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0" style="-fx-background-color:#000;">
+        <BorderPane onDragOver="#fileDragOver" onDragDropped="#fileDragDrop" layoutX="68.0" layoutY="229.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0" style="-fx-background-color:#000;">
             <!-- MediaView 元素，用于播放媒体内容 -->
             <center>
                 <MediaView fx:id="playView" fitHeight="600.0" fitWidth="1080.0" BorderPane.alignment="CENTER"/>
@@ -84,9 +103,9 @@
                 <ImageView fx:id="img_volu" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="250.0" />
 
                 <!-- 建立各个操作的按钮 -->
-                <JFXButton fx:id="btn_play" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="15.0" />
-                <JFXButton fx:id="btn_stop" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="85.0" />
-                <JFXButton fx:id="btn_full" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="15.0" />
+                <JFXButton fx:id="btn_play" onAction="#playOrPause" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="15.0" />
+                <JFXButton fx:id="btn_stop" onAction="#mediaStop" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="85.0" />
+                <JFXButton fx:id="btn_full" onAction="#setFullScreen" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="15.0" />
                 <JFXButton fx:id="btn_mute" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="250.0" />
 
                 <!-- 音量调节 -->
