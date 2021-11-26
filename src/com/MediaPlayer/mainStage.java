@@ -1,14 +1,21 @@
 package com.MediaPlayer;
 
+import com.MediaPlayer.Controller.btnControl;
+import com.MediaPlayer.Controller.changeButtonPicture;
+import com.MediaPlayer.Controller.getMediaType;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXSlider;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
@@ -21,11 +28,17 @@ import java.io.File;
 
 public class mainStage {
 
-
-    boolean isPlaying = false;      // 定义一个布尔值判断是播放还是暂停, true 表示 play; false 表示 pause
+    boolean isPlaying  = false;     // 用于判断是否正在播放, true 表示播放, false 表示未在播放
     boolean isFullMode = false;     // 用于判断当前是否为全屏
+    boolean isMuteMode = false;     // 用于判断当前是否为静音
 
+    double currentVolume;    // 用于保存静音前的音量状态
+
+    Stage stage;
     MediaPlayer mediaPlayer;
+
+    String mediaUrl = null;
+
     @FXML
     MediaView playView;
 
@@ -54,66 +67,113 @@ public class mainStage {
     @FXML
     private ImageView img_volu;
 
-    Stage stage;
+    @FXML
+    private JFXSlider mediaDuration;
+    @FXML
+    private JFXSlider volumnControl;
 
-    String mediaUrl = null;
+    changeButtonPicture changeBtnPicture = new changeButtonPicture();
+    getMediaType getMediaType = new getMediaType();
+    btnControl btnControl = new btnControl();
 
     // 应用加载事件
     public void loading(){
-        // 获取各个图标的路径
-        File filePlay = new File("src/com/MediaPlayer/RESOURCES/ICON/play.png");
-        File fileStop = new File("src/com/MediaPlayer/RESOURCES/ICON/stop.png");
-        File fileFull = new File("src/com/MediaPlayer/RESOURCES/ICON/full.png");
-        File fileVolu = new File("src/com/MediaPlayer/RESOURCES/ICON/volu.png");
 
-        // 将路径转换为文字
-        String stringPlay = filePlay.toURI().toString();
-        String stringStop = fileStop.toURI().toString();
-        String stringFull = fileFull.toURI().toString();
-        String stringVolu = fileVolu.toURI().toString();
+        // 设置各个按钮的初始图片
+        changeBtnPicture.changeBtnPicture("play", img_play);
+        changeBtnPicture.changeBtnPicture("stop", img_stop);
+        changeBtnPicture.changeBtnPicture("full", img_full);
+        changeBtnPicture.changeBtnPicture("volu", img_volu);
 
-        // new 一个 image
-        Image imagePlay = new Image(stringPlay);
-        Image imageStop = new Image(stringStop);
-        Image imageFull = new Image(stringFull);
-        Image imageVolu = new Image(stringVolu);
+        // 设置按钮不可用
+        btn_mute.setDisable(true);
+        img_volu.setDisable(true);
+        volumnControl.setDisable(true);
 
-        // 设置各个按钮的图片
-        img_play.setImage(imagePlay);
-        img_stop.setImage(imageStop);
-        img_full.setImage(imageFull);
-        img_volu.setImage(imageVolu);
+        // 设置播放进度的初始时间
+        mediaDuration.adjustValue(0.0);
+
+        // 设置音量
+        currentVolume = 100;
+        volumnControl.adjustValue(currentVolume);
     }
 
     // 媒体播放事件
     private void playMedia(){
-        // 获取文件的后缀名
-        String fileExtension = "";
-        int i = mediaUrl.lastIndexOf('.');
-        if (i >= 0) {
-            fileExtension = mediaUrl.substring(i+1);
-        }
+
+        String fileExtension = getMediaType.getMediaType(mediaUrl); // 获取文件的后缀名
 
         // 判断文件是音频文件还是视频文件
         if(fileExtension.equals("mp3")){
 
             System.out.println(fileExtension);
-        }else if(fileExtension.equals("mp4")){
+        } else if(fileExtension.equals("mp4")) {
 
             System.out.println(fileExtension);
         }
 
-        // 设置 url
+        // 设置文件的播放
         Media media = new Media(mediaUrl);
         mediaPlayer = new MediaPlayer(media);
 
-        // 打开文件后自动播放
-        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setAutoPlay(true);  // 打开文件后自动播放
+        mediaPlayer.setVolume(currentVolume);   // 设置播放音量
 
+        mediaPlayerVol();
+
+        // 更改播放的状态
         isPlaying = true;
-        changeBtnPicture("pause", img_play);
+        changeBtnPicture.changeBtnPicture("pause", img_play);
 
-        playView.setMediaPlayer(mediaPlayer);
+        volumeChange();   // 音量键调节事件
+        volumeClicked();  // 音量键按下事件
+
+        // 设置按钮可用
+        btn_mute.setDisable(false);
+        img_volu.setDisable(false);
+        volumnControl.setDisable(false);
+
+        playView.setMediaPlayer(mediaPlayer);   // 播放文件
+    }
+
+    // 音量条拖动
+    private void volumeChange(){
+        volumnControl.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                double newVolume = (double) newValue;
+                if (newVolume <= 50 && newVolume > 0) {
+                    changeBtnPicture.changeBtnPicture("midVol", img_volu);
+                    isMuteMode = false;
+                } else if(newVolume > 50){
+                    changeBtnPicture.changeBtnPicture("volu", img_volu);
+                    isMuteMode = false;
+                } else {
+                    isMuteMode = btnControl.setMute(volumnControl, img_volu, false, currentVolume);
+                }
+
+            }
+        });
+    }
+
+    // 音量条按下事件
+    private void volumeClicked(){
+        volumnControl.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                // 若鼠标放开后的值不为零，则保存新的音量
+                double newVolume = volumnControl.getValue();
+                if(newVolume != 0){
+                    currentVolume = newVolume;
+                    if(newVolume <= 50)
+                        changeBtnPicture.changeBtnPicture("midVol", img_volu);
+                    else
+                        isMuteMode = btnControl.setMute(volumnControl, img_volu, true, currentVolume);
+                } else if(newVolume == 0){
+                    isMuteMode = btnControl.setMute(volumnControl, img_volu, false, currentVolume);
+                }
+            }
+        });
     }
 
     // 打开本地媒体文件
@@ -132,17 +192,11 @@ public class mainStage {
         if(file == null)
             return;
 
-        mediaUrl = file.toURI().toString();  // 将文件转换为字符串路径
-
         // 如果还有媒体文件正在播放，先停止播放
-        if(isPlaying) {
-            mediaPlayer.stop();
-            changeBtnPicture("play", img_play);
+        if(isPlaying)
+            mediaStop();
 
-            mediaUrl = null;
-
-            isPlaying = false;     // 将播放的状态改为 false
-        }
+        mediaUrl = file.toURI().toString();  // 将文件转换为字符串路径
 
         playMedia();    //播放媒体
     }
@@ -157,27 +211,17 @@ public class mainStage {
         Dragboard dragboard = event.getDragboard();
         if(dragboard.hasFiles()){
 
-            if(isPlaying){
-                mediaPlayer.stop();;
-                mediaUrl = null;
-                isPlaying = false;
-                changeBtnPicture("play", img_play);
-            }
+            if(isPlaying)
+                mediaStop();
+
             File fileDrop = dragboard.getFiles().get(0);
             mediaUrl = fileDrop.toURI().toString();
             playMedia();
         }
     }
 
-    // 更改 play 按钮的图片
-    private void changeBtnPicture(String imageName, ImageView btnId){
-
-        String toChangeUrl = "src/com/MediaPlayer/RESOURCES/ICON/" + imageName + ".png";
-        File fileChange = new File(toChangeUrl);
-        String stringChage = fileChange.toURI().toString();
-        Image imageChange = new Image(stringChage);
-        btnId.setImage(imageChange);
-
+    public void setMute(){
+        isMuteMode = btnControl.setMute(volumnControl, img_volu, isMuteMode, currentVolume);
     }
 
     // 设置播放或暂停视频
@@ -189,64 +233,45 @@ public class mainStage {
             return;
         }
 
-        isPlaying = !isPlaying;
-
-        if(isPlaying){
-            mediaPlayer.play();
-
-            // 更改按钮的图片
-            changeBtnPicture("pause", img_play);
-
-        } else {
-            mediaPlayer.pause();
-
-            // 更改按钮的图片
-            changeBtnPicture("play", img_play);
-        }
+        isPlaying = btnControl.playOrPause(mediaPlayer, isPlaying, img_play);
     }
 
-    // 结束播放
+    // 停止播放
     public void mediaStop(){
 
+        // 若 mediaUrl 为空，则不执行任何语句
         if(mediaUrl == null)
             return;
 
         mediaPlayer.stop();
         isPlaying = false;
-        changeBtnPicture("play", img_play);
+        changeBtnPicture.changeBtnPicture("play", img_play);
         mediaUrl = null;
+
+        volumnControl.setDisable(true);
+        btn_mute.setDisable(true);
+        img_volu.setDisable(true);
     }
 
+    // 设置全屏模式
     public void setFullScreen(){
-        Stage mainStage = (Stage) parentPane.getScene().getWindow();
-        
-        mainStage.setFullScreen(!isFullMode);   // 设置全屏或退出全屏
-        if(!isFullMode){
-            menu_fullScreen.setText("Esc _Full Screen Mode");
-            changeBtnPicture("fullEsc", img_full);
 
-        }else{
-            menu_fullScreen.setText("_Full Screen Mode");
-            changeBtnPicture("full", img_full);
-        }
-
-        isFullMode = !isFullMode;
+        Stage mainStage = (Stage) parentPane.getScene().getWindow();    // 获取 Stage 容器
+        isFullMode = btnControl.fullScreenMode(isFullMode, mainStage, menu_fullScreen, img_full);
     }
 
     // 关闭程序
-    public void closeApp(){
-
-        Platform.exit();
-    }
+    public void closeApp(){ Platform.exit();}
 
     // 播放器绑定调整宽高
     public void mediaViewBind(Scene mediaViewScene){
 
-        // 绑定播放器高度
-        playView.fitHeightProperty().bind(mediaViewScene.heightProperty().subtract(46 + 75));
+        playView.fitHeightProperty().bind(mediaViewScene.heightProperty().subtract(46 + 75));   // 绑定播放器高度
+        playView.fitWidthProperty().bind(mediaViewScene.widthProperty());   // 绑定播放器宽度
+    }
 
-        // 当定播放器宽度
-        playView.fitWidthProperty().bind(mediaViewScene.widthProperty());
+    public void mediaPlayerVol(){
 
+        mediaPlayer.volumeProperty().bind(volumnControl.valueProperty().divide(100));
     }
 }

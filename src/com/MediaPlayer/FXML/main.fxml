@@ -106,13 +106,13 @@
                 <JFXButton fx:id="btn_play" onAction="#playOrPause" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="15.0" />
                 <JFXButton fx:id="btn_stop" onAction="#mediaStop" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="85.0" />
                 <JFXButton fx:id="btn_full" onAction="#setFullScreen" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="15.0" />
-                <JFXButton fx:id="btn_mute" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="250.0" />
+                <JFXButton fx:id="btn_mute" onAction="#setMute" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="250.0" />
 
                 <!-- 音量调节 -->
-                <JFXSlider layoutX="880.0" layoutY="29.0" prefWidth="150.0" AnchorPane.rightAnchor="85.0" />
+                <JFXSlider fx:id="volumnControl" layoutX="880.0" layoutY="29.0" prefWidth="150.0" AnchorPane.rightAnchor="85.0" />
 
                 <!-- 播放进度条 -->
-                <JFXSlider layoutX="157.0" layoutY="29.0" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="29.0" />
+                <JFXSlider fx:id="mediaDuration" layoutX="157.0" layoutY="29.0" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="29.0" />
             </children>
         </AnchorPane>
     </children>
