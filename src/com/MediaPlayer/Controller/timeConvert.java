@@ -3,16 +3,16 @@ package com.MediaPlayer.Controller;
 public class timeConvert {
 
     private String lessThanTen(int num){
-        String time = "";
+        String time;
         if(num < 10)
-            time = "0" + String.valueOf(num);
+            time = "0" + num;
         else
             time = String.valueOf(num);
         return time;
     }
 
     public String secondToTime(int toCovert){
-        String time = "";
+        String time;
         time = lessThanTen(toCovert);
         return time;
     }

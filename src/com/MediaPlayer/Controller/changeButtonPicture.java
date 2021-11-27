@@ -15,10 +15,10 @@ public class changeButtonPicture {
 
         // 将路径转换为文字
         File fileChange = new File(toChangeUrl);
-        String stringChage = fileChange.toURI().toString();
+        String stringChange = fileChange.toURI().toString();
 
         // 设置按钮的图像
-        Image imageChange = new Image(stringChage);
+        Image imageChange = new Image(stringChange);
         btnId.setImage(imageChange);
     }
 }

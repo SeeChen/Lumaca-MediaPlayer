@@ -3,7 +3,7 @@ package com.MediaPlayer.Controller;
 
 public class getMediaType {
 
-    public String getMediaType(String mediaUrl){
+    public String getType(String mediaUrl){
 
         String type = "";
 

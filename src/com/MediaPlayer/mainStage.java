@@ -106,7 +106,7 @@ public class mainStage {
     // 媒体播放事件
     private void playMedia(){
 
-        String fileExtension = getMediaType.getMediaType(mediaUrl); // 获取文件的后缀名
+        String fileExtension = getMediaType.getType(mediaUrl); // 获取文件的后缀名
 
         // 判断文件是音频文件还是视频文件
         if(fileExtension.equals("mp3")){
@@ -139,9 +139,7 @@ public class mainStage {
         volumnControl.setDisable(false);
 
         // 设置 onready 事件
-        mediaPlayer.setOnReady(() -> {
-            mediaPlayerReady();
-        });
+        mediaPlayer.setOnReady(() -> mediaPlayerReady() );
 
         playView.setMediaPlayer(mediaPlayer);   // 播放文件
     }
