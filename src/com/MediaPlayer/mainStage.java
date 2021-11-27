@@ -3,9 +3,11 @@ package com.MediaPlayer;
 import com.MediaPlayer.Controller.btnControl;
 import com.MediaPlayer.Controller.changeButtonPicture;
 import com.MediaPlayer.Controller.getMediaType;
+import com.MediaPlayer.Controller.timeConvert;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXSlider;
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
@@ -23,14 +25,16 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.File;
 
 public class mainStage {
 
-    boolean isPlaying  = false;     // 用于判断是否正在播放, true 表示播放, false 表示未在播放
-    boolean isFullMode = false;     // 用于判断当前是否为全屏
-    boolean isMuteMode = false;     // 用于判断当前是否为静音
+    boolean isPlaying       = false;    // 用于判断是否正在播放, true 表示播放, false 表示未在播放
+    boolean isFullMode      = false;    // 用于判断当前是否为全屏
+    boolean isMuteMode      = false;    // 用于判断当前是否为静音
+    boolean isTrackDuration = true;     // 用于跟踪播放进度，当值为假时，表示用户正在拖动进度
 
     double currentVolume;    // 用于保存静音前的音量状态
 
@@ -75,6 +79,7 @@ public class mainStage {
     changeButtonPicture changeBtnPicture = new changeButtonPicture();
     getMediaType getMediaType = new getMediaType();
     btnControl btnControl = new btnControl();
+    timeConvert timeConvert = new timeConvert();
 
     // 应用加载事件
     public void loading(){
@@ -133,7 +138,44 @@ public class mainStage {
         img_volu.setDisable(false);
         volumnControl.setDisable(false);
 
+        // 设置 onready 事件
+        mediaPlayer.setOnReady(() -> {
+            mediaPlayerReady();
+        });
+
         playView.setMediaPlayer(mediaPlayer);   // 播放文件
+    }
+
+    private void mediaPlayerReady(){
+
+        // 设置事件条的最大值以及最小值
+        mediaDuration.setMin(mediaPlayer.getStartTime().toSeconds());
+        mediaDuration.setMax(mediaPlayer.getTotalDuration().toSeconds());
+
+        mediaDuration.setOnMousePressed(event -> isTrackDuration = false);  // 当用户拖动进度时，取消自动跟踪
+
+        // 当用户放手后，跳转到时间跳转到用户的区域
+        mediaDuration.setOnMouseReleased(event -> {
+            mediaPlayer.seek(Duration.seconds(mediaDuration.getValue()));
+            isTrackDuration = true; // 继续跟踪播放
+        });
+
+        // 设置拖动时显示的时间
+        mediaDuration.setValueFactory(slider ->
+                Bindings.createStringBinding(() ->
+                        (timeConvert.secondToTime((int) slider.getValue() / 60)) + ":" + (timeConvert.secondToTime((int) slider.getValue() % 60)),
+                        slider.valueProperty()
+                )
+        );
+
+        // 进度跟踪
+        mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
+            @Override
+            public void changed(ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) {
+                if(isTrackDuration)
+                    mediaDuration.setValue(newValue.toSeconds());
+            }
+        });
     }
 
     // 音量条拖动

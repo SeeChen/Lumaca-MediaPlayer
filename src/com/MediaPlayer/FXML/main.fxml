@@ -56,7 +56,7 @@
                         <MenuItem fx:id="menu_fullScreen" mnemonicParsing="true" text="_Full Screen Mode" onAction="#setFullScreen">
                             <accelerator>
                                 <!-- 设置 Full Screen 的快捷键为 F -->
-                                <KeyCodeCombination alt="UP" code="F" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                                <KeyCodeCombination alt="UP" code="F" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                             </accelerator>
                         </MenuItem>
                     </items>
