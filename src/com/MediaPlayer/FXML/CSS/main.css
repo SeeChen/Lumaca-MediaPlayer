@@ -52,3 +52,10 @@
 :show-mnemonics > .mnemonic-underline {
     -fx-stroke: white;
 }
+
+.play_time{
+	-fx-text-fill: white;
+	-fx-font-size: 20.0 pt;
+    -fx-font-family: "Bookman Old Style";
+	-fx-font-weight: bold; 
+}

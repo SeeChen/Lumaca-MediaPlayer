@@ -13,6 +13,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
@@ -51,6 +52,11 @@ public class mainStage {
 
     @FXML
     AnchorPane parentPane;
+
+    @FXML
+    private Label current_time;
+    @FXML
+    private Label total_time;
 
     @FXML
     private JFXButton btn_play;
@@ -99,7 +105,7 @@ public class mainStage {
         mediaDuration.adjustValue(0.0);
 
         // 设置音量
-        currentVolume = 100;
+        currentVolume = 50;
         volumnControl.adjustValue(currentVolume);
     }
 
@@ -138,8 +144,9 @@ public class mainStage {
         img_volu.setDisable(false);
         volumnControl.setDisable(false);
 
-        // 设置 onready 事件
-        mediaPlayer.setOnReady(() -> mediaPlayerReady() );
+        mediaPlayer.setOnReady(() -> mediaPlayerReady() );  // 设置 onready 事件
+        mediaPlayer.setOnEndOfMedia(() -> System.out.println("finished"));
+        mediaPlayer.setOnStopped(() -> System.out.println("stop"));
 
         playView.setMediaPlayer(mediaPlayer);   // 播放文件
     }
@@ -149,6 +156,9 @@ public class mainStage {
         // 设置事件条的最大值以及最小值
         mediaDuration.setMin(mediaPlayer.getStartTime().toSeconds());
         mediaDuration.setMax(mediaPlayer.getTotalDuration().toSeconds());
+
+        // 设置 total_time 的时间为视频的总时长
+        total_time.setText("/" + timeConvert.secondToTime((int) mediaPlayer.getTotalDuration().toSeconds() / 60) + ":" + timeConvert.secondToTime((int) mediaPlayer.getTotalDuration().toSeconds() % 60));
 
         mediaDuration.setOnMousePressed(event -> isTrackDuration = false);  // 当用户拖动进度时，取消自动跟踪
 
@@ -171,7 +181,10 @@ public class mainStage {
             @Override
             public void changed(ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) {
                 if(isTrackDuration)
-                    mediaDuration.setValue(newValue.toSeconds());
+                    mediaDuration.setValue(newValue.toSeconds());   // 跟踪时间条的进度
+
+                //  当拖动时间栏的时候，可以得到实时的反馈得知当前的时间
+                current_time.setText(timeConvert.secondToTime((int) mediaDuration.getValue() / 60) + ":" + timeConvert.secondToTime((int) mediaDuration.getValue() % 60));
             }
         });
     }

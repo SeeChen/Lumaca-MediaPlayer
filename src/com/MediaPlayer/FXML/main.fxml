@@ -17,6 +17,7 @@
 <?import javafx.scene.input.KeyCharacterCombination?>
 
 <!-- 父级容器 -->
+<?import javafx.scene.control.Label?>
 <AnchorPane fx:id="parentPane" fx:controller="com.MediaPlayer.mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@CSS/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <!-- 菜单元素 -->
@@ -96,6 +97,11 @@
         </BorderPane>
         <AnchorPane id="control_bar" layoutX="14.0" layoutY="570.0" prefHeight="75.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <children>
+
+                <!-- 用于显示当前播放的时间以及媒体文件的总时长 -->
+                <Label fx:id="current_time" text="00:00" styleClass="play_time" AnchorPane.leftAnchor="155" AnchorPane.topAnchor="27"/>
+                <Label fx:id="total_time" text="/00:00" styleClass="play_time" AnchorPane.leftAnchor="215" AnchorPane.topAnchor="27"/>
+
                 <!-- 使用一个 ImageView 作为按钮的图片，比较菜，暂时还没有找到别的方法 -->
                 <ImageView fx:id="img_play" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="15.0" />
                 <ImageView fx:id="img_stop" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="85.0" />
@@ -112,7 +118,7 @@
                 <JFXSlider fx:id="volumnControl" layoutX="880.0" layoutY="29.0" prefWidth="150.0" AnchorPane.rightAnchor="85.0" />
 
                 <!-- 播放进度条 -->
-                <JFXSlider fx:id="mediaDuration" layoutX="157.0" layoutY="29.0" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="29.0" />
+                <JFXSlider fx:id="mediaDuration" layoutX="157.0" layoutY="29.0" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="29.0" />
             </children>
         </AnchorPane>
     </children>
