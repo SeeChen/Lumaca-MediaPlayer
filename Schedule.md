@@ -11,7 +11,7 @@ All Date Format follow [ Year Month Days ]
 
 #### Update Information
 
-*2021 01 01*		Project establishment
+*2021 01 01* &nbsp; &nbsp;&nbsp;&nbsp; Project establishment
 
 
 
@@ -34,7 +34,7 @@ All Date Format follow [ Year Month Days ]
 
 <details>
    <summary> To be developed </summary>
-  : 打碎打算
+
 
   `Features waiting to be developed`
 
