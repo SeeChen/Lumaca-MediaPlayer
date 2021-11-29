@@ -9,12 +9,14 @@ All Date Format follow [ YYYY - MM - DD ]
 - [Update Information](#update-information)
 - [Program overview](#program-overview)
 
-#### Update Information
+### Update Information
 
-**`2021 - 11 - 05`** &nbsp;&nbsp;&nbsp;&nbsp; Project establishment
+**`2021 - 11 - 05`**
+``` 
+Create Project
+```
 
-
-#### Program overview
+### Program overview
 
 
 <details>
@@ -25,7 +27,7 @@ All Date Format follow [ YYYY - MM - DD ]
 
 | DATE | CONTENT |REMARK|
 |:---:|:---:|:---:|
-| 2000 08 06|Create Project|test|
+|2021 - 11 - 05|Create Project||
 
 </details>
 
@@ -37,7 +39,7 @@ All Date Format follow [ YYYY - MM - DD ]
 
 | DATE | CONTENT |REMARK|
 |:---:|:--:|:---:|
-|  |Create Project|test|
+| 2021 - 11 - 10 |Create Project|test|
 
 </details>
 
