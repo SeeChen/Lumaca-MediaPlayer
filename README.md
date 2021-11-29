@@ -1,5 +1,7 @@
 # JavaFx Trem Project
 
+[![Join the chat at https://gitter.im/SeeChen/TermProject_MediaPlayer](https://badges.gitter.im/SeeChen/TermProject_MediaPlayer.svg)](https://gitter.im/SeeChen/TermProject_MediaPlayer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ---
 
 - [About](#about)
