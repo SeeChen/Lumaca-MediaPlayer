@@ -3,7 +3,7 @@
 ```
 Here is the development progress of this software
 
-All Date Format follow [ Year Month Days ]
+All Date Format follow [ YYYY - MM - DD ]
 ```
 
 - [Update Information](#update-information)
@@ -11,10 +11,7 @@ All Date Format follow [ Year Month Days ]
 
 #### Update Information
 
-*2021 01 01* &nbsp; &nbsp;&nbsp;&nbsp; Project establishment
-
-
-
+**`2021 - 01 - 01`** &nbsp;&nbsp;&nbsp;&nbsp; Project establishment
 
 
 #### Program overview
@@ -46,7 +43,7 @@ All Date Format follow [ Year Month Days ]
 
 
 <details>
-   <summary> Bugs </summary>
+   <summary> Bugs Report </summary>
 
   `Bugs waiting to be fixed`
 
