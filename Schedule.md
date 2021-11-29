@@ -42,7 +42,7 @@ Create Project
 | `2021 - 11 - 10` |Record the history playing|[issues #3](https://github.com/SeeChen/TermProject_MediaPlayer/issues/3)|![GitHub](https://img.shields.io/badge/WAITING-yellow?style=flat)|
 | `2021 - 11 - 12` |队列文件夹里的视频|[issues #4](https://github.com/SeeChen/TermProject_MediaPlayer/issues/4)|![GitHub](https://img.shields.io/badge/NEW-red?style=flat)|
 | `2021 - 11 - 12` |全拼播放的时候自动隐藏控制栏|[issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)|![GitHub](https://img.shields.io/badge/NEW-red?style=flat)|
-| `2021 - 11 - 15` |时间条显示数字时间|[issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)|![GitHub](https://img.shields.io/badge/WAITING-yellow?style=flat)|
+| `2021 - 11 - 15` |时间条显示数字时间|[issues #7](https://github.com/SeeChen/TermProject_MediaPlayer/issues/7)|![GitHub](https://img.shields.io/badge/WAITING-yellow?style=flat)|
 
 </details>
 
