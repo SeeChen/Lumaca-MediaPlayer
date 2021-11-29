@@ -1,18 +1,11 @@
 # JavaFx Trem Project
 
 ---
-
-- [About](#about)
-- [关于](#关于)
-
-#### About
-
-> - This is a media player create by JavaFx
-> - This project all compiled in JDK 8
-> - Some visual effects are done using [Jfoenix](http://www.jfoenix.com/)
+<a href="https://github.com/SeeChen/python_Programming_python123/blob/main/LICENSE">![GitHub](https://img.shields.io/github/license/SeeChen/TermProject_MediaPlayer?color=1AA260&label=LICENSE)</a>
+<a href="https://gitter.im/SeeChen/TermProject_MediaPlayer" target="_blank">![GitHub](https://img.shields.io/badge/CHAT-GITTER-FF5CF7?style=flat&logo=gitter)</a>
 
 #### 关于
+> - 程序为基于 JavaFx 开发的视频播放器
 
-> - 这是一个使用 JavaFx 完成的媒体播放器
-> - 此项目所有代码均在 JDK 8 下编译完成
-> - 一些项目呈现的视觉效果通过 [Jfoenix](http://www.jfoenix.com/) 来完成
+#### LICENSE
+> [MIT](https://github.com/SeeChen/TermProject_MediaPlayer/blob/main/LICENSE) @ SeeChen
