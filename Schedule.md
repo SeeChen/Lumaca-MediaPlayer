@@ -37,9 +37,9 @@ Create Project
 
   `Features waiting to be developed`
 
-| DATE | CONTENT |REMARK|
-|:---:|:--:|:---:|
-| 2021 - 11 - 10 |Create Project|test|
+| DATE | CONTENT |REMARK|STATUS|
+|:---:|:--:|:---:|:---:|
+| 2021 - 11 - 10 |Record the history playing|[issues #3](https://github.com/SeeChen/TermProject_MediaPlayer/issues/3)|![GitHub](https://img.shields.io/badge/WATING-yellow?style=flat)|
 
 </details>
 
@@ -49,8 +49,19 @@ Create Project
 
   `Bugs waiting to be fixed`
 
-| DATE | CONTENT |Problem Numbers|
-|:---:|:--:|:---:|
-| 2000 08 06|Create Project|#1|
+| DATE | CONTENT |Problem Numbers|Status|
+|:---:|:--:|:---:|:---:|
+| 2021 - 11 - 10|有时打开视频后需要黑屏，需要重新打开文件|[issues #1](https://github.com/SeeChen/TermProject_MediaPlayer/issues/1)|![GitHub](https://img.shields.io/badge/WATING-yellow?style=flat)|
+|2021 - 11 - 11|使用 ESC 键关闭全屏后，下次进入全屏需要点击两次|[issues #1](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)|![GitHub](https://img.shields.io/badge/NEW-red?style=flat)|
 
 </details>
+
+<!-- Label for to developer -->
+<!--![GitHub](https://img.shields.io/badge/COMPLETE-sussex?style=flat)--><!--complete the function development-->
+<!--![GitHub](https://img.shields.io/badge/WATING-yellow?style=flat)--><!--already know and wating to development-->
+<!--![GitHub](https://img.shields.io/badge/NEW-red?style=flat)--><!--new request-->
+
+<!-- Label for bugs -->
+<!--![GitHub](https://img.shields.io/badge/FIXED-sussex?style=flat)--><!--bug fixed-->
+<!--![GitHub](https://img.shields.io/badge/WATING-yellow?style=flat)--><!--bugs watting to fix-->
+<!--![GitHub](https://img.shields.io/badge/NEW-red?style=flat)--><!-new bugs report-->
