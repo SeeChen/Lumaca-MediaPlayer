@@ -2,11 +2,16 @@
 ---
 ```
 Here is the development progress of this software
+
+All Date Format follow [ Year Month Days ]
 ```
 
 - [Update Information](#update-information)
+- [Program overview](#program-overview)
 
 #### Update Information
+
+*2021 01 01*		Project establishment
 
 
 
@@ -35,7 +40,7 @@ Here is the development progress of this software
 
 | DATE | CONTENT |REMARK|
 |:---:|:--:|:---:|
-| 2000 08 06|Create Project|test|
+|  |Create Project|test|
 
 </details>
 
@@ -45,8 +50,8 @@ Here is the development progress of this software
 
   `Bugs waiting to be fixed`
 
-| DATE | CONTENT |REMARK|
+| DATE | CONTENT |Problem Numbers|
 |:---:|:--:|:---:|
-| 2000 08 06|Create Project|test|
+| 2000 08 06|Create Project|#1|
 
 </details>
