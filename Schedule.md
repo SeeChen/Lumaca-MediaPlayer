@@ -4,7 +4,7 @@
 Here is the development progress of this software
 ```
 
-- [Update Information](#update information)
+- [Update Information](#update-information)
 
 #### Update Information
 
