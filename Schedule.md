@@ -54,7 +54,7 @@ Create Project
 | DATE | CONTENT |Problem Numbers|Status|
 |:---:|:--:|:---:|:---:|
 | 2021 - 11 - 10|有时打开视频后需要黑屏，需要重新打开文件|[issues #1](https://github.com/SeeChen/TermProject_MediaPlayer/issues/1)|![GitHub](https://img.shields.io/badge/WATING-yellow?style=flat)|
-|2021 - 11 - 11|使用 ESC 键关闭全屏后，下次进入全屏需要点击两次|[issues #1](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)|![GitHub](https://img.shields.io/badge/NEW-red?style=flat)|
+|2021 - 11 - 11|使用 ESC 键关闭全屏后，下次进入全屏需要点击两次|[issues #2](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)|![GitHub](https://img.shields.io/badge/NEW-red?style=flat)|
 |2021 - 11 - 29|当用户屏幕较小的时候，初始显示会超出电脑屏幕|[issues #6](https://github.com/SeeChen/TermProject_MediaPlayer/issues/6)|![GitHub](https://img.shields.io/badge/NEW-red?style=flat)|
 
 </details>
