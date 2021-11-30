@@ -55,7 +55,38 @@
 
 .play_time{
 	-fx-text-fill: white;
-	-fx-font-size: 20.0 pt;
+	-fx-font-size: 15.0 pt;
     -fx-font-family: "Bookman Old Style";
 	-fx-font-weight: bold; 
+}
+
+
+.jfx-slider > .thumb {
+     -fx-background-color: #00FFEA;
+}
+.jfx-slider > .colored-track {
+     -fx-background-color: #00FFEA;
+}
+.jfx-slider > .animated-thumb {
+     -fx-background-color: #00FFEA;
+}
+.jfx-slider .slider-value {
+     -fx-fill: white;
+     -fx-stroke: black;
+}
+
+#speed_list{
+	-fx-background-color: #00FFEA;
+	-fx-font-size: 16 pt;
+	-fx-border-color: black;
+}
+.speed_text{
+	-fx-text-fill: black;
+}
+.speed_text:hover{
+	-fx-background-color:rgba(255, 255, 255, 0.5);
+}
+
+#btn_rate{
+	-fx-text-fill: white;
 }
