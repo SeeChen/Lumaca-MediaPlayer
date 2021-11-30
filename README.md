@@ -7,7 +7,8 @@
 ### 关于
 > - 2021 - 2022 北京理工大学第一学期 Java 程序设计课程结课作业
 > - 程序为基于 JavaFx 开发的视频播放器
-> - 代码基于 JDK 1.8 编译运行
+> - 运行环境为 [Windows JDK 1.8](https://www.oracle.com/java/technologies/downloads/#java8-windows)
+> - 部分效果使用 [JFoenix](https://github.com/sshahine/JFoenix) 完成
 
 ### Group Member
 <a href="https://github.com/SeeChen/"><kbd><img src="https://avatars.githubusercontent.com/u/39422761?v=4" width="75" height="75"/></kbd></a>
