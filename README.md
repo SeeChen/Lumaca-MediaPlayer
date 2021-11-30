@@ -1,4 +1,4 @@
-# JavaFx Trem Project
+# JavaFx Term Project
 
 ---
 <a href="https://github.com/SeeChen/TermProject_MediaPlayer/blob/main/LICENSE">![GitHub](https://img.shields.io/github/license/SeeChen/TermProject_MediaPlayer?color=1AA260&label=LICENSE)</a>
