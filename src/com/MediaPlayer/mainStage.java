@@ -21,6 +21,7 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -37,7 +38,7 @@ public class mainStage {
     boolean isMuteMode      = false;    // 用于判断当前是否为静音
     boolean isTrackDuration = true;     // 用于跟踪播放进度，当值为假时，表示用户正在拖动进度
 
-    double currentVolume;    // 用于保存静音前的音量状态
+    double currentVolume;   // 用于保存静音前的音量状态
 
     Stage stage;
     MediaPlayer mediaPlayer;
@@ -66,6 +67,8 @@ public class mainStage {
     private JFXButton btn_full;
     @FXML
     private JFXButton btn_mute;
+    @FXML
+    private JFXButton btn_rate;
 
     // 控制图标
     @FXML
@@ -76,6 +79,24 @@ public class mainStage {
     private ImageView img_full;
     @FXML
     private ImageView img_volu;
+    @FXML
+    private ImageView img_rate;
+
+    // 播放速率列表
+    @FXML
+    private VBox speed_list;
+    @FXML
+    private Label speedX50;
+    @FXML
+    private Label speedX100;
+    @FXML
+    private Label speedX125;
+    @FXML
+    private Label speedX150;
+    @FXML
+    private Label speedX175;
+    @FXML
+    private Label speedX200;
 
     @FXML
     private JFXSlider mediaDuration;
@@ -95,11 +116,14 @@ public class mainStage {
         changeBtnPicture.changeBtnPicture("stop", img_stop);
         changeBtnPicture.changeBtnPicture("full", img_full);
         changeBtnPicture.changeBtnPicture("volu", img_volu);
+        changeBtnPicture.changeBtnPicture("rate", img_rate);
 
         // 设置按钮不可用
         btn_mute.setDisable(true);
         img_volu.setDisable(true);
         volumnControl.setDisable(true);
+        btn_rate.setDisable(true);
+        mediaDuration.setDisable(true);
 
         // 设置播放进度的初始时间
         mediaDuration.adjustValue(0.0);
@@ -107,6 +131,14 @@ public class mainStage {
         // 设置音量
         currentVolume = 50;
         volumnControl.adjustValue(currentVolume);
+
+        // 设置播放速率按钮的点击事件
+        speedX50.setOnMouseClicked(e -> setPlayRate(speedX50));
+        speedX100.setOnMouseClicked(e -> setPlayRate(speedX100));
+        speedX125.setOnMouseClicked(e -> setPlayRate(speedX125));
+        speedX150.setOnMouseClicked(e -> setPlayRate(speedX150));
+        speedX175.setOnMouseClicked(e -> setPlayRate(speedX175));
+        speedX200.setOnMouseClicked(e -> setPlayRate(speedX200));
     }
 
     // 媒体播放事件
@@ -143,6 +175,11 @@ public class mainStage {
         btn_mute.setDisable(false);
         img_volu.setDisable(false);
         volumnControl.setDisable(false);
+        btn_rate.setDisable(false);
+        mediaDuration.setDisable(false);
+
+        // 设置播放速率的显示情况
+        playRateHover();
 
         mediaPlayer.setOnReady(() -> mediaPlayerReady() );  // 设置 onready 事件
         mediaPlayer.setOnEndOfMedia(() -> System.out.println("finished"));
@@ -301,9 +338,11 @@ public class mainStage {
         changeBtnPicture.changeBtnPicture("play", img_play);
         mediaUrl = null;
 
-        volumnControl.setDisable(true);
         btn_mute.setDisable(true);
         img_volu.setDisable(true);
+        volumnControl.setDisable(true);
+        btn_rate.setDisable(true);
+        mediaDuration.setDisable(true);
     }
 
     // 设置全屏模式
@@ -311,6 +350,31 @@ public class mainStage {
 
         Stage mainStage = (Stage) parentPane.getScene().getWindow();    // 获取 Stage 容器
         isFullMode = btnControl.fullScreenMode(isFullMode, mainStage, menu_fullScreen, img_full);
+    }
+
+    public void playRateHover(){
+        btn_rate.setOnMouseEntered(e -> {
+            speed_list.setVisible(true);
+        });
+        btn_rate.setOnMouseExited(e -> {
+            speed_list.setVisible(false);
+        });
+
+        speed_list.setOnMouseEntered(e -> {
+            speed_list.setVisible(true);
+        });
+        speed_list.setOnMouseExited(e -> {
+            speed_list.setVisible(false);
+        });
+    }
+
+    // 设置视频的播放速度
+    public void setPlayRate(Label labelId){
+        Double speed = Double.valueOf(labelId.getText());   // 获取 label 的速率
+        mediaPlayer.setRate(speed); // 设置播放速度
+
+        speed_list.setVisible(false);   // 将列表隐藏
+        btn_rate.setText(labelId.getText());    // 将速率显示在按钮上
     }
 
     // 关闭程序

@@ -3,9 +3,13 @@ package com.MediaPlayer;
 // 导入应用所需的包
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -25,14 +29,26 @@ public class Main extends Application {
         controller.loading();   // 运行 loading 函数，为应用加载
 
         // 设置一个 Scene ， 并设置宽为 1080，高为 720
-        Scene scene = new Scene(root, 1080, 720);
+        Scene scene = new Scene(root, 720, 480);
+
+        // 设置按下 esc 键退出全屏时，与正常退出全拼相同
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent t) {
+                KeyCode key = t.getCode();
+                if (key == KeyCode.ESCAPE) {
+                    controller.setFullScreen();
+                }
+            }
+        });
 
         // 对播放器进行宽高绑定，实时调整宽高
         controller.mediaViewBind(scene);
 
         primaryStage.setScene(scene);   // 设置初始 stage 的 scene
-        primaryStage.setMinHeight(720);primaryStage.setMinWidth(1080);  // 设置 stage 的最小高度以及最小宽度
-        primaryStage.setTitle("哈哈哈哈哈哈哈哈");  // 设置标题
+        primaryStage.setMinHeight(480);primaryStage.setMinWidth(720);  // 设置 stage 的最小高度以及最小宽度
+        primaryStage.setTitle("Lumaca");  // 设置标题
+        primaryStage.getIcons().add(new Image("com/MediaPlayer/RESOURCES/ICON/icon.png"));  // 设置 icon
         primaryStage.show();    // 显示场景
     }
 
