@@ -51,7 +51,7 @@ All Date Format follow [ YYYY - MM - DD ]
 | `2021 - 11 - 12` |队列文件夹里的视频|[issues #4](https://github.com/SeeChen/TermProject_MediaPlayer/issues/4)|![New](https://img.shields.io/badge/NEW-red?style=flat)|
 | `2021 - 11 - 12` |全拼播放的时候自动隐藏控制栏|[issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)|![New](https://img.shields.io/badge/NEW-red?style=flat)|
 | `2021 - 11 - 30` |时间条显示数字时间|[issues #7](https://github.com/SeeChen/TermProject_MediaPlayer/issues/7)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
-| `2021 - 12 - 01` |可调节播放速度|[issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)|![Complete](https://img.shields.io/badge/WAITING-yellow?style=flat)|
+| `2021 - 12 - 01` |可调节播放速度|[issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)|![Complete](https://img.shields.io/badge/PROCESSING-yellow?style=flat)|
 
  <!--在这里添加你想要的新功能，按照下面这样写
 
@@ -83,10 +83,10 @@ All Date Format follow [ YYYY - MM - DD ]
 
 <!-- Label for to developer -->
 <!--![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)--><!--complete the function development-->
-<!--![Waiting](https://img.shields.io/badge/WAITING-yellow?style=flat)--><!--already know and wating to development-->
+<!--![Waiting](https://img.shields.io/badge/PROCESSING-yellow?style=flat)--><!--already know and wating to development-->
 <!--![New](https://img.shields.io/badge/NEW-red?style=flat)--><!--new request-->
 
 <!-- Label for bugs -->
 <!--![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)--><!--bug fixed-->
-<!--![Waiting](https://img.shields.io/badge/WAITING-yellow?style=flat)--><!--bugs watting to fix-->
+<!--![Waiting](https://img.shields.io/badge/PROCESSING-yellow?style=flat)--><!--bugs watting to fix-->
 <!--![New](https://img.shields.io/badge/NEW-red?style=flat)--><!--new bugs report-->
