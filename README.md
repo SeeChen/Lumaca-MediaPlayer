@@ -7,6 +7,7 @@
 ### 关于
 > - 2021 - 2022 北京理工大学第一学期 Java 程序设计课程结课作业
 > - 程序为基于 JavaFx 开发的视频播放器
+> - 代码基于 JDK 1.8 编译运行
 
 ### Group Member
 <a href="https://github.com/SeeChen/"><kbd><img src="https://avatars.githubusercontent.com/u/39422761?v=4" width="75" height="75"/></kbd></a>
