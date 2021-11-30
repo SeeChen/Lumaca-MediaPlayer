@@ -13,6 +13,8 @@ All Date Format follow [ YYYY - MM - DD ]
 **`2021 - 12 - 01`**
 ```
 1. A computer with a 14-inch screen won’t have the problem of apps that are larger than the screen! 
+2. Fix the issue of full screen display.
+3. Added a button to adjust the playback rate.
 ```
 **`2021 - 11 - 30`**
 ```
@@ -36,6 +38,8 @@ All Date Format follow [ YYYY - MM - DD ]
 |`2021 - 11 - 05`|Create Project||
 |`2021 - 11 - 30`|Finished Development [issues #7](https://github.com/SeeChen/TermProject_MediaPlayer/issues/7)||
 |`2021 - 12 - 01`|Fixed [issues #6](https://github.com/SeeChen/TermProject_MediaPlayer/issues/6)||
+|`2021 - 12 - 01`|Fixed [issues #2](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)||
+|`2021 - 12 - 01`|Finished Development [issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)||
 
 </details>
 
@@ -51,7 +55,7 @@ All Date Format follow [ YYYY - MM - DD ]
 | `2021 - 11 - 12` |队列文件夹里的视频|[issues #4](https://github.com/SeeChen/TermProject_MediaPlayer/issues/4)|![New](https://img.shields.io/badge/NEW-red?style=flat)|
 | `2021 - 11 - 12` |全拼播放的时候自动隐藏控制栏|[issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)|![New](https://img.shields.io/badge/NEW-red?style=flat)|
 | `2021 - 11 - 30` |时间条显示数字时间|[issues #7](https://github.com/SeeChen/TermProject_MediaPlayer/issues/7)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
-| `2021 - 12 - 01` |可调节播放速度|[issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)|![Complete](https://img.shields.io/badge/PROCESSING-yellow?style=flat)|
+| `2021 - 12 - 01` |可调节播放速度|[issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 
  <!--在这里添加你想要的新功能，按照下面这样写
 
@@ -69,9 +73,9 @@ All Date Format follow [ YYYY - MM - DD ]
 
 | DATE | CONTENT |REMARK|Status|
 |:---:|:--:|:---:|:---:|
-| `2021 - 11 - 10`|有时打开视频后需要黑屏，需要重新打开文件|[issues #1](https://github.com/SeeChen/TermProject_MediaPlayer/issues/1)|![NEW](https://img.shields.io/badge/NEW-red?style=flat)|
-|`2021 - 11 - 11`|使用 ESC 键关闭全屏后，下次进入全屏需要点击两次|[issues #2](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)|![New](https://img.shields.io/badge/NEW-red?style=flat)|
-|`2021 - 12 - 01`|当用户屏幕较小的时候，初始显示会超出电脑屏幕|[issues #6](https://github.com/SeeChen/TermProject_MediaPlayer/issues/6)|![New](https://img.shields.io/badge/FIXED-sussex?style=flat)|
+| `2021 - 11 - 10`|有时打开视频后会显示黑屏，需要重新打开文件|[issues #1](https://github.com/SeeChen/TermProject_MediaPlayer/issues/1)|![NEW](https://img.shields.io/badge/NEW-red?style=flat)|
+|`2021 - 12 - 01`|使用 ESC 键关闭全屏后，下次进入全屏需要点击两次|[issues #2](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)|![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)|
+|`2021 - 12 - 01`|当用户屏幕较小的时候，初始显示会超出电脑屏幕|[issues #6](https://github.com/SeeChen/TermProject_MediaPlayer/issues/6)|![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)|
 
  <!--要是你发现什么 bug 的话，也可以在下面写哟
 
