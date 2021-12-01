@@ -12,7 +12,8 @@ All Date Format follow [ YYYY - MM - DD ]
 ### Update Information
 **`2021 - 12 - 02`**
 ```
-1. Now you can double-click to full screen
+1. Now you can double-click to full screen.
+2. Scrolling to adjust volume.
 ```
 **`2021 - 12 - 01`**
 ```
@@ -47,6 +48,7 @@ All Date Format follow [ YYYY - MM - DD ]
 |`2021 - 12 - 01`|Finished Development [issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)||
 |`2021 - 12 - 01`|Add replay function||
 |`2021 - 12 - 02`|Complete Function [issues #11](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)|New Bugs Found [issues #13](https://github.com/SeeChen/TermProject_MediaPlayer/issues/13)|
+|`2021 - 12 - 02`|Complete Function [issues #15](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)||
 
 </details>
 
@@ -64,7 +66,7 @@ All Date Format follow [ YYYY - MM - DD ]
 | `2021 - 11 - 30` |时间条显示数字时间|[issues #7](https://github.com/SeeChen/TermProject_MediaPlayer/issues/7)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 01` |可调节播放速度|[issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 02` |双击全屏|[issues #11](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
-| `2021 - 12 - 02` |滑鼠滚轮调整音量|[issues #15](https://github.com/SeeChen/TermProject_MediaPlayer/issues/15)|![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)|
+| `2021 - 12 - 02` |滑鼠滚轮调整音量|[issues #15](https://github.com/SeeChen/TermProject_MediaPlayer/issues/15)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 
  <!--在这里添加你想要的新功能，按照下面这样写
 
