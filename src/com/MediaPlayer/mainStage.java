@@ -1,9 +1,6 @@
 package com.MediaPlayer;
 
-import com.MediaPlayer.Controller.btnControl;
-import com.MediaPlayer.Controller.changeButtonPicture;
-import com.MediaPlayer.Controller.getMediaType;
-import com.MediaPlayer.Controller.timeConvert;
+import com.MediaPlayer.Controller.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXSlider;
 import javafx.application.Platform;
@@ -16,11 +13,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TransferMode;
+import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -37,8 +32,10 @@ public class mainStage {
     boolean isFullMode      = false;    // 用于判断当前是否为全屏
     boolean isMuteMode      = false;    // 用于判断当前是否为静音
     boolean isTrackDuration = true;     // 用于跟踪播放进度，当值为假时，表示用户正在拖动进度
+    boolean isToReplay      = false;    // 用于判断点击播放按钮是否为 replay
 
     double currentVolume;   // 用于保存静音前的音量状态
+    double currentPlayRate = 1.0; // 用于记录当前的播放速度
 
     Stage stage;
     MediaPlayer mediaPlayer;
@@ -103,10 +100,19 @@ public class mainStage {
     @FXML
     private JFXSlider volumnControl;
 
+    @FXML
+    private BorderPane border_pane_media_player;
+    @FXML
+    private BorderPane border_pane_volumeShow;
+
+    @FXML
+    private Label volumeShow;
+
     changeButtonPicture changeBtnPicture = new changeButtonPicture();
     getMediaType getMediaType = new getMediaType();
     btnControl btnControl = new btnControl();
     timeConvert timeConvert = new timeConvert();
+    scrollView scrollView = new scrollView();
 
     // 应用加载事件
     public void loading(){
@@ -139,10 +145,74 @@ public class mainStage {
         speedX150.setOnMouseClicked(e -> setPlayRate(speedX150));
         speedX175.setOnMouseClicked(e -> setPlayRate(speedX175));
         speedX200.setOnMouseClicked(e -> setPlayRate(speedX200));
+
+
+        //  设置点击 mediaView 事件
+        playView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if(event.getButton().equals(MouseButton.PRIMARY)){
+                    //  鼠标双击事件
+                    //  因为单击两次会先计算一次，在计算一次，所以会先暂停，需要在再播放解决双击放大屏幕时媒体文件会暂停
+                    if(event.getClickCount() == 2){
+                        playOrPause();
+                        setFullScreen();
+                    }
+
+                    // 鼠标单击事件
+                    if(event.getClickCount() == 1){
+                        playOrPause();
+                    }
+                }
+            }
+        });
+
+        loadNormalVideo();
+    }
+
+    public void loadNormalVideo(){
+        String startUrl = getClass().getResource("./RESOURCES/VIDEO/normal.mp4").toString();
+        Media media = new Media(startUrl);
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setAutoPlay(true);
+        playView.setMediaPlayer(mediaPlayer);
+        border_pane_media_player.setStyle("-fx-background-color: white;");
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+    }
+
+    public void scrollView(){
+
+        playView.setOnScroll(new EventHandler<ScrollEvent>() {
+            @Override
+            public void handle(ScrollEvent event) {
+                border_pane_volumeShow.setVisible(true);
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(5000);
+                        border_pane_volumeShow.setVisible(false);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }).start();
+                if(event.getDeltaY() > 0)
+                    volumeUp();
+                else if (event.getDeltaY() < 0)
+                    volumeDown();
+            }
+        });
+    }
+
+    public void volumeUp(){
+        volumeShow.setVisible(true);
+        scrollView.volumeUp(volumnControl, volumeShow);
+    }
+    public void volumeDown(){
+        scrollView.volumeDown(volumnControl, volumeShow);
     }
 
     // 媒体播放事件
     private void playMedia(){
+        mediaPlayer.stop(); // 停止播放待机界面
 
         String fileExtension = getMediaType.getType(mediaUrl); // 获取文件的后缀名
 
@@ -180,22 +250,32 @@ public class mainStage {
 
         // 设置播放速率的显示情况
         playRateHover();
+        volumeHover();
+        border_pane_media_player.setStyle("-fx-background-color: black;");
 
         mediaPlayer.setOnReady(() -> mediaPlayerReady() );  // 设置 onready 事件
-        mediaPlayer.setOnEndOfMedia(() -> System.out.println("finished"));
-        mediaPlayer.setOnStopped(() -> System.out.println("stop"));
+        mediaPlayer.setOnEndOfMedia(() -> {
+            changeBtnPicture.changeBtnPicture("replay", img_play);
+            isToReplay = !isToReplay;
+            isPlaying = !isPlaying;
+            mediaDuration.setDisable(true);
+        });
+        mediaPlayer.setOnStopped(() -> loadNormalVideo());
 
+        mediaPlayer.setRate(currentPlayRate);
         playView.setMediaPlayer(mediaPlayer);   // 播放文件
     }
 
     private void mediaPlayerReady(){
+
+        scrollView();
 
         // 设置事件条的最大值以及最小值
         mediaDuration.setMin(mediaPlayer.getStartTime().toSeconds());
         mediaDuration.setMax(mediaPlayer.getTotalDuration().toSeconds());
 
         // 设置 total_time 的时间为视频的总时长
-        total_time.setText("/" + timeConvert.secondToTime((int) mediaPlayer.getTotalDuration().toSeconds() / 60) + ":" + timeConvert.secondToTime((int) mediaPlayer.getTotalDuration().toSeconds() % 60));
+        total_time.setText(timeConvert.secondToTime((int) mediaPlayer.getTotalDuration().toSeconds()));
 
         mediaDuration.setOnMousePressed(event -> isTrackDuration = false);  // 当用户拖动进度时，取消自动跟踪
 
@@ -208,7 +288,7 @@ public class mainStage {
         // 设置拖动时显示的时间
         mediaDuration.setValueFactory(slider ->
                 Bindings.createStringBinding(() ->
-                        (timeConvert.secondToTime((int) slider.getValue() / 60)) + ":" + (timeConvert.secondToTime((int) slider.getValue() % 60)),
+                        timeConvert.secondToTime((int) slider.getValue()),
                         slider.valueProperty()
                 )
         );
@@ -221,7 +301,7 @@ public class mainStage {
                     mediaDuration.setValue(newValue.toSeconds());   // 跟踪时间条的进度
 
                 //  当拖动时间栏的时候，可以得到实时的反馈得知当前的时间
-                current_time.setText(timeConvert.secondToTime((int) mediaDuration.getValue() / 60) + ":" + timeConvert.secondToTime((int) mediaDuration.getValue() % 60));
+                current_time.setText(timeConvert.secondToTime((int) mediaDuration.getValue()));
             }
         });
     }
@@ -323,7 +403,11 @@ public class mainStage {
             return;
         }
 
-        isPlaying = btnControl.playOrPause(mediaPlayer, isPlaying, img_play);
+        if(isToReplay) {
+            isPlaying = btnControl.replayAction(mediaPlayer, img_play, isPlaying, mediaDuration);
+            isToReplay = false;
+        }else
+            isPlaying = btnControl.playOrPause(mediaPlayer, isPlaying, img_play);
     }
 
     // 停止播放
@@ -337,6 +421,8 @@ public class mainStage {
         isPlaying = false;
         changeBtnPicture.changeBtnPicture("play", img_play);
         mediaUrl = null;
+
+        total_time.setText("00:00:00");
 
         btn_mute.setDisable(true);
         img_volu.setDisable(true);
@@ -367,11 +453,27 @@ public class mainStage {
             speed_list.setVisible(false);
         });
     }
+    public void volumeHover(){
+        btn_mute.setOnMouseEntered(e -> {
+            volumnControl.setVisible(true);
+        });
+        btn_mute.setOnMouseExited(e -> {
+            volumnControl.setVisible(false);
+        });
+
+        volumnControl.setOnMouseEntered(e -> {
+            volumnControl.setVisible(true);
+        });
+        volumnControl.setOnMouseExited(e -> {
+            volumnControl.setVisible(false);
+        });
+    }
 
     // 设置视频的播放速度
     public void setPlayRate(Label labelId){
         Double speed = Double.valueOf(labelId.getText());   // 获取 label 的速率
         mediaPlayer.setRate(speed); // 设置播放速度
+        currentPlayRate = speed;
 
         speed_list.setVisible(false);   // 将列表隐藏
         btn_rate.setText(labelId.getText());    // 将速率显示在按钮上

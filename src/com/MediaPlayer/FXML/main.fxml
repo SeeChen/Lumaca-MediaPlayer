@@ -80,7 +80,7 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <BorderPane onDragOver="#fileDragOver" onDragDropped="#fileDragDrop" layoutX="68.0" layoutY="229.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0" style="-fx-background-color:#000;">
+        <BorderPane fx:id="border_pane_media_player" onDragOver="#fileDragOver" onDragDropped="#fileDragDrop" layoutX="68.0" layoutY="229.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0" style="-fx-background-color:#fff;">
             <!-- MediaView 元素，用于播放媒体内容 -->
             <center>
                 <MediaView fx:id="playView" fitHeight="600.0" fitWidth="1080.0" BorderPane.alignment="CENTER"/>
@@ -90,31 +90,32 @@
             <children>
 
                 <!-- 用于显示当前播放的时间以及媒体文件的总时长 -->
-                <Label fx:id="current_time" text="00:00" styleClass="play_time" AnchorPane.leftAnchor="145" AnchorPane.topAnchor="30"/>
-                <Label fx:id="total_time" text="/00:00" styleClass="play_time" AnchorPane.leftAnchor="190" AnchorPane.topAnchor="30"/>
+                <Label fx:id="current_time" text="00:00:00" styleClass="play_time" AnchorPane.leftAnchor="130" AnchorPane.topAnchor="30"/>
+                <Label fx:id="total_time" text="00:00:00" styleClass="play_time" AnchorPane.rightAnchor="190" AnchorPane.topAnchor="30"/>
 
                 <!-- 使用一个 ImageView 作为按钮的图片，比较菜，暂时还没有找到别的方法 -->
-                <ImageView fx:id="img_play" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="15.0" />
-                <ImageView fx:id="img_stop" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="75.0" />
-                <ImageView fx:id="img_full" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="15.0" />
-                <ImageView fx:id="img_volu" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="200.0" />
-                <ImageView fx:id="img_rate" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="260.0" />
+                <ImageView fx:id="img_play" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="5.0" />
+                <ImageView fx:id="img_stop" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="65.0" />
+                <ImageView fx:id="img_full" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="5.0" />
+                <ImageView fx:id="img_volu" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="65.0" />
+                <ImageView fx:id="img_rate" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="125.0" />
 
                 <!-- 建立各个操作的按钮 -->
-                <JFXButton fx:id="btn_play" onAction="#playOrPause" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="15.0" />
-                <JFXButton fx:id="btn_stop" onAction="#mediaStop" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="75.0" />
-                <JFXButton fx:id="btn_full" onAction="#setFullScreen" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="15.0" />
-                <JFXButton fx:id="btn_mute" onAction="#setMute" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="200.0" />
-                <JFXButton fx:id="btn_rate" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="260.0" text="1.0"/>
-
-                <!-- 音量调节 -->
-                <JFXSlider fx:id="volumnControl" layoutX="880.0" layoutY="29.0" prefWidth="100.0" AnchorPane.rightAnchor="85.0" />
+                <JFXButton fx:id="btn_play" onAction="#playOrPause" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="5.0" />
+                <JFXButton fx:id="btn_stop" onAction="#mediaStop" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="65.0" />
+                <JFXButton fx:id="btn_full" onAction="#setFullScreen" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="5.0" />
+                <JFXButton fx:id="btn_mute" onAction="#setMute" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="65.0" />
+                <JFXButton fx:id="btn_rate" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="125.0" text="1.0"/>
 
                 <!-- 播放进度条 -->
-                <JFXSlider fx:id="mediaDuration" layoutX="157.0" layoutY="29.0" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="29.0" />
+                <JFXSlider fx:id="mediaDuration" layoutX="157.0" layoutY="29.0" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="265.0" AnchorPane.topAnchor="29.0" />
             </children>
         </AnchorPane>
-        <VBox fx:id="speed_list" prefWidth="60" spacing="2" AnchorPane.bottomAnchor="65" AnchorPane.rightAnchor="260" visible="false">
+
+        <!-- 音量调节 -->
+        <JFXSlider fx:id="volumnControl" layoutX="880.0" layoutY="29.0" prefWidth="35" prefHeight="150.0" AnchorPane.rightAnchor="75.0" AnchorPane.bottomAnchor="65" orientation="VERTICAL" visible="false"/>
+
+        <VBox fx:id="speed_list" prefWidth="60" spacing="2" AnchorPane.bottomAnchor="65" AnchorPane.rightAnchor="125" visible="false">
             <children>
                 <Label fx:id="speedX200" styleClass="speed_text" prefWidth="60" text="2.0" alignment="CENTER">
                     <padding>
@@ -151,5 +152,10 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </VBox>
+        <BorderPane fx:id="border_pane_volumeShow" visible="false" mouseTransparent="true" style="-fx-background-color: none;" AnchorPane.rightAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0">
+            <center>
+                <Label fx:id="volumeShow" prefWidth="100" prefHeight="50" text="50%" alignment="CENTER" textAlignment="CENTER"/>
+            </center>
+        </BorderPane>
     </children>
 </AnchorPane>

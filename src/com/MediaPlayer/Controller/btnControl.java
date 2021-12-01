@@ -44,6 +44,14 @@ public class btnControl {
         return !isPlaying;
     }
 
+    public boolean replayAction(MediaPlayer mediaPlayer, ImageView imgId, boolean isPlaying, JFXSlider mediaDuration){
+        mediaPlayer.seek(mediaPlayer.getStartTime());
+        changeBtnPicture.changeBtnPicture("pause", imgId);
+        mediaDuration.setDisable(false);
+
+        return !isPlaying;
+    }
+
     public boolean setMute(JFXSlider volumnControl, ImageView img_volu, boolean isMuteMode, double currentVol){
 
         // 音量按钮点击时触发是否静音

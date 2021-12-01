@@ -12,8 +12,19 @@ public class timeConvert {
     }
 
     public String secondToTime(int toCovert){
-        String time;
-        time = lessThanTen(toCovert);
+        String time, house, minute, second;
+
+        if(toCovert / 60 > 60){
+            house = lessThanTen(toCovert / 3600) + ":";
+            minute = lessThanTen((toCovert / 60) - (toCovert / 3600 * 60));
+        }else {
+            house = "00:";
+            minute = lessThanTen(toCovert / 60);
+        }
+
+        second = lessThanTen(toCovert % 60);
+
+        time = house + minute + ":" + second;
         return time;
     }
 }
