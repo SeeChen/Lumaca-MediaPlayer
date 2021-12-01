@@ -79,6 +79,7 @@ All Date Format follow [ YYYY - MM - DD ]
 | `2021 - 11 - 10`|有些视频没有画面只有声音，有些视频无法播放|[issues #1](https://github.com/SeeChen/TermProject_MediaPlayer/issues/1)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 |`2021 - 12 - 01`|使用 ESC 键关闭全屏后，下次进入全屏需要点击两次|[issues #2](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)|![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)|
 |`2021 - 12 - 01`|当用户屏幕较小的时候，初始显示会超出电脑屏幕|[issues #6](https://github.com/SeeChen/TermProject_MediaPlayer/issues/6)|![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)|
+|`2021 - 12 - 02`|有时播放完成后，时间显示还差一秒钟|[issues #12](https://github.com/SeeChen/TermProject_MediaPlayer/issues/12)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 
  <!--要是你发现什么 bug 的话，也可以在下面写哟
 
