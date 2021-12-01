@@ -51,15 +51,16 @@ All Date Format follow [ YYYY - MM - DD ]
 
 | DATE | CONTENT |REMARK|STATUS|
 |:---:|:--:|:---:|:---:|
-| `2021 - 11 - 10` |Record the history playing|[issues #3](https://github.com/SeeChen/TermProject_MediaPlayer/issues/3)|![NEW](https://img.shields.io/badge/NEW-red?style=flat)|
-| `2021 - 11 - 12` |队列文件夹里的视频|[issues #4](https://github.com/SeeChen/TermProject_MediaPlayer/issues/4)|![New](https://img.shields.io/badge/NEW-red?style=flat)|
-| `2021 - 11 - 12` |全拼播放的时候自动隐藏控制栏|[issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)|![New](https://img.shields.io/badge/NEW-red?style=flat)|
+| `2021 - 11 - 10` |Record the history playing|[issues #3](https://github.com/SeeChen/TermProject_MediaPlayer/issues/3)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
+| `2021 - 11 - 12` |队列文件夹里的视频|[issues #4](https://github.com/SeeChen/TermProject_MediaPlayer/issues/4)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
+| `2021 - 11 - 12` |全拼播放的时候自动隐藏控制栏|[issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 | `2021 - 11 - 30` |时间条显示数字时间|[issues #7](https://github.com/SeeChen/TermProject_MediaPlayer/issues/7)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 01` |可调节播放速度|[issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
+| `2021 - 12 - 02` |双击全屏|[issues #11](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)|![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)|
 
  <!--在这里添加你想要的新功能，按照下面这样写
 
-| `2021 - MM - DD` | 你想要的功能 | (这里不用管) | ![New](https://img.shields.io/badge/NEW-red?style=flat)|
+| `2021 - MM - DD` | 你想要的功能 | (这里不用管) | ![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 
 按照上面复制就可以了吖  (^・ω・^ )-->
    
@@ -73,13 +74,13 @@ All Date Format follow [ YYYY - MM - DD ]
 
 | DATE | CONTENT |REMARK|Status|
 |:---:|:--:|:---:|:---:|
-| `2021 - 11 - 10`|有时打开视频后会显示黑屏，需要重新打开文件|[issues #1](https://github.com/SeeChen/TermProject_MediaPlayer/issues/1)|![NEW](https://img.shields.io/badge/NEW-red?style=flat)|
+| `2021 - 11 - 10`|有时打开视频后会显示黑屏，需要重新打开文件|[issues #1](https://github.com/SeeChen/TermProject_MediaPlayer/issues/1)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 |`2021 - 12 - 01`|使用 ESC 键关闭全屏后，下次进入全屏需要点击两次|[issues #2](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)|![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)|
 |`2021 - 12 - 01`|当用户屏幕较小的时候，初始显示会超出电脑屏幕|[issues #6](https://github.com/SeeChen/TermProject_MediaPlayer/issues/6)|![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)|
 
  <!--要是你发现什么 bug 的话，也可以在下面写哟
 
-| `2021 - MM - DD` | 发现的 bug | (这里不用管) | ![New](https://img.shields.io/badge/NEW-red?style=flat)|
+| `2021 - MM - DD` | 发现的 bug | (这里不用管) | ![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 
 按照上面复制就可以了吖   (⁎˃ᆺ˂)-->  
  
@@ -87,10 +88,10 @@ All Date Format follow [ YYYY - MM - DD ]
 
 <!-- Label for to developer -->
 <!--![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)--><!--complete the function development-->
-<!--![Waiting](https://img.shields.io/badge/PROCESSING-yellow?style=flat)--><!--already know and wating to development-->
-<!--![New](https://img.shields.io/badge/NEW-red?style=flat)--><!--new request-->
+<!--![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)--><!--already know and wating to development-->
+<!--![Pending](https://img.shields.io/badge/PENDING-red?style=flat)--><!--new request-->
 
 <!-- Label for bugs -->
 <!--![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)--><!--bug fixed-->
-<!--![Waiting](https://img.shields.io/badge/PROCESSING-yellow?style=flat)--><!--bugs watting to fix-->
-<!--![New](https://img.shields.io/badge/NEW-red?style=flat)--><!--new bugs report-->
+<!--![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)--><!--bugs watting to fix-->
+<!--![Pending](https://img.shields.io/badge/PENDING-red?style=flat)--><!--new bugs report-->
