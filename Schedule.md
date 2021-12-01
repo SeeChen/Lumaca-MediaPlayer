@@ -15,6 +15,7 @@ All Date Format follow [ YYYY - MM - DD ]
 1. A computer with a 14-inch screen won’t have the problem of apps that are larger than the screen! 
 2. Fix the issue of full screen display.
 3. Added a button to adjust the playback rate.
+4. Media can now be replayed at the end of media playback
 ```
 **`2021 - 11 - 30`**
 ```
@@ -40,6 +41,7 @@ All Date Format follow [ YYYY - MM - DD ]
 |`2021 - 12 - 01`|Fixed [issues #6](https://github.com/SeeChen/TermProject_MediaPlayer/issues/6)||
 |`2021 - 12 - 01`|Fixed [issues #2](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)||
 |`2021 - 12 - 01`|Finished Development [issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)||
+|`2021 - 12 - 01`|Add replay function||
 
 </details>
 
