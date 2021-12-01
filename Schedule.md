@@ -74,7 +74,7 @@ All Date Format follow [ YYYY - MM - DD ]
 
   `Bugs waiting to be fixed`
 
-| DATE | CONTENT |REMARK|Status|
+| DATE | CONTENT |REMARK|STATUS|
 |:---:|:--:|:---:|:---:|
 | `2021 - 11 - 10`|有些视频没有画面只有声音，有些视频无法播放|[issues #1](https://github.com/SeeChen/TermProject_MediaPlayer/issues/1)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 |`2021 - 12 - 01`|使用 ESC 键关闭全屏后，下次进入全屏需要点击两次|[issues #2](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)|![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)|
