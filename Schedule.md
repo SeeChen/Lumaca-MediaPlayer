@@ -14,6 +14,7 @@ All Date Format follow [ YYYY - MM - DD ]
 ```
 1. Now you can double-click to full screen.
 2. Scrolling to adjust volume.
+3. Space key to Play or Pause media
 ```
 **`2021 - 12 - 01`**
 ```
@@ -49,6 +50,7 @@ All Date Format follow [ YYYY - MM - DD ]
 |`2021 - 12 - 01`|Add replay function||
 |`2021 - 12 - 02`|Complete Function [issues #11](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)|New Bugs Found [issues #13](https://github.com/SeeChen/TermProject_MediaPlayer/issues/13)|
 |`2021 - 12 - 02`|Complete Function [issues #15](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)||
+|`2021 - 12 - 02`|Space to Play and pause||
 
 </details>
 
