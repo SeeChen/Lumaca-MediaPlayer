@@ -91,6 +91,7 @@ All Date Format follow [ YYYY - MM - DD ]
 |`2021 - 12 - 01`|当用户屏幕较小的时候，初始显示会超出电脑屏幕|[issues #6](https://github.com/SeeChen/TermProject_MediaPlayer/issues/6)|![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)|
 |`2021 - 12 - 02`|有时播放完成后，时间显示还差一秒钟|[issues #12](https://github.com/SeeChen/TermProject_MediaPlayer/issues/12)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 |`2021 - 12 - 02`|双击屏幕的时候，会先暂停然后继续播放|[issues #13](https://github.com/SeeChen/TermProject_MediaPlayer/issues/13)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
+|`2021 - 12 - 02`|双击屏幕全屏后，控件会被选中|[issues #13](https://github.com/SeeChen/TermProject_MediaPlayer/issues/13)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 
  <!--要是你发现什么 bug 的话，也可以在下面写哟
 
