@@ -33,12 +33,16 @@ public class mainStage {
     boolean isMuteMode      = false;    // 用于判断当前是否为静音
     boolean isTrackDuration = true;     // 用于跟踪播放进度，当值为假时，表示用户正在拖动进度
     boolean isToReplay      = false;    // 用于判断点击播放按钮是否为 replay
+    boolean isMusicPlay     = false;    // 用于判断当前是否为音频文件
 
-    double currentVolume;   // 用于保存静音前的音量状态
-    double currentPlayRate = 1.0; // 用于记录当前的播放速度
+    double currentVolume;           // 用于保存静音前的音量状态
+    double currentPlayRate = 1.0;   // 用于记录当前的播放速度
+
+    String fileName;    // 用于保存文件的名字
 
     Stage stage;
     MediaPlayer mediaPlayer;
+    MediaPlayer musicPlayer;
 
     String mediaUrl = null;
 
@@ -108,6 +112,12 @@ public class mainStage {
     @FXML
     private Label volumeShow;
 
+    @FXML
+    private ImageView on_screen_center_play;
+
+    @FXML
+    private Label mediaName;
+
     changeButtonPicture changeBtnPicture = new changeButtonPicture();
     getMediaType getMediaType = new getMediaType();
     btnControl btnControl = new btnControl();
@@ -123,6 +133,8 @@ public class mainStage {
         changeBtnPicture.changeBtnPicture("full", img_full);
         changeBtnPicture.changeBtnPicture("volu", img_volu);
         changeBtnPicture.changeBtnPicture("rate", img_rate);
+
+        changeBtnPicture.changeBtnPicture("play", on_screen_center_play);
 
         // 设置按钮不可用
         btn_mute.setDisable(true);
@@ -185,10 +197,12 @@ public class mainStage {
         playView.setOnScroll(new EventHandler<ScrollEvent>() {
             @Override
             public void handle(ScrollEvent event) {
+                volumeShow.setVisible(true);
                 border_pane_volumeShow.setVisible(true);
                 new Thread(() -> {
                     try {
                         Thread.sleep(5000);
+                        volumeShow.setVisible(false);
                         border_pane_volumeShow.setVisible(false);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -212,18 +226,14 @@ public class mainStage {
 
     // 媒体播放事件
     private void playMedia(){
-        mediaPlayer.stop(); // 停止播放待机界面
+        mediaPlayer.stop();
+
+        if(isMusicPlay) {
+            musicPlayer.stop();
+            isMusicPlay = false;
+        }
 
         String fileExtension = getMediaType.getType(mediaUrl); // 获取文件的后缀名
-
-        // 判断文件是音频文件还是视频文件
-        if(fileExtension.equals("mp3")){
-
-            System.out.println(fileExtension);
-        } else if(fileExtension.equals("mp4")) {
-
-            System.out.println(fileExtension);
-        }
 
         // 设置文件的播放
         Media media = new Media(mediaUrl);
@@ -256,14 +266,37 @@ public class mainStage {
         mediaPlayer.setOnReady(() -> mediaPlayerReady() );  // 设置 onready 事件
         mediaPlayer.setOnEndOfMedia(() -> {
             changeBtnPicture.changeBtnPicture("replay", img_play);
+            changeBtnPicture.changeBtnPicture("replay", on_screen_center_play);
+
+            border_pane_volumeShow.setVisible(true);
+            on_screen_center_play.setVisible(true);
+
             isToReplay = !isToReplay;
             isPlaying = !isPlaying;
             mediaDuration.setDisable(true);
+
+            if(isMusicPlay)
+                musicPlayer.stop();
         });
-        mediaPlayer.setOnStopped(() -> loadNormalVideo());
 
         mediaPlayer.setRate(currentPlayRate);
         playView.setMediaPlayer(mediaPlayer);   // 播放文件
+
+        mediaName.setText(fileName);    // 显示文件名称
+
+        // 判断文件是音频文件还是视频文件
+        if(fileExtension.equals("mp3")){
+            String musicUrl = getClass().getResource("./RESOURCES/VIDEO/musicBack.mp4").toString();
+            Media musicPlayback = new Media(musicUrl);
+            musicPlayer = new MediaPlayer(musicPlayback);
+            musicPlayer.setAutoPlay(true);
+            musicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+            playView.setMediaPlayer(musicPlayer);
+            isMusicPlay = true;
+        } else if(fileExtension.equals("mp4")) {
+
+            System.out.println(fileExtension);
+        }
     }
 
     private void mediaPlayerReady(){
@@ -328,6 +361,7 @@ public class mainStage {
 
     // 音量条按下事件
     private void volumeClicked(){
+
         volumnControl.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -357,6 +391,7 @@ public class mainStage {
         fileChooser.setTitle("Please select a Media File to Open");    // Setting dialog title
 
         File file = fileChooser.showOpenDialog(stage);
+        fileName = file.getName();  // 获取媒体文件的名称
 
         // 如果用户未选择文件
         if(file == null)
@@ -385,12 +420,14 @@ public class mainStage {
                 mediaStop();
 
             File fileDrop = dragboard.getFiles().get(0);
+            fileName = fileDrop.getName();
             mediaUrl = fileDrop.toURI().toString();
             playMedia();
         }
     }
 
     public void setMute(){
+        btn_play.requestFocus();
         isMuteMode = btnControl.setMute(volumnControl, img_volu, isMuteMode, currentVolume);
     }
 
@@ -404,20 +441,45 @@ public class mainStage {
         }
 
         if(isToReplay) {
+            if(isMusicPlay)
+                musicPlayer.play();
+            changeBtnPicture.changeBtnPicture("pause", on_screen_center_play);
             isPlaying = btnControl.replayAction(mediaPlayer, img_play, isPlaying, mediaDuration);
+            new Thread(() -> {
+                try {
+                    Thread.sleep(500);
+                    on_screen_center_play.setVisible(true);
+                    border_pane_volumeShow.setVisible(false);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }).start();
             isToReplay = false;
-        }else
-            isPlaying = btnControl.playOrPause(mediaPlayer, isPlaying, img_play);
+        }else {
+            if(isMusicPlay)
+                if(isPlaying)
+                    musicPlayer.pause();
+                else
+                    musicPlayer.play();
+            isPlaying = btnControl.playOrPause(mediaPlayer, isPlaying, img_play, border_pane_volumeShow, on_screen_center_play);
+        }
     }
 
     // 停止播放
     public void mediaStop(){
+        btn_play.requestFocus();
 
         // 若 mediaUrl 为空，则不执行任何语句
         if(mediaUrl == null)
             return;
 
+        if(isMusicPlay) {
+            musicPlayer.stop();
+            isMusicPlay = false;
+        }
+
         mediaPlayer.stop();
+        loadNormalVideo();
         isPlaying = false;
         changeBtnPicture.changeBtnPicture("play", img_play);
         mediaUrl = null;
@@ -433,6 +495,7 @@ public class mainStage {
 
     // 设置全屏模式
     public void setFullScreen(){
+        btn_play.requestFocus();
 
         Stage mainStage = (Stage) parentPane.getScene().getWindow();    // 获取 Stage 容器
         isFullMode = btnControl.fullScreenMode(isFullMode, mainStage, menu_fullScreen, img_full);

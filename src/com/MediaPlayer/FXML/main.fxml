@@ -152,10 +152,18 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </VBox>
-        <BorderPane fx:id="border_pane_volumeShow" visible="false" mouseTransparent="true" style="-fx-background-color: none;" AnchorPane.rightAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0">
+        <BorderPane fx:id="border_pane_volumeShow" visible="false" mouseTransparent="true" style="-fx-background-color: none;" AnchorPane.rightAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="65" AnchorPane.topAnchor="60">
+            <top>
+                <BorderPane>
+                    <center>
+                        <Label fx:id="volumeShow" prefWidth="100" prefHeight="50" text="50%" alignment="CENTER" textAlignment="CENTER" visible="false"/>
+                    </center>
+                </BorderPane>
+            </top>
             <center>
-                <Label fx:id="volumeShow" prefWidth="100" prefHeight="50" text="50%" alignment="CENTER" textAlignment="CENTER"/>
+                <ImageView fx:id="on_screen_center_play" fitWidth="100" fitHeight="100" AnchorPane.topAnchor="-50" visible="false"/>
             </center>
         </BorderPane>
+        <Label fx:id="mediaName" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="0" textAlignment="CENTER" alignment="CENTER"/>
     </children>
 </AnchorPane>

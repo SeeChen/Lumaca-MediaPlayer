@@ -3,6 +3,7 @@ package com.MediaPlayer.Controller;
 import com.jfoenix.controls.JFXSlider;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
@@ -27,18 +28,31 @@ public class btnControl {
         return !isFullMode;
     }
 
-    public boolean playOrPause(MediaPlayer mediaPlayer, boolean isPlaying, ImageView img_play){
+    public boolean playOrPause(MediaPlayer mediaPlayer, boolean isPlaying, ImageView img_play, BorderPane border_pane_volumeShow, ImageView on_screen_center_play){
 
         // 判断是否正在播放
         if(isPlaying){
 
             mediaPlayer.pause();
             changeBtnPicture.changeBtnPicture("play", img_play);
+            changeBtnPicture.changeBtnPicture("play", on_screen_center_play);
+            on_screen_center_play.setVisible(true);
+            border_pane_volumeShow.setVisible(true);
 
         } else {
 
             mediaPlayer.play();
             changeBtnPicture.changeBtnPicture("pause", img_play);
+            changeBtnPicture.changeBtnPicture("pause", on_screen_center_play);
+            new Thread(() -> {
+                try {
+                    Thread.sleep(500);
+                    on_screen_center_play.setVisible(false);
+                    border_pane_volumeShow.setVisible(false);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }).start();
         }
 
         return !isPlaying;

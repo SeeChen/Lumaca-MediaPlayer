@@ -1,3 +1,5 @@
+.root { -fx-focus-color: transparent; }
+
 .menu-bar {
     -fx-background-color: #3BC8FF ;
     -fx-border-width: 2.0;
@@ -104,4 +106,12 @@
 	-fx-border-radius: 50%;
 	-fx-background-radius: 50;
 	-fx-font-size:20pt;
+}
+
+#mediaName{
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+	-fx-font-family: "Bookman Old Style";
+	-fx-font-size: 14pt;
+	-fx-padding: 10.0px;
 }
