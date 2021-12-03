@@ -13,6 +13,7 @@ All Date Format follow [ YYYY - MM - DD ]
 **`2021 - 12 - 04`**
 ```
 1. Auto hide control bar and menu bar when playing media.
+2. Create right-click menu.
 ```
 **`2021 - 12 - 02`**
 ```
@@ -56,6 +57,7 @@ All Date Format follow [ YYYY - MM - DD ]
 |`2021 - 12 - 02`|Complete Function [issues #15](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)||
 |`2021 - 12 - 02`|Space to Play and pause||
 |`2021 - 12 - 04`|Finished Development [issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)||
+|`2021 - 12 - 04`|Create Right-Click menu||
 
 </details>
 
