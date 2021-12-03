@@ -10,6 +10,10 @@ All Date Format follow [ YYYY - MM - DD ]
 - [Program overview](#program-overview)
 
 ### Update Information
+**`2021 - 12 - 04`**
+```
+1. Auto hide control bar and menu bar when playing media.
+```
 **`2021 - 12 - 02`**
 ```
 1. Now you can double-click to full screen.
@@ -51,6 +55,7 @@ All Date Format follow [ YYYY - MM - DD ]
 |`2021 - 12 - 02`|Complete Function [issues #11](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)|New Bugs Found [issues #13](https://github.com/SeeChen/TermProject_MediaPlayer/issues/13)|
 |`2021 - 12 - 02`|Complete Function [issues #15](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)||
 |`2021 - 12 - 02`|Space to Play and pause||
+|`2021 - 12 - 04`|Finished Development [issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)||
 
 </details>
 
@@ -64,11 +69,11 @@ All Date Format follow [ YYYY - MM - DD ]
 |:---:|:--:|:---:|:---:|
 | `2021 - 11 - 10` |Record the history playing|[issues #3](https://github.com/SeeChen/TermProject_MediaPlayer/issues/3)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 | `2021 - 11 - 12` |队列文件夹里的视频|[issues #4](https://github.com/SeeChen/TermProject_MediaPlayer/issues/4)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
-| `2021 - 11 - 12` |全拼播放的时候自动隐藏控制栏|[issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 | `2021 - 11 - 30` |时间条显示数字时间|[issues #7](https://github.com/SeeChen/TermProject_MediaPlayer/issues/7)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 01` |可调节播放速度|[issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 02` |双击全屏|[issues #11](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 02` |滑鼠滚轮调整音量|[issues #15](https://github.com/SeeChen/TermProject_MediaPlayer/issues/15)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
+| `2021 - 12 - 04` |全拼播放的时候自动隐藏控制栏|[issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)|![Pending](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 
  <!--在这里添加你想要的新功能，按照下面这样写
 
