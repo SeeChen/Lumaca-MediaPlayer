@@ -21,4 +21,9 @@ public class changeButtonPicture {
         Image imageChange = new Image(stringChange);
         btnId.setImage(imageChange);
     }
+
+    public void setImage(String[] imgName, ImageView[] imgId){
+        for(int i = 0; i < imgName.length; i++)
+            changeBtnPicture(imgName[i], imgId[i]);
+    }
 }

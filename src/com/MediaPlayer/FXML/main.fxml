@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- 父级容器 -->
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.Cursor?>
@@ -9,10 +8,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.media.MediaView?>
 <?import javafx.geometry.Insets?>
+
+<!-- 父级容器 所有的控件均在里面 -->
 <AnchorPane fx:id="parentPane" fx:controller="com.MediaPlayer.mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@CSS/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <children>
+
+        <!-- 用于布局 MediaView 的容器 保证 MediaView 可以处于应用的中心位置 -->
+        <BorderPane fx:id="border_pane_media_player" onDragOver="#fileDragOver" onDragDropped="#fileDragDrop" layoutX="68.0" layoutY="229.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" style="-fx-background-color:#fff;">
+
+            <!-- MediaView 元素 使用 center 包裹 确保 MediaView 始终位于应用中心 -->
+            <center>
+                <MediaView fx:id="playView" fitHeight="600.0" fitWidth="1080.0" BorderPane.alignment="CENTER"/>
+            </center>
+        </BorderPane>
+
         <!-- 菜单元素 -->
-        <MenuBar layoutX="14.0" layoutY="-2.0" prefHeight="45.0" prefWidth="1080.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <MenuBar fx:id="menu_bar" layoutX="14.0" layoutY="-2.0" prefHeight="45.0" prefWidth="1080.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <!-- 菜单 File
                 子级元素：
                     Open    ->  打开电脑里的媒体文件
@@ -41,6 +52,7 @@
                 <!-- 菜单 View
                     子级元素：
                         Full Screen     -> 全屏显示视图
+                        Pop Up          -> 悬浮视图
                 -->
                 <Menu mnemonicParsing="true" text="_View">
                     <items>
@@ -49,6 +61,14 @@
                             <accelerator>
                                 <!-- 设置 Full Screen 的快捷键为 F -->
                                 <KeyCodeCombination alt="UP" code="F" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+
+                        <!-- 子级菜单 Pop Up -->
+                        <MenuItem fx:id="menu_popUp" mnemonicParsing="true" text="_Pop Up" onAction="#setPopUp">
+                            <accelerator>
+                                <!-- 设置 Full Screen 的快捷键为 F -->
+                                <KeyCodeCombination alt="DOWN" code="P" control="UP" meta="UP" shift="UP" shortcut="UP" />
                             </accelerator>
                         </MenuItem>
                     </items>
@@ -80,41 +100,38 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <BorderPane fx:id="border_pane_media_player" onDragOver="#fileDragOver" onDragDropped="#fileDragDrop" layoutX="68.0" layoutY="229.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0" style="-fx-background-color:#fff;">
-            <!-- MediaView 元素，用于播放媒体内容 -->
-            <center>
-                <MediaView fx:id="playView" fitHeight="600.0" fitWidth="1080.0" BorderPane.alignment="CENTER"/>
-            </center>
-        </BorderPane>
-        <AnchorPane id="control_bar" layoutX="14.0" layoutY="570.0" prefHeight="75.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+
+        <!-- 一个用来制作视频控制的 AnchorPane 所有关于控制视频播放的元素军在里面 -->
+        <AnchorPane fx:id="control_bar" layoutX="14.0" layoutY="570.0" prefHeight="75.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <children>
 
-                <!-- 用于显示当前播放的时间以及媒体文件的总时长 -->
+                <!-- 用于显示媒体文件当前的播放进度以及媒体文件的总时长 -->
                 <Label fx:id="current_time" text="00:00:00" styleClass="play_time" AnchorPane.leftAnchor="130" AnchorPane.topAnchor="30"/>
                 <Label fx:id="total_time" text="00:00:00" styleClass="play_time" AnchorPane.rightAnchor="190" AnchorPane.topAnchor="30"/>
 
-                <!-- 使用一个 ImageView 作为按钮的图片，比较菜，暂时还没有找到别的方法 -->
+                <!-- 用 ImageView 作为按钮的背景图片 -->
                 <ImageView fx:id="img_play" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="5.0" />
                 <ImageView fx:id="img_stop" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="65.0" />
                 <ImageView fx:id="img_full" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="5.0" />
                 <ImageView fx:id="img_volu" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="65.0" />
                 <ImageView fx:id="img_rate" fitHeight="55" fitWidth="55" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="125.0" />
 
-                <!-- 建立各个操作的按钮 -->
+                <!-- 控制视频播放的按钮 -->
                 <JFXButton fx:id="btn_play" onAction="#playOrPause" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="5.0" />
                 <JFXButton fx:id="btn_stop" onAction="#mediaStop" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="65.0" />
                 <JFXButton fx:id="btn_full" onAction="#setFullScreen" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="5.0" />
                 <JFXButton fx:id="btn_mute" onAction="#setMute" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="65.0" />
                 <JFXButton fx:id="btn_rate" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="125.0" text="1.0"/>
 
-                <!-- 播放进度条 -->
+                <!-- 当前播放的进度条 -->
                 <JFXSlider fx:id="mediaDuration" layoutX="157.0" layoutY="29.0" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="265.0" AnchorPane.topAnchor="29.0" />
             </children>
         </AnchorPane>
 
-        <!-- 音量调节 -->
+        <!-- 音量控制 -->
         <JFXSlider fx:id="volumnControl" layoutX="880.0" layoutY="29.0" prefWidth="35" prefHeight="150.0" AnchorPane.rightAnchor="75.0" AnchorPane.bottomAnchor="65" orientation="VERTICAL" visible="false"/>
 
+        <!-- 用于控制视频的播放速度 速度从 0.5 到 2.0 之间 -->
         <VBox fx:id="speed_list" prefWidth="60" spacing="2" AnchorPane.bottomAnchor="65" AnchorPane.rightAnchor="125" visible="false">
             <children>
                 <Label fx:id="speedX200" styleClass="speed_text" prefWidth="60" text="2.0" alignment="CENTER">
@@ -149,9 +166,12 @@
                 </Label>
             </children>
             <cursor>
+                <!-- 让鼠标在指向速率的时候呈现手指的鼠标样式 -->
                 <Cursor fx:constant="HAND" />
             </cursor>
         </VBox>
+
+        <!-- 屏幕上音量调节以及播放和暂停时的反馈  -->
         <BorderPane fx:id="border_pane_volumeShow" visible="false" mouseTransparent="true" style="-fx-background-color: none;" AnchorPane.rightAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="65" AnchorPane.topAnchor="60">
             <top>
                 <BorderPane>
@@ -164,6 +184,8 @@
                 <ImageView fx:id="on_screen_center_play" fitWidth="100" fitHeight="100" AnchorPane.topAnchor="-50" visible="false"/>
             </center>
         </BorderPane>
+
+        <!-- 显示当前媒体文件的名称 -->
         <Label fx:id="mediaName" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="0" textAlignment="CENTER" alignment="CENTER"/>
     </children>
 </AnchorPane>

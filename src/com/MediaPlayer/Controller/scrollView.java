@@ -10,6 +10,8 @@ public class scrollView {
     }
     public void volumeDown(JFXSlider volumeControl, Label volumeShow){
         volumeControl.setValue(volumeControl.getValue() - 2);
-        volumeShow.setText((int) volumeControl.getValue() + "%");
+        if(volumeControl.getValue() == 0)
+            volumeShow.setText("Mute");
+        else volumeShow.setText((int) volumeControl.getValue() + "%");
     }
 }

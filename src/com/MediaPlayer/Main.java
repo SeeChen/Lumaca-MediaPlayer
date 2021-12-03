@@ -2,7 +2,9 @@ package com.MediaPlayer;
 
 // 导入应用所需的包
 
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class Main extends Application {
     @Override
@@ -40,6 +43,14 @@ public class Main extends Application {
                     controller.setFullScreen();
                 }
             }
+        });
+
+        // 设置鼠标空闲时隐藏界面
+        PauseTransition idle = new PauseTransition(Duration.seconds(3));
+        idle.setOnFinished(e -> controller.mouseIdle(scene));
+        scene.addEventHandler(Event.ANY, e -> {
+            idle.playFromStart();
+            controller.mouseNotIdle(scene);
         });
 
         // 对播放器进行宽高绑定，实时调整宽高

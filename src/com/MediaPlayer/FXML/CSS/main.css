@@ -1,9 +1,8 @@
 .root { -fx-focus-color: transparent; }
 
 .menu-bar {
-    -fx-background-color: #3BC8FF ;
+    -fx-background-color: rgba(59, 200, 255, 0.5);
     -fx-border-width: 2.0;
-
 }
 .menu-bar .label {
     -fx-font-size: 14.0 pt;
@@ -43,7 +42,7 @@
 }
 
 #control_bar{
-	-fx-background-color:#3BC8FF;
+	-fx-background-color: rgba(59, 200, 255, 0.5);
 }
 
 .jfx-button{
@@ -114,4 +113,36 @@
 	-fx-font-family: "Bookman Old Style";
 	-fx-font-size: 14pt;
 	-fx-padding: 10.0px;
+}
+
+
+.context-menu .label{
+	-fx-font-size: 14.0 pt;
+    -fx-font-family: "Bookman Old Style";
+    -fx-text-fill: white;
+    -fx-font-weight: bold; 
+    -fx-padding: 10.0px;
+}
+
+.context-menu .separator {
+    -fx-padding: 0;
+}
+
+.context-menu .scroll-arrow {
+    -fx-padding: 0.416667em 0.416667em 0.416667em 0.416667em; /* 5 */
+    -fx-background-color: #006699;
+}
+
+.context-menu .scroll-arrow:hover {
+    -fx-background: -fx-accent;
+    -fx-background-color: #006699;
+    -fx-text-fill: -fx-selection-bar-text;
+}
+
+.context-menu:show-mnemonics .mnemonic-underline {
+    -fx-stroke: -fx-text-fill;
+}
+
+.context-menu > * > .separator > .line{
+	-fx-border-color: rgba(255, 255, 255, 0.2);
 }
