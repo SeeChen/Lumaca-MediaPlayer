@@ -1,0 +1,18 @@
+.jfx-button{
+	-fx-background-color: rgba(255, 255, 255, 0);
+	-fx-background-radius: 100%	;
+	-fx-cursor: hand;
+	-fx-text-fill: white;
+}
+
+#progress{
+	-fx-background-image: url(../../RESOURCES/IMAGE/lumaca.png);
+	-fx-background-size: 343 100;
+	-fx-background-position: left center;
+}
+
+#progressBack{
+	-fx-background-image: url(../../RESOURCES/IMAGE/lumacaBack.png);
+	-fx-background-size: 343 100;
+	-fx-background-position: left center;
+}
