@@ -10,6 +10,10 @@ All Date Format follow [ YYYY - MM - DD ]
 - [Program overview](#program-overview)
 
 ### Update Information
+**`2021 - 12 - 06`**
+```
+1. Create About Page
+```
 **`2021 - 12 - 04`**
 ```
 1. Auto hide control bar and menu bar when playing media.
@@ -58,6 +62,7 @@ All Date Format follow [ YYYY - MM - DD ]
 |`2021 - 12 - 02`|Space to Play and pause||
 |`2021 - 12 - 04`|Finished Development [issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)||
 |`2021 - 12 - 04`|Create Right-Click menu||
+|`2021 - 12 - 06`|Create About page||
 
 </details>
 
