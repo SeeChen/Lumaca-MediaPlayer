@@ -5,13 +5,11 @@ package com.MediaPlayer;
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -31,26 +29,27 @@ public class Main extends Application {
         mainStage controller = fxmlLoader.getController();
         controller.loading();   // 运行 loading 函数，为应用加载
 
-        // 设置一个 Scene ， 并设置宽为 1080，高为 720
+        // 设置一个 Scene ， 并设置宽为 720，高为 480
         Scene scene = new Scene(root, 720, 480);
 
         // 设置按下 esc 键退出全屏时，与正常退出全拼相同
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent t) {
-                KeyCode key = t.getCode();
-                if (key == KeyCode.ESCAPE) {
+        scene.setOnKeyPressed(e -> {
+            KeyCode key = e.getCode();
+            switch (key){
+                case ESCAPE:
                     controller.setFullScreen();
-                }
+                    break;
             }
         });
 
         // 设置鼠标空闲时隐藏界面
-        PauseTransition idle = new PauseTransition(Duration.seconds(3));
+        PauseTransition idle = new PauseTransition(Duration.seconds(2));
         idle.setOnFinished(e -> controller.mouseIdle(scene));
         scene.addEventHandler(Event.ANY, e -> {
-            idle.playFromStart();
-            controller.mouseNotIdle(scene);
+            if(e.getEventType().toString().equals("MOUSE_MOVED")) {
+                idle.playFromStart();
+                controller.mouseNotIdle(scene);
+            }
         });
 
         // 对播放器进行宽高绑定，实时调整宽高
