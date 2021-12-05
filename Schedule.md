@@ -113,6 +113,18 @@ All Date Format follow [ YYYY - MM - DD ]
  
 </details>
 
+
+<details>
+   <summary> Optimize </summary>
+   
+`Some Problems to be optimized`
+   
+| DATE | CONTENT |REMARK|STATUS|
+|:---:|:--:|:---:|:---:|
+|`2021 - 12 - 06`|播放媒体时占用内存过高|[issues #16](https://github.com/SeeChen/TermProject_MediaPlayer/issues/17)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
+   
+</details>
+
 <!-- Label for to developer -->
 <!--![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)--><!--complete the function development-->
 <!--![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)--><!--already know and wating to development-->
@@ -122,3 +134,8 @@ All Date Format follow [ YYYY - MM - DD ]
 <!--![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)--><!--bug fixed-->
 <!--![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)--><!--bugs watting to fix-->
 <!--![Pending](https://img.shields.io/badge/PENDING-red?style=flat)--><!--new bugs report-->
+
+<!-- Label for optimizing -->
+<!--![Optimized](https://img.shields.io/badge/OPTIMIZED-sussex?style=flat)--><!--already optimized-->
+<!--![Optimizing](https://img.shields.io/badge/OPTIMIZING-yellow?style=flat)--><!--Optimizing-->
+<!--![Pending](https://img.shields.io/badge/PENDING-red?style=flat)--><!--new issues found-->
