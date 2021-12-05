@@ -82,7 +82,7 @@
                 <Menu mnemonicParsing="true" text="_Help">
                     <items>
                         <!-- 菜单子级 About -->
-                        <MenuItem mnemonicParsing="true" text="_About" >
+                        <MenuItem mnemonicParsing="true" onAction="#openAbout" text="_About" >
                             <accelerator>
                                 <!-- 设置 About 的快捷键为 Crtl + A -->
                                 <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
