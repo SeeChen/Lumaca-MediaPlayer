@@ -186,6 +186,7 @@ public class mainStage {
                 ex.printStackTrace();
             }
         });
+        menuItem2_Use.setOnAction(e -> openHowToUse());
 
         menuItem_Exit.setOnAction(e -> closeApp());
     }
@@ -408,7 +409,7 @@ public class mainStage {
         volumeHover();
         border_pane_media_player.setStyle("-fx-background-color: black;");
 
-        mediaPlayer.setOnReady(() -> mediaPlayerReady() );  // 设置 onready 事件
+        mediaPlayer.setOnReady(this::mediaPlayerReady);  // 设置 onready 事件
         mediaPlayer.setOnEndOfMedia(() -> {
             changeBtnPicture.changeBtnPicture("replay", img_play);
             changeBtnPicture.changeBtnPicture("replay", on_screen_center_play);
@@ -688,6 +689,22 @@ public class mainStage {
             Platform.runLater(() -> {
                 try {
                     loadAnother.about(actionEvent);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+        });
+        thread.start();
+    }
+
+    public void openHowToUse(){
+        if(mediaUrl != null){
+            playOrPause();
+        }
+        Thread thread = new Thread(() -> {
+            Platform.runLater(() -> {
+                try {
+                    loadAnother.howToUse();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

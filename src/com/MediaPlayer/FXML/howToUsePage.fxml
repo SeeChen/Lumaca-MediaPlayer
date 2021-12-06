@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.web.WebView?>
+
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXBadge?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import javafx.scene.layout.BorderPane?>
+<AnchorPane fx:id="parentPane" fx:controller="com.MediaPlayer.Controller.tutorial.tutorial_main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="729.0" stylesheets="@CSS/about_page.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <WebView fx:id="webView" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" visible="false"/>
+        <AnchorPane fx:id="functionBar" prefHeight="55.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" visible="false">
+            <children>
+                <ImageView fx:id="openInBrowser_img" layoutX="168.0" layoutY="12.0" fitHeight="45.0" fitWidth="45.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                <ImageView fx:id="language_img" layoutX="168.0" layoutY="12.0" fitHeight="45.0" fitWidth="45.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="5.0" />
+
+                <JFXButton fx:id="openInBrowser_btn" layoutX="178.0" layoutY="22.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                <JFXButton fx:id="language_btn" layoutX="178.0" layoutY="22.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="5.0" text="中" />
+            </children>
+        </AnchorPane>
+
+        <AnchorPane fx:id="progressBack" prefHeight="100" prefWidth="343" AnchorPane.topAnchor="190" AnchorPane.leftAnchor="188.0"/>
+        <AnchorPane fx:id="progress" prefHeight="100" prefWidth="0" AnchorPane.topAnchor="190" AnchorPane.leftAnchor="188.0"/>
+
+        <JFXButton fx:id="okay_btn" onAction="#close" text="Okay" prefHeight="55" prefWidth="100" AnchorPane.bottomAnchor="10" AnchorPane.rightAnchor="10" visible="false" style="-fx-text-fill: #000; -fx-background-color: rgba(255, 255, 255, 0.6); -fx-background-radius:10; -fx-border-radius: 10; -fx-border-color: #000;"/>
+    </children>
+</AnchorPane>

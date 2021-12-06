@@ -90,7 +90,7 @@
                         </MenuItem>
 
                         <!-- 子级菜单 How to Use -->
-                        <MenuItem mnemonicParsing="true" text="How _to Use" >
+                        <MenuItem mnemonicParsing="true" onAction="#openHowToUse" text="How _to Use" >
                             <accelerator>
                                 <!-- 设置 How to Use 的快捷键为 Crtl + Shift + T -->
                                 <KeyCodeCombination alt="UP" code="T" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
