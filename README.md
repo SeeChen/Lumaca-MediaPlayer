@@ -16,4 +16,4 @@
 <a href="https://github.com/Leosta0807"><kbd><img src="https://avatars.githubusercontent.com/u/93914414?v=4" width="75" height="75"/></kbd></a>
 
 ### LICENSE
-> [MIT](https://github.com/SeeChen/TermProject_MediaPlayer/blob/main/LICENSE) @ SeeChen
+> [MIT](https://github.com/SeeChen/TermProject_MediaPlayer/blob/main/LICENSE) @ SeeChen, LAU LE YE
