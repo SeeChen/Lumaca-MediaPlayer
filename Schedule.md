@@ -13,6 +13,7 @@ All Date Format follow [ YYYY - MM - DD ]
 **`2021 - 12 - 06`**
 ```
 1. Create About Page
+2. Create How to Use Page
 ```
 **`2021 - 12 - 04`**
 ```
@@ -63,6 +64,7 @@ All Date Format follow [ YYYY - MM - DD ]
 |`2021 - 12 - 04`|Finished Development [issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)||
 |`2021 - 12 - 04`|Create Right-Click menu||
 |`2021 - 12 - 06`|Create About page||
+|`2021 - 12 - 06`|Create How to Use page||
 
 </details>
 
