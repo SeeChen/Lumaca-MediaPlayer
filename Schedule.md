@@ -42,9 +42,11 @@ All Date Format follow [ YYYY - MM - DD ]
 ```
 1. Add the playing time display when playing the media file
 ```
-**`2021 - 11 - 05`**
+**`2021 - 11 - 15`**
 ``` 
-1. Create Project
+1. Start Developer this Project
+2. Complete the functions of play, stop, and pause.
+3. Use the select file dialog to open the media file you want to play.
 ```
 
 ### Program overview
@@ -57,7 +59,9 @@ All Date Format follow [ YYYY - MM - DD ]
 
 | DATE | CONTENT |REMARK|
 |:---:|:---:|:---:|
-|`2021 - 11 - 05`|Create Project||
+|`2021 - 11 - 15`|Start Developer this Project||
+|`2021 - 11 - 15`|Complete the necessary functions of the player||
+|^|Choose the file to open by system dialog||
 |`2021 - 11 - 30`|Finished Development [issues #7](https://github.com/SeeChen/TermProject_MediaPlayer/issues/7)||
 |`2021 - 12 - 01`|Fixed [issues #6](https://github.com/SeeChen/TermProject_MediaPlayer/issues/6)||
 |`2021 - 12 - 01`|Fixed [issues #2](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)||
