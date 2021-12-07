@@ -10,6 +10,11 @@ All Date Format follow [ YYYY - MM - DD ]
 - [Program overview](#program-overview)
 
 ### Update Information
+**`2021 - 12 - 08`**
+```
+1. Save the last used volume setting to avoid the need to readjust the volume the next time you open the file.
+2. You can adjust the theme color of the application now.
+```
 **`2021 - 12 - 06`**
 ```
 1. Create About Page
@@ -65,6 +70,8 @@ All Date Format follow [ YYYY - MM - DD ]
 |`2021 - 12 - 04`|Create Right-Click menu||
 |`2021 - 12 - 06`|Create About page||
 |`2021 - 12 - 06`|Create How to Use page||
+|`2021 - 12 - 08`|Save volume settings||
+|`2021 - 12 - 08`|Adjust theme color||
 
 </details>
 
@@ -126,7 +133,8 @@ All Date Format follow [ YYYY - MM - DD ]
    
 | DATE | CONTENT |REMARK|STATUS|
 |:---:|:--:|:---:|:---:|
-|`2021 - 12 - 06`|播放媒体时占用内存过高|[issues #16](https://github.com/SeeChen/TermProject_MediaPlayer/issues/17)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
+|`2021 - 12 - 06`|播放媒体时占用内存过高|[issues #17](https://github.com/SeeChen/TermProject_MediaPlayer/issues/17)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
+|`2021 - 12 - 08`|打开关于和教程的时候，整个应用会卡顿|[issues #21](https://github.com/SeeChen/TermProject_MediaPlayer/issues/21)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
    
 </details>
 
