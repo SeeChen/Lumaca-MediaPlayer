@@ -108,8 +108,8 @@ All Date Format follow [ YYYY - MM - DD ]
 
 | DATE | CONTENT |REMARK|STATUS|
 |:---:|:--:|:---:|:---:|
-| `2021 - 11 - 10` |Record the history playing|[issues #3](https://github.com/SeeChen/TermProject_MediaPlayer/issues/3)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
-| `2021 - 11 - 12` |队列文件夹里的视频|[issues #4](https://github.com/SeeChen/TermProject_MediaPlayer/issues/4)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
+| `2021 - 12 - 08` |Record the history playing|[issues #3](https://github.com/SeeChen/TermProject_MediaPlayer/issues/3)|![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)|
+| `2021 - 11 - 20` |队列文件夹里的视频|[issues #4](https://github.com/SeeChen/TermProject_MediaPlayer/issues/4)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 | `2021 - 11 - 30` |时间条显示数字时间|[issues #7](https://github.com/SeeChen/TermProject_MediaPlayer/issues/7)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 01` |可调节播放速度|[issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 02` |双击全屏|[issues #11](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
