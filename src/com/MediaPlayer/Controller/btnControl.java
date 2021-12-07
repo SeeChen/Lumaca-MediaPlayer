@@ -1,6 +1,7 @@
 package com.MediaPlayer.Controller;
 
 import com.jfoenix.controls.JFXSlider;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -28,7 +29,7 @@ public class btnControl {
         return !isFullMode;
     }
 
-    public boolean playOrPause(MediaPlayer mediaPlayer, boolean isPlaying, ImageView img_play, BorderPane border_pane_volumeShow, ImageView on_screen_center_play){
+    public boolean playOrPause(MediaPlayer mediaPlayer, boolean isPlaying, ImageView img_play, BorderPane border_pane_volumeShow, ImageView on_screen_center_play, Label mediaName){
 
         // 判断是否正在播放
         if(isPlaying){
@@ -36,6 +37,7 @@ public class btnControl {
             mediaPlayer.pause();
             changeBtnPicture.changeBtnPicture("play", img_play);
             changeBtnPicture.changeBtnPicture("play", on_screen_center_play);
+            mediaName.setText(mediaName.getText().replace("Now Playing", "Pause"));
             on_screen_center_play.setVisible(true);
             border_pane_volumeShow.setVisible(true);
 
@@ -44,6 +46,7 @@ public class btnControl {
             mediaPlayer.play();
             changeBtnPicture.changeBtnPicture("pause", img_play);
             changeBtnPicture.changeBtnPicture("pause", on_screen_center_play);
+            mediaName.setText(mediaName.getText().replace("Pause", "Now Playing"));
             new Thread(() -> {
                 try {
                     Thread.sleep(500);

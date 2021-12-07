@@ -57,6 +57,7 @@ public class about_Main {
     String currentUrl;
 
     public void loading(){
+
         loadPage("https://seechen.github.io/lumacaMediaPlayer/aboutPage/about-en.html");
         currentUrl = "https://seechen.github.io/lumacaMediaPlayer/aboutPage/about-en.html";
 

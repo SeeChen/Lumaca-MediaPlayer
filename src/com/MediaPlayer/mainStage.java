@@ -27,6 +27,7 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.*;
 import java.util.Objects;
 
 public class mainStage {
@@ -42,6 +43,8 @@ public class mainStage {
     boolean isTrackDuration = true;     // 判断是否需要继续追踪播放进度 若为 否 表示当前用户正在拖动进度条
 
     boolean isContextMenu   = false;    // 判断右键菜单是否为显示状态
+
+    boolean isPopUp         = false;    // 判断当前是否为 Pop up 模式
 
     // 浮点型定义
     double currentVolume;               // 用于保存静音前的音量状态
@@ -68,6 +71,8 @@ public class mainStage {
         //  View 子菜单
             @FXML
             MenuItem menu_fullScreen;
+            @FXML
+            MenuItem menu_popUp;
             @FXML
             private Label mediaName;
 
@@ -154,6 +159,8 @@ public class mainStage {
         Menu menu_Help               = new Menu("Help");
             MenuItem menuItem2_About    = new MenuItem("About");
             MenuItem menuItem2_Use      = new MenuItem("How to Use");
+        Menu menu_Settings           = new Menu("Settings");
+            MenuItem menuItem2_Theme    = new MenuItem("Theme");
         MenuItem menuItem_Exit       = new MenuItem("Exit");
 
         // 设置菜单的快捷键
@@ -164,15 +171,19 @@ public class mainStage {
 
         menuItem2_About.setAccelerator(new KeyCodeCombination(KeyCode.A, KeyCombination.CONTROL_DOWN));
         menuItem2_Use.setAccelerator(new KeyCodeCombination(KeyCode.T, KeyCombination.CONTROL_DOWN, KeyCombination.SHIFT_DOWN));
-        menu_Help.getItems().addAll(menuItem2_About, menuItem2_Use);
 
-        contextMenu.getItems().addAll(menuItem_Open, menuItem_FullScreen, menuItem_PopUp, menu_Help, menuItem_Exit);
+        menuItem2_Theme.setAccelerator(new KeyCodeCombination(KeyCode.T, KeyCombination.CONTROL_DOWN));
+
+        menu_Help.getItems().addAll(menuItem2_About, menuItem2_Use);
+        menu_Settings.getItems().addAll(menuItem2_Theme);
+
+        contextMenu.getItems().addAll(menuItem_Open, menuItem_FullScreen, menuItem_PopUp, menu_Settings, menu_Help, menuItem_Exit);
 
         // 添加分割线
         SeparatorMenuItem br1 = new SeparatorMenuItem();
         SeparatorMenuItem br2 = new SeparatorMenuItem();
         contextMenu.getItems().add(3, br1);
-        contextMenu.getItems().add(5, br2);
+        contextMenu.getItems().add(6, br2);
 
         // 设置右键菜单的点击事件
         menuItem_Open.setOnAction(e -> openFile());
@@ -187,6 +198,7 @@ public class mainStage {
             }
         });
         menuItem2_Use.setOnAction(e -> openHowToUse());
+        menuItem2_Theme.setOnAction(e -> openTheme());
 
         menuItem_Exit.setOnAction(e -> closeApp());
     }
@@ -230,16 +242,80 @@ public class mainStage {
 
         mediaPlayer.setAutoPlay(true);  // 设置自动播放
         playView.setMediaPlayer(mediaPlayer);
-        border_pane_media_player.setStyle("-fx-background-color: white;");
+        border_pane_media_player.setStyle("-fx-background-color: black;");
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);  // 设置无限循环
     }
+
+    private void setConfiguration(){
+        try{
+            Class.forName("org.sqlite.JDBC");
+
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:./Configuration.db");
+            Statement statement = connection.createStatement();
+
+            ResultSet color = statement.executeQuery("select * from color");
+
+            while(color.next()){
+                String backgroundStyle = "-fx-background-color: rgba(" + color.getInt("red") + "," + color.getInt("green") + "," + color.getInt("blue") + ", 0.5);";
+                menu_bar.setStyle(backgroundStyle);
+                control_bar.setStyle(backgroundStyle);
+                contextMenu.setStyle(backgroundStyle);
+                speed_list.setStyle(backgroundStyle);
+                volumnControl.setStyle(backgroundStyle);
+            }
+
+            ResultSet volume = statement.executeQuery("select * from volume");
+            while(volume.next()){
+                currentVolume = volume.getInt("value");
+            }
+
+            connection.close();
+            statement.close();
+            color.close();
+            volume.close();
+        } catch (SQLException | ClassNotFoundException throwables) {
+            // 查不到数据库存在 表示用户是第一次使用
+            // 对于第一次使用的用户 打开使用教程
+            openHowToUse();
+            try{
+                // 配置初始化的文件
+                Connection connection = DriverManager.getConnection("jdbc:sqlite:./Configuration.db");
+
+                Statement statement = connection.createStatement();
+
+                statement.execute("create table color(color text, red integer, green integer, blue integer)");
+                statement.executeUpdate("insert into color(color, red, green, blue) values ('color', 59, 200, 255)");
+
+                // 由于没有原先的数据 所以设置背景
+                volumnControl.setStyle("-fx-background-color: rgba(59, 200, 255, 0.5);");
+                menu_bar.setStyle("-fx-background-color: rgba(59, 200, 255, 0.5);");
+                control_bar.setStyle("-fx-background-color: rgba(59, 200, 255, 0.5);");
+                contextMenu.setStyle("-fx-background-color: rgba(59, 200, 255, 0.5);");
+                speed_list.setStyle("-fx-background-color: rgba(59, 200, 255, 0.5);");
+
+                // 配置音量
+                statement.execute("create table volume(volume text, value integer)");
+                statement.executeUpdate("insert into volume(volume, value) values ('volume', 50)");
+                currentVolume = 50;
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     // 应用加载事件
     public void loading(){
 
+
         createContextMenu();    // 创建右键菜单
+        setConfiguration(); // 设置应用的颜色
 
         // 初始化按钮图片
-        String[] imageName = {"play", "stop", "full", "volu", "rate", "play"};
+        String voluImg = "volu";
+        if(currentVolume < 50)
+            voluImg = "midVol";
+        String[] imageName = {"play", "stop", "full", voluImg, "rate", "play"};
         ImageView[] imageId = {img_play, img_stop, img_full, img_volu, img_rate, on_screen_center_play};
         changeBtnPicture.setImage(imageName, imageId);
 
@@ -258,7 +334,6 @@ public class mainStage {
         }
 
         // 设置音量
-        currentVolume = 50;
         volumnControl.adjustValue(currentVolume);
 
         // 设置播放进度的初始时间
@@ -324,7 +399,7 @@ public class mainStage {
                     musicPlayer.play();
 
             // 更改播放状态
-            isPlaying = btnControl.playOrPause(mediaPlayer, isPlaying, img_play, border_pane_volumeShow, on_screen_center_play);
+            isPlaying = btnControl.playOrPause(mediaPlayer, isPlaying, img_play, border_pane_volumeShow, on_screen_center_play, mediaName);
         }
     }
     // 设置停止播放
@@ -592,9 +667,16 @@ public class mainStage {
 
     public void setPopUp(){
         Stage mainStage = (Stage) parentPane.getScene().getWindow();    // 获取 Stage 容器
-        mainStage.setHeight(480);
-        mainStage.setWidth(720);
-        mainStage.setAlwaysOnTop(true);
+        if(isPopUp){
+            mainStage.setAlwaysOnTop(false);
+            menu_popUp.setText("Pop Up");
+        }else{
+            isPopUp = true;
+            menu_popUp.setText("Exit Pop Up");
+            mainStage.setHeight(480);
+            mainStage.setWidth(720);
+            mainStage.setAlwaysOnTop(true);
+        }
     }
 
     public void playRateHover(){
@@ -668,7 +750,29 @@ public class mainStage {
     }
 
     // 关闭程序
-    public void closeApp(){ Platform.exit();}
+    public void closeApp(){
+        if(mediaUrl != null) {
+            playOrPause();
+        }
+
+
+        try{
+            Class.forName("org.sqlite.JDBC");
+
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:./Configuration.db");
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("update volume set value=" + currentVolume + " where volume = 'volume'");
+
+            connection.close();
+            statement.close();
+
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+
+        System.out.println("Close");
+        Platform.exit();
+    }
 
     // 播放器绑定调整宽高
     public void mediaViewBind(Scene mediaViewScene){
@@ -695,6 +799,16 @@ public class mainStage {
             });
         });
         thread.start();
+    }
+
+    public void openTheme(){
+        if(mediaUrl != null)
+            playOrPause();
+        try {
+            loadAnother.themePick();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void openHowToUse(){

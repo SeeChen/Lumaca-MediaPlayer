@@ -1,7 +1,7 @@
 .root { -fx-focus-color: transparent; }
 
 .menu-bar {
-    -fx-background-color: rgba(59, 200, 255, 0.5);
+    
     -fx-border-width: 2.0;
 }
 .menu-bar .label {
@@ -32,17 +32,13 @@
     -fx-text-fill: white;
 }
 .context-menu {
-    -fx-background-color:#3BC8FF ;
+    -fx-background-color:#ccc ;
     -fx-border-width: 0.2px;
 	-fx-border-radius:10;
     -fx-border-color: black;
     -fx-background-insets: 0.0, 1.0, 2.0;
     -fx-background-radius: 10;
     -fx-opacity: 0.9;
-}
-
-#control_bar{
-	-fx-background-color: rgba(59, 200, 255, 0.5);
 }
 
 .jfx-button{
@@ -87,7 +83,7 @@
 	-fx-border-color: black;
 }
 .speed_text{
-	-fx-text-fill: black;
+	-fx-text-fill: white;
 }
 .speed_text:hover{
 	-fx-background-color:rgba(255, 255, 255, 0.5);

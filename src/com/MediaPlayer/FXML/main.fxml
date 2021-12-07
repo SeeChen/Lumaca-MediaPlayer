@@ -98,6 +98,22 @@
                         </MenuItem>
                     </items>
                 </Menu>
+
+                <!-- 菜单 Settings
+                    子级元素：
+                        Theme   -> 设置主题     （目前仅支持颜色更改）
+                -->
+                <Menu mnemonicParsing="true" text="_Settings">
+                    <items>
+                        <!-- 菜单子级 About -->
+                        <MenuItem mnemonicParsing="true" onAction="#openTheme" text="_Theme" >
+                            <accelerator>
+                                <!-- 设置 About 的快捷键为 Crtl + A -->
+                                <KeyCodeCombination alt="UP" code="T" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+                    </items>
+                </Menu>
             </menus>
         </MenuBar>
 

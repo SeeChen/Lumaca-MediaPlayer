@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import com.jfoenix.controls.JFXColorPicker?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import com.jfoenix.skins.JFXColorPalette.JFXColorGrid?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ScrollPane?>
+<AnchorPane fx:id="parentPane" fx:controller="com.MediaPlayer.Controller.theme.theme_Main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="729.0" stylesheets="@CSS/themePick.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ScrollPane AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.leftAnchor="0" vbarPolicy="NEVER" style="-fx-padding: 0;">
+            <content>
+            <AnchorPane fx:id="theme_choose" AnchorPane.rightAnchor="0" AnchorPane.leftAnchor="0" prefWidth="720">
+                <JFXButton fx:id="btn_FF3B3B" styleClass="color_choose" text="#FF3B3B" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="75" prefHeight="75" style="-fx-background-color: #FF3B3B;"/>
+                <JFXButton fx:id="btn_FFB43B" styleClass="color_choose" text="#FFB43B" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="170" prefHeight="75" style="-fx-background-color: #FFB43B"/>
+                <JFXButton fx:id="btn_F7FF3B" styleClass="color_choose" text="#F7FF3B" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="265" prefHeight="75" style="-fx-background-color: #F7FF3B;"/>
+                <JFXButton fx:id="btn_80FF3B" styleClass="color_choose" text="#80FF3B" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="360" prefHeight="75" style="-fx-background-color: #80FF3B;"/>
+                <JFXButton fx:id="btn_3BFF8A" styleClass="color_choose" text="#3BFF8A" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="455" prefHeight="75" style="-fx-background-color: #3BFF8A;"/>
+                <JFXButton fx:id="btn_3BEFFF" styleClass="color_choose" text="#3BEFFF" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="550" prefHeight="75" style="-fx-background-color: #3BEFFF;"/>
+                <JFXButton fx:id="btn_3BC8FF" styleClass="color_choose" text="#3BC8FF" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="645" prefHeight="75" style="-fx-background-color: #3BC8FF;"/>
+                <JFXButton fx:id="btn_483BFF" styleClass="color_choose" text="#483BFF" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="740" prefHeight="75" style="-fx-background-color: #483BFF;"/>
+                <JFXButton fx:id="btn_A43BFF" styleClass="color_choose" text="#A43BFF" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="835" prefHeight="75" style="-fx-background-color: #A43BFF;"/>
+                <JFXButton fx:id="btn_FA3BFF" styleClass="color_choose" text="#FA3BFF" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="930" prefHeight="75" style="-fx-background-color: #FA3BFF;"/>
+                <JFXButton fx:id="btn_FF3B91" styleClass="color_choose" text="#FF3B91" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="1025" prefHeight="75" style="-fx-background-color: #FF3B91;"/>
+                <JFXButton fx:id="btn_000000" styleClass="color_choose" text="#000000" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="1120" prefHeight="75" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="20"/>
+            </AnchorPane>
+            </content>
+        </ScrollPane>
+        <AnchorPane fx:id="topBar" prefHeight="50" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+            <children>
+                <Label fx:id="theme_title" text="Theme Select" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="0" prefHeight="50"/>
+
+                <JFXButton fx:id="btn_cancel" text="Cancel" prefHeight="40" prefWidth="100" AnchorPane.rightAnchor="120" AnchorPane.topAnchor="5" AnchorPane.bottomAnchor="5" />
+                <JFXButton fx:id="btn_ok" text="OK" prefHeight="40" prefWidth="100" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="5" AnchorPane.bottomAnchor="5" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

@@ -18,7 +18,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         // 加载 FXML 文件
-        FXMLLoader fxmlLoader =new FXMLLoader();
+        FXMLLoader fxmlLoader = new FXMLLoader();
         // 设置 FXML 路径
         fxmlLoader.setLocation(getClass().getResource("./FXML/main.fxml"));
 
@@ -56,6 +56,7 @@ public class Main extends Application {
         controller.mediaViewBind(scene);
 
         primaryStage.setScene(scene);   // 设置初始 stage 的 scene
+        primaryStage.setOnCloseRequest(e -> controller.closeApp());
         primaryStage.setMinHeight(480);primaryStage.setMinWidth(720);  // 设置 stage 的最小高度以及最小宽度
         primaryStage.setTitle("Lumaca");  // 设置标题
         primaryStage.getIcons().add(new Image("com/MediaPlayer/RESOURCES/ICON/icon.png"));  // 设置 icon
