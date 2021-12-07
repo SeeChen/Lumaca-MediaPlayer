@@ -17,8 +17,8 @@ All Date Format follow [ YYYY - MM - DD ]
 ```
 **`2021 - 12 - 06`**
 ```
-1. Create About Page
-2. Create How to Use Page
+1. Create About Page.
+2. Create How to Use Page.
 ```
 **`2021 - 12 - 04`**
 ```
@@ -29,22 +29,37 @@ All Date Format follow [ YYYY - MM - DD ]
 ```
 1. Now you can double-click to full screen.
 2. Scrolling to adjust volume.
-3. Space key to Play or Pause media
+3. Space key to Play or Pause media.
 ```
 **`2021 - 12 - 01`**
 ```
 1. A computer with a 14-inch screen won’t have the problem of apps that are larger than the screen! 
 2. Fix the issue of full screen display.
 3. Added a button to adjust the playback rate.
-4. Media can now be replayed at the end of media playback
+4. Media can now be replayed at the end of media playback.
 ```
 **`2021 - 11 - 30`**
 ```
-1. Add the playing time display when playing the media file
+1. Add the playing time display when playing the media file.
+```
+**`2021 - 11 - 18`**
+```
+1. Set the media player to always play at the top.
+2. You can play media files in full screen, using the full screen button or Ctrl + F hotkey.
+```
+**`2021 - 11 - 17`**
+```
+1. Drag to the timeline to adjust the playback position.
+```
+**`2021 - 11 - 16`**
+```
+1. Files can be dragged and dropped to the media player for playback.
+2. Media player volume control.
+3. Media playback timeline track tracking.
 ```
 **`2021 - 11 - 15`**
 ``` 
-1. Start Developer this Project
+1. Start Developer this Project.
 2. Complete the functions of play, stop, and pause.
 3. Use the select file dialog to open the media file you want to play.
 ```
@@ -61,7 +76,13 @@ All Date Format follow [ YYYY - MM - DD ]
 |:---:|:---:|:---:|
 |`2021 - 11 - 15`|Start Developer this Project||
 |`2021 - 11 - 15`|Complete the necessary functions of the player||
-|^|Choose the file to open by system dialog||
+|`2021 - 11 - 15`|Choose the file to open by system dialog||
+|`2021 - 11 - 16`|Play media by drag and drop||
+|`2021 - 11 - 16`|Volume control||
+|`2021 - 11 - 16`|Time track tracking during playback||
+|`2021 - 11 - 17`|Drag to adjust playback position||
+|`2021 - 11 - 18`|Pop Up function||
+|`2021 - 11 - 18`|Full screen function||
 |`2021 - 11 - 30`|Finished Development [issues #7](https://github.com/SeeChen/TermProject_MediaPlayer/issues/7)||
 |`2021 - 12 - 01`|Fixed [issues #6](https://github.com/SeeChen/TermProject_MediaPlayer/issues/6)||
 |`2021 - 12 - 01`|Fixed [issues #2](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)||
