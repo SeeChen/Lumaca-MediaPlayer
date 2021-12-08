@@ -3,7 +3,6 @@
 ---
 <a href="https://github.com/SeeChen/TermProject_MediaPlayer/blob/main/LICENSE">![GitHub](https://img.shields.io/github/license/SeeChen/TermProject_MediaPlayer?color=1AA260&label=LICENSE)</a>
 <a href="https://gitter.im/SeeChen/TermProject_MediaPlayer" target="_blank">![GitHub](https://img.shields.io/badge/CHAT-GITTER-FF5CF7?style=flat&logo=gitter)</a>
-[English](#关于)&nbsp;&nbsp;&nbsp;&nbsp;[中文](#group-member)
 
 ### 关于
 > - 2021 - 2022 北京理工大学第一学期 Java 程序设计课程结课作业
