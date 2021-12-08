@@ -3,7 +3,7 @@
 ---
 <a href="https://github.com/SeeChen/TermProject_MediaPlayer/blob/main/LICENSE">![GitHub](https://img.shields.io/github/license/SeeChen/TermProject_MediaPlayer?color=1AA260&label=LICENSE)</a>
 <a href="https://gitter.im/SeeChen/TermProject_MediaPlayer" target="_blank">![GitHub](https://img.shields.io/badge/CHAT-GITTER-FF5CF7?style=flat&logo=gitter)</a>
-<a href="https://github.com/SeeChen/TermProject_MediaPlayer/blob/main/README-en.md">![English](https://img.shields.io/badge/-English-gray?style=social&logo=googletranslate)</a>
+<a href="https://github.com/SeeChen/TermProject_MediaPlayer/blob/main/README.md">![English](https://img.shields.io/badge/-English-gray?style=social&logo=googletranslate)</a>
 
 **`项目问题`**
 
