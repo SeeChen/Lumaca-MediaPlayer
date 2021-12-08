@@ -27,7 +27,7 @@
             <!-- 菜单 File
                 子级元素：
                     Open    ->  打开电脑里的媒体文件
-                    Close   ->  关闭此应用
+                    Exit    ->  关闭此应用
             -->
             <menus>
                 <Menu mnemonicParsing="false" text="_File">
@@ -40,7 +40,7 @@
                             </accelerator>
                         </MenuItem>
                         <!-- 子级菜单 Close -->
-                        <MenuItem mnemonicParsing="true" text="_Close" onAction="#closeApp" >
+                        <MenuItem mnemonicParsing="true" text="_Exit" onAction="#closeApp" >
                             <accelerator>
                                 <!-- 设置 Close 的快捷键为 Alt + F4 -->
                                 <KeyCodeCombination alt="DOWN" code="F4" control="UP" meta="UP" shift="UP" shortcut="UP" />
@@ -51,11 +51,20 @@
 
                 <!-- 菜单 View
                     子级元素：
+                        Play            -> 播放视频
                         Full Screen     -> 全屏显示视图
                         Pop Up          -> 悬浮视图
                 -->
                 <Menu mnemonicParsing="true" text="_View">
                     <items>
+                        <!-- 子级菜单 Play -->
+                        <MenuItem fx:id="menu_playOrPause" mnemonicParsing="true" text="_Play" onAction="#playOrPause">
+                            <accelerator>
+                                <!-- 设置 Play 的快捷键为 空格键 -->
+                                <KeyCodeCombination alt="UP" code="SPACE" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+
                         <!-- 子级菜单 View -->
                         <MenuItem fx:id="menu_fullScreen" mnemonicParsing="true" text="_Full Screen Mode" onAction="#setFullScreen">
                             <accelerator>

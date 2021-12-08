@@ -70,6 +70,8 @@ public class mainStage {
         MenuBar menu_bar;
         //  View 子菜单
             @FXML
+            MenuItem menu_playOrPause;
+            @FXML
             MenuItem menu_fullScreen;
             @FXML
             MenuItem menu_popUp;
@@ -154,6 +156,7 @@ public class mainStage {
 
         // 设置菜单的文字
         MenuItem menuItem_Open       = new MenuItem("Open");
+        MenuItem menuItem_PlayOrPause = new MenuItem("Play");
         MenuItem menuItem_FullScreen = new MenuItem("Full Screen Mode");
         MenuItem menuItem_PopUp      = new MenuItem("Pop Up");
         Menu menu_Help               = new Menu("Help");
@@ -165,6 +168,7 @@ public class mainStage {
 
         // 设置菜单的快捷键
         menuItem_Open.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN));
+        menuItem_PlayOrPause.setAccelerator(new KeyCodeCombination(KeyCode.SPACE));
         menuItem_FullScreen.setAccelerator(new KeyCodeCombination(KeyCode.F, KeyCombination.CONTROL_DOWN));
         menuItem_PopUp.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.ALT_DOWN));
         menuItem_Exit.setAccelerator(new KeyCodeCombination(KeyCode.F4, KeyCombination.ALT_DOWN));
@@ -177,17 +181,21 @@ public class mainStage {
         menu_Help.getItems().addAll(menuItem2_About, menuItem2_Use);
         menu_Settings.getItems().addAll(menuItem2_Theme);
 
-        contextMenu.getItems().addAll(menuItem_Open, menuItem_FullScreen, menuItem_PopUp, menu_Settings, menu_Help, menuItem_Exit);
+        contextMenu.getItems().addAll(menuItem_Open, menuItem_PlayOrPause, menuItem_FullScreen, menuItem_PopUp, menu_Settings, menu_Help, menuItem_Exit);
 
         // 添加分割线
         SeparatorMenuItem br1 = new SeparatorMenuItem();
         SeparatorMenuItem br2 = new SeparatorMenuItem();
-        contextMenu.getItems().add(3, br1);
-        contextMenu.getItems().add(6, br2);
+        contextMenu.getItems().add(4, br1);
+        contextMenu.getItems().add(7, br2);
 
         // 设置右键菜单的点击事件
         menuItem_Open.setOnAction(e -> openFile());
+        menuItem_PlayOrPause.textProperty().bind(menu_playOrPause.textProperty());  // 绑定右键菜单的文字
+        menuItem_PlayOrPause.setOnAction(e -> playOrPause());
+        menuItem_FullScreen.textProperty().bind(menu_fullScreen.textProperty());
         menuItem_FullScreen.setOnAction(e -> setFullScreen());
+        menuItem_PopUp.textProperty().bind(menu_popUp.textProperty());
         menuItem_PopUp.setOnAction(e -> setPopUp());
 
         menuItem2_About.setOnAction(e -> {
@@ -307,7 +315,6 @@ public class mainStage {
     // 应用加载事件
     public void loading(){
 
-
         createContextMenu();    // 创建右键菜单
         setConfiguration(); // 设置应用的颜色
 
@@ -399,12 +406,14 @@ public class mainStage {
                     musicPlayer.play();
 
             // 更改播放状态
-            isPlaying = btnControl.playOrPause(mediaPlayer, isPlaying, img_play, border_pane_volumeShow, on_screen_center_play, mediaName);
+            isPlaying = btnControl.playOrPause(mediaPlayer, isPlaying, img_play, border_pane_volumeShow, on_screen_center_play, mediaName, menu_playOrPause);
         }
     }
     // 设置停止播放
     public void mediaStop(){
 
+        mediaPlayer.pause();
+        System.out.println((int) mediaPlayer.getCurrentTime().toMillis());
         btn_play.requestFocus();    // 点按此按钮后 将焦点聚回 播放 按钮 以达到空格键播放和暂停
 
         // 若 mediaUrl 为空 则不执行任何语句
@@ -468,6 +477,7 @@ public class mainStage {
         // 更改播放的状态
         isPlaying = true;
         changeBtnPicture.changeBtnPicture("pause", img_play);
+        menu_playOrPause.setText("_Pause");
 
         volumeChange();   // 音量键调节事件
         volumeClicked();  // 音量键按下事件
@@ -667,16 +677,20 @@ public class mainStage {
 
     public void setPopUp(){
         Stage mainStage = (Stage) parentPane.getScene().getWindow();    // 获取 Stage 容器
+        if(isFullMode)
+            setFullScreen();
         if(isPopUp){
             mainStage.setAlwaysOnTop(false);
             menu_popUp.setText("Pop Up");
         }else{
-            isPopUp = true;
+            mainStage.setX(0);
+            mainStage.setY(0);
             menu_popUp.setText("Exit Pop Up");
             mainStage.setHeight(480);
             mainStage.setWidth(720);
             mainStage.setAlwaysOnTop(true);
         }
+        isPopUp = !isPopUp;
     }
 
     public void playRateHover(){
@@ -751,11 +765,6 @@ public class mainStage {
 
     // 关闭程序
     public void closeApp(){
-        if(mediaUrl != null) {
-            playOrPause();
-        }
-
-
         try{
             Class.forName("org.sqlite.JDBC");
 
@@ -769,8 +778,9 @@ public class mainStage {
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
-
-        System.out.println("Close");
+        if(mediaUrl != null) {
+            mediaStop();
+        }
         Platform.exit();
     }
 
