@@ -8,14 +8,14 @@
 **`项目问题`**
 
 ![Bugs](https://img.shields.io/github/issues/SeeChen/TermProject_MediaPlayer/bug?style=flat&color=ff0000&label=Bugs)
-![Optimize](https://img.shields.io/github/issues/SeeChen/TermProject_MediaPlayer/optimize?style=flat&color=FFF700&label=Optimize)
-![to do](https://img.shields.io/github/issues/SeeChen/TermProject_MediaPlayer/help%20wanted?style=flat&color=00FF2D&label=To%20be%20Developed)
+![Optimize](https://img.shields.io/github/issues/SeeChen/TermProject_MediaPlayer/optimize?style=flat&color=FFF700&label=待优化)
+![to do](https://img.shields.io/github/issues/SeeChen/TermProject_MediaPlayer/help%20wanted?style=flat&color=00FF2D&label=待开发)
 
 **`项目进度`**
 
-![pending](https://img.shields.io/github/issues-raw/SeeChen/TermProject_MediaPlayer/pending?style=social&color=ff0000&label=PENDING)&nbsp;&nbsp;&nbsp;&nbsp;
-![in progress](https://img.shields.io/github/issues-raw/SeeChen/TermProject_MediaPlayer/in%20progress?style=social&color=FFF700&label=IN%20PROGRESS)&nbsp;&nbsp;&nbsp;&nbsp;
-![finished](https://img.shields.io/github/issues-closed-raw/SeeChen/TermProject_MediaPlayer?style=social&color=00FF2D&label=FINISHED)
+![pending](https://img.shields.io/github/issues-raw/SeeChen/TermProject_MediaPlayer/pending?style=social&color=ff0000&label=待处理)&nbsp;&nbsp;&nbsp;&nbsp;
+![in progress](https://img.shields.io/github/issues-raw/SeeChen/TermProject_MediaPlayer/in%20progress?style=social&color=FFF700&label=处理中)&nbsp;&nbsp;&nbsp;&nbsp;
+![finished](https://img.shields.io/github/issues-closed-raw/SeeChen/TermProject_MediaPlayer?style=social&color=00FF2D&label=已完成)
 
 **`项目概览`**
 
