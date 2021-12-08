@@ -1,104 +1,104 @@
-# Development Schedule
+# 开发进度表
 ---
 ```
-Here is the development progress of this software
+这是这个软件的开发进度概览
 
-All Date Format follow [ YYYY - MM - DD ]
+所有的日期都遵循 [ YYYY - MM - DD ] 的格式
 ```
 
-- [Update Information](#update-information)
-- [Program overview](#program-overview)
+- [更新信息](#更新信息)
+- [进度概览](#进度概览)
 
-### Update Information
+### 更新信息
 **`2021 - 12 - 08`**
 ```
-1. Save the last used volume setting to avoid the need to readjust the volume the next time you open the file.
-2. You can adjust the theme color of the application now.
-3. Fixed that sometimes the space bar does not work.
+1. 将最后一次使用时的音量设置保存，避免下次使用的时候音量过大或过小。
+2. 现在可以调整应用的主题颜色了。
+3. 修复了空格键一些时候没有响应的问题。
 ```
 **`2021 - 12 - 06`**
 ```
-1. Create About Page.
-2. Create How to Use Page.
+1. 创建了关于的页面
+2. 创建了使用教程的页面
 ```
 **`2021 - 12 - 04`**
 ```
-1. Auto hide control bar and menu bar when playing media.
-2. Create right-click menu.
+1. 播放媒体文件的时候控制栏以及菜单栏可以自动隐藏啦。
+2. 创建了右键菜单的使用。
 ```
 **`2021 - 12 - 02`**
 ```
-1. Now you can double-click to full screen.
-2. Scrolling to adjust volume.
-3. Space key to Play or Pause media.
+1. 现在双击屏幕可以全屏播放噜。
+2. 滚动滑鼠滚轮可以直接调整音量啦。
+3. 空格键可以播放和暂停了。
 ```
 **`2021 - 12 - 01`**
 ```
-1. A computer with a 14-inch screen won’t have the problem of apps that are larger than the screen! 
-2. Fix the issue of full screen display.
-3. Added a button to adjust the playback rate.
-4. Media can now be replayed at the end of media playback.
+1. 屏幕 14 英寸以及以上的电脑不会在出现应用越界的问题啦。
+2. 修复了全屏播放时会出现的问题。
+3. 添加了一个可以调整播放速率的按钮了。
+4. 现在，你放完媒体文件后可以直接重播，不需要重新选择文件啦。
 ```
 **`2021 - 11 - 30`**
 ```
-1. Add the playing time display when playing the media file.
+1. 会显示当前的播放时间了，不需要再通过进度条来预估咯。
 ```
 **`2021 - 11 - 18`**
 ```
-1. Set the media player to always play at the top.
-2. You can play media files in full screen, using the full screen button or Ctrl + F hotkey.
+1. 可以使用这个播放器来摸鱼了哦，它可以保持在应用最上层了。
+2. 使用全屏按钮或快捷键 Crtl + F 来全屏播放你的媒体文件。
 ```
 **`2021 - 11 - 17`**
 ```
-1. Drag to the timeline to adjust the playback position.
+1. 可以拖动进度条调整播放的位置了。
 ```
 **`2021 - 11 - 16`**
 ```
-1. Files can be dragged and dropped to the media player for playback.
-2. Media player volume control.
-3. Media playback timeline track tracking.
+1. 现在可以直接拖动媒体文件到播放器播放。
+2. 播放器调整音量。
+3. 媒体在播放的时候可以查看进度了。
 ```
 **`2021 - 11 - 15`**
 ``` 
-1. Start Developer this Project.
-2. Complete the functions of play, stop, and pause.
-3. Use the select file dialog to open the media file you want to play.
+1. 开始开发此项目
+2. 完成了播放器基本的控制。
+3. 使用选择文件对话框打开要播放的媒体文件。
 ```
 
-### Program overview
+### 进度概览
 
 
 <details>
-   <summary> Complete Development </summary>
+   <summary> 已完成的开发 </summary>
 
  `The progress of the software has been developed`
 
 | DATE | CONTENT |REMARK|
 |:---:|:---:|:---:|
-|`2021 - 11 - 15`|Start Developer this Project||
-|`2021 - 11 - 15`|Complete the necessary functions of the player||
-|`2021 - 11 - 15`|Choose the file to open by system dialog||
-|`2021 - 11 - 16`|Play media by drag and drop||
-|`2021 - 11 - 16`|Volume control||
-|`2021 - 11 - 16`|Time track tracking during playback||
-|`2021 - 11 - 17`|Drag to adjust playback position||
-|`2021 - 11 - 18`|Pop Up function||
-|`2021 - 11 - 18`|Full screen function||
-|`2021 - 11 - 30`|Finished Development [issues #7](https://github.com/SeeChen/TermProject_MediaPlayer/issues/7)||
-|`2021 - 12 - 01`|Fixed [issues #6](https://github.com/SeeChen/TermProject_MediaPlayer/issues/6)||
-|`2021 - 12 - 01`|Fixed [issues #2](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)||
-|`2021 - 12 - 01`|Finished Development [issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)||
-|`2021 - 12 - 01`|Add replay function||
-|`2021 - 12 - 02`|Complete Function [issues #11](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)|New Bugs Found [issues #13](https://github.com/SeeChen/TermProject_MediaPlayer/issues/13)|
-|`2021 - 12 - 02`|Complete Function [issues #15](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)||
-|`2021 - 12 - 02`|Space to Play and pause||
-|`2021 - 12 - 04`|Finished Development [issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)||
-|`2021 - 12 - 04`|Create Right-Click menu||
-|`2021 - 12 - 06`|Create About page||
-|`2021 - 12 - 06`|Create How to Use page||
-|`2021 - 12 - 08`|Save volume settings||
-|`2021 - 12 - 08`|Adjust theme color||
-|`2021 - 12 - 08`|Fix Space bar Problem||
+|`2021 - 11 - 15`|开始开发此项目||
+|`2021 - 11 - 15`|完成播放器的必要功能||
+|`2021 - 11 - 15`|通过系统对话框选择要打开的文件||
+|`2021 - 11 - 16`|通过拖放播放媒体||
+|`2021 - 11 - 16`|音量调节||
+|`2021 - 11 - 16`|时间线追踪||
+|`2021 - 11 - 17`|拖动调整播放进度||
+|`2021 - 11 - 18`|始终显示在最上方||
+|`2021 - 11 - 18`|全屏功能||
+|`2021 - 11 - 30`|完成开发 [issues #7](https://github.com/SeeChen/TermProject_MediaPlayer/issues/7)||
+|`2021 - 12 - 01`|修复 [issues #6](https://github.com/SeeChen/TermProject_MediaPlayer/issues/6)||
+|`2021 - 12 - 01`|修复 [issues #2](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)||
+|`2021 - 12 - 01`|完成开发 [issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)||
+|`2021 - 12 - 01`|重播功能||
+|`2021 - 12 - 02`|完成功能 [issues #11](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)|New Bugs Found [issues #13](https://github.com/SeeChen/TermProject_MediaPlayer/issues/13)|
+|`2021 - 12 - 02`|完成功能 [issues #15](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)||
+|`2021 - 12 - 02`|空格键播放和暂停||
+|`2021 - 12 - 04`|完成开发 [issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)||
+|`2021 - 12 - 04`|右键菜单||
+|`2021 - 12 - 06`|创建关于页面||
+|`2021 - 12 - 06`|创建使用教程页面||
+|`2021 - 12 - 08`|保存音量设置||
+|`2021 - 12 - 08`|设置主题颜色||
+|`2021 - 12 - 08`|修复空格键问题||
 
 </details>
 
