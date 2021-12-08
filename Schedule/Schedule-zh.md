@@ -10,6 +10,10 @@
 - [进度概览](#进度概览)
 
 ### 更新信息
+**`2021 - 12 - 09`**
+```
+1. 修复有时候时间无法到最后一秒的问题。
+```
 **`2021 - 12 - 08`**
 ```
 1. 将最后一次使用时的音量设置保存，避免下次使用的时候音量过大或过小。
@@ -99,6 +103,7 @@
 |`2021 - 12 - 08`|保存音量设置||
 |`2021 - 12 - 08`|设置主题颜色||
 |`2021 - 12 - 08`|修复空格键问题||
+|`2021 - 12 - 09`|修复 [issues #12](https://github.com/SeeChen/TermProject_MediaPlayer/issues/12)||
 
 </details>
 
@@ -137,12 +142,12 @@
 | `2021 - 11 - 10`|有些视频没有画面只有声音，有些视频无法播放|[issues #1](https://github.com/SeeChen/TermProject_MediaPlayer/issues/1)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 |`2021 - 12 - 01`|使用 ESC 键关闭全屏后，下次进入全屏需要点击两次|[issues #2](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)|![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)|
 |`2021 - 12 - 01`|当用户屏幕较小的时候，初始显示会超出电脑屏幕|[issues #6](https://github.com/SeeChen/TermProject_MediaPlayer/issues/6)|![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)|
-|`2021 - 12 - 02`|有时播放完成后，时间显示还差一秒钟|[issues #12](https://github.com/SeeChen/TermProject_MediaPlayer/issues/12)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 |`2021 - 12 - 02`|双击屏幕的时候，会先暂停然后继续播放|[issues #13](https://github.com/SeeChen/TermProject_MediaPlayer/issues/13)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 |`2021 - 12 - 02`|双击屏幕全屏后，控件会被选中|[issues #16](https://github.com/SeeChen/TermProject_MediaPlayer/issues/16)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 |`2021 - 12 - 06`|音频在倍速播放的时候失真|[issues #18](https://github.com/SeeChen/TermProject_MediaPlayer/issues/18)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 |`2021 - 12 - 07`|在拖动进度条和音量条的时候，依然自动隐藏控制栏|[issues #19](https://github.com/SeeChen/TermProject_MediaPlayer/issues/19)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 |`2021 - 12 - 07`|暂停视频选择后，屏幕中间的播放按钮不会改变并隐藏|[issues #20](https://github.com/SeeChen/TermProject_MediaPlayer/issues/20)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
+|`2021 - 12 - 02`|有时播放完成后，时间显示还差一秒钟|[issues #12](https://github.com/SeeChen/TermProject_MediaPlayer/issues/12)|![Pending](https://img.shields.io/badge/FIXED-sussex?style=flat)|
 
  <!--要是你发现什么 bug 的话，也可以在下面写哟
 
