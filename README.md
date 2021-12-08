@@ -3,12 +3,30 @@
 ---
 <a href="https://github.com/SeeChen/TermProject_MediaPlayer/blob/main/LICENSE">![GitHub](https://img.shields.io/github/license/SeeChen/TermProject_MediaPlayer?color=1AA260&label=LICENSE)</a>
 <a href="https://gitter.im/SeeChen/TermProject_MediaPlayer" target="_blank">![GitHub](https://img.shields.io/badge/CHAT-GITTER-FF5CF7?style=flat&logo=gitter)</a>
+<a href="https://github.com/SeeChen/TermProject_MediaPlayer/blob/main/README-zh.md">![中文](https://img.shields.io/badge/-中文-gray?style=social&logo=googletranslate)</a>
 
-### 关于
-> - 2021 - 2022 北京理工大学第一学期 Java 程序设计课程结课作业
-> - 程序为基于 JavaFx 开发的视频播放器
-> - 运行环境为 [Windows JDK 1.8](https://www.oracle.com/java/technologies/downloads/#java8-windows)
-> - 部分效果使用 [JFoenix](https://github.com/sshahine/JFoenix) 完成
+**`Project Issues`**
+
+![Bugs](https://img.shields.io/github/issues/SeeChen/TermProject_MediaPlayer/bug?style=flat&color=ff0000&label=Bugs)
+![Optimize](https://img.shields.io/github/issues/SeeChen/TermProject_MediaPlayer/optimize?style=flat&color=FFF700&label=Optimize)
+![to do](https://img.shields.io/github/issues/SeeChen/TermProject_MediaPlayer/help%20wanted?style=flat&color=00FF2D&label=To%20be%20Developed)
+
+**`Project Process`**
+
+![pending](https://img.shields.io/github/issues-raw/SeeChen/TermProject_MediaPlayer/pending?style=social&color=ff0000&label=PENDING)&nbsp;&nbsp;&nbsp;&nbsp;
+![in progress](https://img.shields.io/github/issues-raw/SeeChen/TermProject_MediaPlayer/in%20progress?style=social&color=FFF700&label=IN%20PROGRESS)&nbsp;&nbsp;&nbsp;&nbsp;
+![finished](https://img.shields.io/github/issues-closed-raw/SeeChen/TermProject_MediaPlayer?style=social&color=00FF2D&label=FINISHED)
+
+**`Project Overview`**
+
+![repo size](https://img.shields.io/github/repo-size/SeeChen/TermProject_MediaPlayer?style=flat&label=Size&color=gray)
+![lines](https://img.shields.io/tokei/lines/github/SeeChen/TermProject_MediaPlayer?style=flat&label=Lines&color=gray)
+
+### About
+> - 2021-2022 Beijing Institute of Technology first semester Java programming course final assignment
+> - The program is a video player based on JavaFx
+> - The operating environment is [Windows JDK 1.8](https://www.oracle.com/java/technologies/downloads/#java8-windows)
+> - Part of the effect is done with [JFoenix](https://github.com/sshahine/JFoenix) 
 
 ### Group Member
 <a href="https://github.com/SeeChen/"><kbd><img src="https://avatars.githubusercontent.com/u/39422761?v=4" width="75" height="75"/></kbd></a>
@@ -16,4 +34,4 @@
 <a href="https://github.com/Leosta0807"><kbd><img src="https://avatars.githubusercontent.com/u/93914414?v=4" width="75" height="75"/></kbd></a>
 
 ### LICENSE
-> [MIT](https://github.com/SeeChen/TermProject_MediaPlayer/blob/main/LICENSE) @ SeeChen, LAU LE YE
+> [MIT](https://github.com/SeeChen/TermProject_MediaPlayer/blob/main/LICENSE) &copy; SeeChen, LAU LE YE
