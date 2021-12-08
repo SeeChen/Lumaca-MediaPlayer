@@ -14,6 +14,7 @@ All Date Format follow [ YYYY - MM - DD ]
 ```
 1. Save the last used volume setting to avoid the need to readjust the volume the next time you open the file.
 2. You can adjust the theme color of the application now.
+3. Fixed that sometimes the space bar does not work.
 ```
 **`2021 - 12 - 06`**
 ```
@@ -97,6 +98,7 @@ All Date Format follow [ YYYY - MM - DD ]
 |`2021 - 12 - 06`|Create How to Use page||
 |`2021 - 12 - 08`|Save volume settings||
 |`2021 - 12 - 08`|Adjust theme color||
+|`2021 - 12 - 08`|Fix Space bar Problem||
 
 </details>
 
