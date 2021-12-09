@@ -17,6 +17,8 @@
 ![in progress](https://img.shields.io/github/issues-raw/SeeChen/TermProject_MediaPlayer/in%20progress?style=social&color=FFF700&label=IN%20PROGRESS)&nbsp;&nbsp;&nbsp;&nbsp;
 ![finished](https://img.shields.io/github/issues-closed-raw/SeeChen/TermProject_MediaPlayer?style=social&color=00FF2D&label=FINISHED)
 
+[![schedule](https://img.shields.io/badge/-Project_Schedule-5D5D5D?style=flat&logo=googlecalendar)](https://github.com/SeeChen/TermProject_MediaPlayer/blob/main/Schedule/Schedule-en.md)
+
 **`Project Overview`**
 
 ![repo size](https://img.shields.io/github/repo-size/SeeChen/TermProject_MediaPlayer?style=flat&label=Size&color=gray)
