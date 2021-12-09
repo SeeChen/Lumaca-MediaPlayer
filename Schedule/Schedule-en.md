@@ -13,6 +13,7 @@ All Date Format follow [ YYYY - MM - DD ]
 **`2021 - 12 - 09`**
 ```
 1. Fix the time can't complete bug.
+2. Left and right keys can forward or backwrd five seconds.
 ```
 **`2021 - 12 - 08`**
 ```
@@ -103,7 +104,8 @@ All Date Format follow [ YYYY - MM - DD ]
 |`2021 - 12 - 08`|Save volume settings||
 |`2021 - 12 - 08`|Adjust theme color||
 |`2021 - 12 - 08`|Fix Space bar Problem||
-|`2021 - 12 - 09`||Fixed [issues #12](https://github.com/SeeChen/TermProject_MediaPlayer/issues/12)||
+|`2021 - 12 - 09`|Fixed [issues #12](https://github.com/SeeChen/TermProject_MediaPlayer/issues/12)||
+|`2021 - 12 - 09`|Key left and right to adjust media current time||
 
 </details>
 
