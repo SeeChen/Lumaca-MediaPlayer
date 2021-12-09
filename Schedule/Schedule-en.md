@@ -13,7 +13,7 @@ All Date Format follow [ YYYY - MM - DD ]
 **`2021 - 12 - 09`**
 ```
 1. Fix the time can't complete bug.
-2. Left and right keys can forward or backwrd five seconds.
+2. Left and right keys can forward or backward five seconds.
 ```
 **`2021 - 12 - 08`**
 ```
