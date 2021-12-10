@@ -112,6 +112,7 @@ All Date Format follow [ YYYY - MM - DD ]
 |`2021 - 12 - 08`|Fix Space bar Problem||
 |`2021 - 12 - 09`|Fixed [issues #12](https://github.com/SeeChen/TermProject_MediaPlayer/issues/12)||
 |`2021 - 12 - 09`|Key left and right to adjust media current time||
+|`2021 - 12 - 11`|Finished Development [issues #3](https://github.com/SeeChen/TermProject_MediaPlayer/issues/3)||
 
 </details>
 
@@ -123,20 +124,19 @@ All Date Format follow [ YYYY - MM - DD ]
 
 | DATE | CONTENT |REMARK|STATUS|
 |:---:|:--:|:---:|:---:|
-| `2021 - 12 - 08` |Record the history playing|[issues #3](https://github.com/SeeChen/TermProject_MediaPlayer/issues/3)|![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)|
 | `2021 - 11 - 20` |队列文件夹里的视频|[issues #4](https://github.com/SeeChen/TermProject_MediaPlayer/issues/4)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 | `2021 - 11 - 30` |时间条显示数字时间|[issues #7](https://github.com/SeeChen/TermProject_MediaPlayer/issues/7)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 01` |可调节播放速度|[issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 02` |双击全屏|[issues #11](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 02` |滑鼠滚轮调整音量|[issues #15](https://github.com/SeeChen/TermProject_MediaPlayer/issues/15)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 04` |全拼播放的时候自动隐藏控制栏|[issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)|![Pending](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
+| `2021 - 12 - 11` |Record the history playing|[issues #3](https://github.com/SeeChen/TermProject_MediaPlayer/issues/3)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 
- <!--在这里添加你想要的新功能，按照下面这样写
+<!-- Label for to developer -->
+<!--![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)--><!--complete the function development-->
+<!--![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)--><!--already know and wating to development-->
+<!--![Pending](https://img.shields.io/badge/PENDING-red?style=flat)--><!--new request-->
 
-| `2021 - MM - DD` | 你想要的功能 | (这里不用管) | ![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
-
-按照上面复制就可以了吖  (^・ω・^ )-->
-   
 </details>
 
 
@@ -157,11 +157,10 @@ All Date Format follow [ YYYY - MM - DD ]
 |`2021 - 12 - 07`|暂停视频选择后，屏幕中间的播放按钮不会改变并隐藏|[issues #20](https://github.com/SeeChen/TermProject_MediaPlayer/issues/20)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 |`2021 - 12 - 09`|有时播放完成后，时间显示还差一秒钟|[issues #12](https://github.com/SeeChen/TermProject_MediaPlayer/issues/12)|![Pending](https://img.shields.io/badge/FIXED-sussex?style=flat)|
 
- <!--要是你发现什么 bug 的话，也可以在下面写哟
-
-| `2021 - MM - DD` | 发现的 bug | (这里不用管) | ![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
-
-按照上面复制就可以了吖   (⁎˃ᆺ˂)-->  
+<!-- Label for bugs -->
+<!--![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)--><!--bug fixed-->
+<!--![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)--><!--bugs watting to fix-->
+<!--![Pending](https://img.shields.io/badge/PENDING-red?style=flat)--><!--new bugs report-->
  
 </details>
 
@@ -175,20 +174,11 @@ All Date Format follow [ YYYY - MM - DD ]
 |:---:|:--:|:---:|:---:|
 |`2021 - 12 - 06`|播放媒体时占用内存过高|[issues #17](https://github.com/SeeChen/TermProject_MediaPlayer/issues/17)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 |`2021 - 12 - 08`|打开关于和教程的时候，整个应用会卡顿|[issues #21](https://github.com/SeeChen/TermProject_MediaPlayer/issues/21)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
-   
-</details>
-
-<!-- Label for to developer -->
-<!--![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)--><!--complete the function development-->
-<!--![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)--><!--already know and wating to development-->
-<!--![Pending](https://img.shields.io/badge/PENDING-red?style=flat)--><!--new request-->
-
-<!-- Label for bugs -->
-<!--![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)--><!--bug fixed-->
-<!--![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)--><!--bugs watting to fix-->
-<!--![Pending](https://img.shields.io/badge/PENDING-red?style=flat)--><!--new bugs report-->
 
 <!-- Label for optimizing -->
 <!--![Optimized](https://img.shields.io/badge/OPTIMIZED-sussex?style=flat)--><!--already optimized-->
 <!--![Optimizing](https://img.shields.io/badge/OPTIMIZING-yellow?style=flat)--><!--Optimizing-->
 <!--![Pending](https://img.shields.io/badge/PENDING-red?style=flat)--><!--new issues found-->
+
+
+</details>
