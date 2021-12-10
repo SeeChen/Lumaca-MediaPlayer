@@ -124,13 +124,13 @@ All Date Format follow [ YYYY - MM - DD ]
 
 | DATE | CONTENT |REMARK|STATUS|
 |:---:|:--:|:---:|:---:|
-| `2021 - 11 - 20` |队列文件夹里的视频|[issues #4](https://github.com/SeeChen/TermProject_MediaPlayer/issues/4)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
-| `2021 - 11 - 30` |时间条显示数字时间|[issues #7](https://github.com/SeeChen/TermProject_MediaPlayer/issues/7)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
-| `2021 - 12 - 01` |可调节播放速度|[issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
-| `2021 - 12 - 02` |双击全屏|[issues #11](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
-| `2021 - 12 - 02` |滑鼠滚轮调整音量|[issues #15](https://github.com/SeeChen/TermProject_MediaPlayer/issues/15)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
-| `2021 - 12 - 04` |全拼播放的时候自动隐藏控制栏|[issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)|![Pending](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
+| `2021 - 11 - 30` |Time bar shows digital time|[issues #7](https://github.com/SeeChen/TermProject_MediaPlayer/issues/7)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
+| `2021 - 12 - 01` |Adjustable playback speed|[issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
+| `2021 - 12 - 02` |Double click full screen|[issues #11](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
+| `2021 - 12 - 02` |Mouse wheel to adjust volume|[issues #15](https://github.com/SeeChen/TermProject_MediaPlayer/issues/15)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
+| `2021 - 12 - 04` |Automatically hide the control bar when playing  media|[issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)|![Pending](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 11` |Record the history playing|[issues #3](https://github.com/SeeChen/TermProject_MediaPlayer/issues/3)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
+| `2021 - 12 - 11` |Queue multiple media|[issues #4](https://github.com/SeeChen/TermProject_MediaPlayer/issues/4)|![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)|
 
 <!-- Label for to developer -->
 <!--![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)--><!--complete the function development-->
@@ -147,15 +147,15 @@ All Date Format follow [ YYYY - MM - DD ]
 
 | DATE | CONTENT |REMARK|STATUS|
 |:---:|:--:|:---:|:---:|
-| `2021 - 11 - 10`|有些视频没有画面只有声音，有些视频无法播放|[issues #1](https://github.com/SeeChen/TermProject_MediaPlayer/issues/1)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
-|`2021 - 12 - 01`|使用 ESC 键关闭全屏后，下次进入全屏需要点击两次|[issues #2](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)|![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)|
-|`2021 - 12 - 01`|当用户屏幕较小的时候，初始显示会超出电脑屏幕|[issues #6](https://github.com/SeeChen/TermProject_MediaPlayer/issues/6)|![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)|
-|`2021 - 12 - 02`|双击屏幕的时候，会先暂停然后继续播放|[issues #13](https://github.com/SeeChen/TermProject_MediaPlayer/issues/13)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
-|`2021 - 12 - 02`|双击屏幕全屏后，控件会被选中|[issues #16](https://github.com/SeeChen/TermProject_MediaPlayer/issues/16)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
-|`2021 - 12 - 06`|音频在倍速播放的时候失真|[issues #18](https://github.com/SeeChen/TermProject_MediaPlayer/issues/18)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
-|`2021 - 12 - 07`|在拖动进度条和音量条的时候，依然自动隐藏控制栏|[issues #19](https://github.com/SeeChen/TermProject_MediaPlayer/issues/19)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
-|`2021 - 12 - 07`|暂停视频选择后，屏幕中间的播放按钮不会改变并隐藏|[issues #20](https://github.com/SeeChen/TermProject_MediaPlayer/issues/20)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
-|`2021 - 12 - 09`|有时播放完成后，时间显示还差一秒钟|[issues #12](https://github.com/SeeChen/TermProject_MediaPlayer/issues/12)|![Pending](https://img.shields.io/badge/FIXED-sussex?style=flat)|
+| `2021 - 11 - 10`|Some videos have no picture and only sound, and some videos cannot be played|[issues #1](https://github.com/SeeChen/TermProject_MediaPlayer/issues/1)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
+|`2021 - 12 - 01`|After using the ESC key to close the full screen, you need to press twice to enter the full screen next time|[issues #2](https://github.com/SeeChen/TermProject_MediaPlayer/issues/2)|![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)|
+|`2021 - 12 - 01`|When the user's screen is small, the initial display will exceed the computer screen|[issues #6](https://github.com/SeeChen/TermProject_MediaPlayer/issues/6)|![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)|
+|`2021 - 12 - 02`|When you double-tap the screen, it will pause and then resume playback|[issues #13](https://github.com/SeeChen/TermProject_MediaPlayer/issues/13)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
+|`2021 - 12 - 02`|After double-clicking the screen to full screen, the control will be selected|[issues #16](https://github.com/SeeChen/TermProject_MediaPlayer/issues/16)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
+|`2021 - 12 - 06`|Audio is distorted when playing at double speed|[issues #18](https://github.com/SeeChen/TermProject_MediaPlayer/issues/18)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
+|`2021 - 12 - 07`|When dragging the progress bar and volume bar, the control bar is still automatically hidden|[issues #19](https://github.com/SeeChen/TermProject_MediaPlayer/issues/19)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
+|`2021 - 12 - 07`|After pausing to video selection, the play button in the middle of the screen will not change and hide|[issues #20](https://github.com/SeeChen/TermProject_MediaPlayer/issues/20)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
+|`2021 - 12 - 09`|Sometimes after the playback is complete, the time display is still one second away|[issues #12](https://github.com/SeeChen/TermProject_MediaPlayer/issues/12)|![Pending](https://img.shields.io/badge/FIXED-sussex?style=flat)|
 
 <!-- Label for bugs -->
 <!--![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)--><!--bug fixed-->
@@ -172,8 +172,8 @@ All Date Format follow [ YYYY - MM - DD ]
    
 | DATE | CONTENT |REMARK|STATUS|
 |:---:|:--:|:---:|:---:|
-|`2021 - 12 - 06`|播放媒体时占用内存过高|[issues #17](https://github.com/SeeChen/TermProject_MediaPlayer/issues/17)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
-|`2021 - 12 - 08`|打开关于和教程的时候，整个应用会卡顿|[issues #21](https://github.com/SeeChen/TermProject_MediaPlayer/issues/21)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
+|`2021 - 12 - 06`|High memory usage when playing media|[issues #17](https://github.com/SeeChen/TermProject_MediaPlayer/issues/17)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
+|`2021 - 12 - 08`|When opening about and tutorials, the entire application hangs|[issues #21](https://github.com/SeeChen/TermProject_MediaPlayer/issues/21)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 
 <!-- Label for optimizing -->
 <!--![Optimized](https://img.shields.io/badge/OPTIMIZED-sussex?style=flat)--><!--already optimized-->

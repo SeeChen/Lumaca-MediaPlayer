@@ -124,13 +124,13 @@
 
 | 日期 | 内容 | 备注 | 状态 |
 |:---:|:--:|:---:|:---:|
-| `2021 - 11 - 20` |队列文件夹里的视频|[issues #4](https://github.com/SeeChen/TermProject_MediaPlayer/issues/4)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 | `2021 - 11 - 30` |时间条显示数字时间|[issues #7](https://github.com/SeeChen/TermProject_MediaPlayer/issues/7)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 01` |可调节播放速度|[issues #10](https://github.com/SeeChen/TermProject_MediaPlayer/issues/10)|![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 02` |双击全屏|[issues #11](https://github.com/SeeChen/TermProject_MediaPlayer/issues/11)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 02` |滑鼠滚轮调整音量|[issues #15](https://github.com/SeeChen/TermProject_MediaPlayer/issues/15)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 04` |全拼播放的时候自动隐藏控制栏|[issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)|![Pending](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 11` |记录历史播放|[issues #3](https://github.com/SeeChen/TermProject_MediaPlayer/issues/3)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
+| `2021 - 12 - 11` |队列文件夹里的视频|[issues #4](https://github.com/SeeChen/TermProject_MediaPlayer/issues/4)|![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)|
 
 <!-- Label for to developer -->
 <!--![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)--><!--complete the function development-->
