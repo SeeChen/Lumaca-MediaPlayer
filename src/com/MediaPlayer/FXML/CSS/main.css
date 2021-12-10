@@ -142,3 +142,13 @@
 .context-menu > * > .separator > .line{
 	-fx-border-color: rgba(255, 255, 255, 0.2);
 }
+
+#btn_closeHistory, #btn_delAllHistory{
+	-fx-border-radius: 10;
+	-fx-background-radius: 10;
+	-fx-border-color: #fff;
+	-fx-border-weight: 2;
+	-fx-font-size: 14pt;
+	-fx-font-family: "Bookman Old Style";
+	-fx-text-fill: #fff;
+}

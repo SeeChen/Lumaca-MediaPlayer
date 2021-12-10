@@ -10,6 +10,12 @@ All Date Format follow [ YYYY - MM - DD ]
 - [Program overview](#program-overview)
 
 ### Update Information
+**`2021 - 12 - 11`**
+```
+1. Added the history record, you can find the videos before you watched, and continue to watch from the before progress.
+2. When playing a video, if you have watched the video before, you will continue to watch it directly from the last time progress.
+3. If the last time it was end of watched, the video will be restart.
+```
 **`2021 - 12 - 09`**
 ```
 1. Fix the time can't complete bug.

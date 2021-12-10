@@ -4,14 +4,19 @@ import com.jfoenix.controls.JFXSlider;
 import javafx.scene.control.Label;
 
 public class scrollView {
-    public void volumeUp(JFXSlider volumeControl, Label volumeShow){
+    public double volumeUp(JFXSlider volumeControl, Label volumeShow){
         volumeControl.setValue(volumeControl.getValue() + 2);
         volumeShow.setText((int) volumeControl.getValue() + "%");
+        return volumeControl.getValue() + 2;
     }
-    public void volumeDown(JFXSlider volumeControl, Label volumeShow){
+    public double volumeDown(JFXSlider volumeControl, Label volumeShow, double currentVolume){
         volumeControl.setValue(volumeControl.getValue() - 2);
         if(volumeControl.getValue() == 0)
             volumeShow.setText("Mute");
-        else volumeShow.setText((int) volumeControl.getValue() + "%");
+        else {
+            volumeShow.setText((int) volumeControl.getValue() + "%");
+            return volumeControl.getValue() - 2;
+        }
+        return currentVolume;
     }
 }

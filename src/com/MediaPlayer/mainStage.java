@@ -28,6 +28,10 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.IOException;
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class mainStage {
@@ -142,6 +146,15 @@ public class mainStage {
         @FXML
         private ImageView img_rate;
 
+    @FXML
+    private AnchorPane historyAnchorPane;
+        @FXML
+        private VBox historyParent;
+        @FXML
+        private ScrollPane historyScroll;
+        @FXML
+        private JFXButton btn_delAllHistory;
+
     changeButtonPicture changeBtnPicture = new changeButtonPicture();
     getMediaType getMediaType = new getMediaType();
     btnControl btnControl = new btnControl();
@@ -149,28 +162,39 @@ public class mainStage {
     scrollView scrollView = new scrollView();
     loadAnother loadAnother = new loadAnother();
 
+    List<String> historyDate  = new ArrayList<>();
+    List<Integer> historyTime = new ArrayList<>();
+    List<String> historyUrl   = new ArrayList<>();
+    List<String> historyType  = new ArrayList<>();
+
+
     // ** Application Loading Event Start ** //
     // 创建应用的右键菜单
     private void createContextMenu(){
         contextMenu = new ContextMenu();    // 创建右键菜单
 
         // 设置菜单的文字
-        MenuItem menuItem_Open       = new MenuItem("Open");
+        MenuItem menuItem_Open        = new MenuItem("Open");
+        MenuItem menuItem_History     = new MenuItem("History");
         MenuItem menuItem_PlayOrPause = new MenuItem("Play");
-        MenuItem menuItem_FullScreen = new MenuItem("Full Screen Mode");
-        MenuItem menuItem_PopUp      = new MenuItem("Pop Up");
-        Menu menu_Help               = new Menu("Help");
-            MenuItem menuItem2_About    = new MenuItem("About");
-            MenuItem menuItem2_Use      = new MenuItem("How to Use");
-        Menu menu_Settings           = new Menu("Settings");
+        Menu menu_View                = new Menu("View");
+            MenuItem menuItem2_FullScreen  = new MenuItem("Full Screen Mode");
+            MenuItem menuItem2_PopUp       = new MenuItem("Pop Up");
+        Menu menu_Help                = new Menu("Help");
+            MenuItem menuItem2_About      = new MenuItem("About");
+            MenuItem menuItem2_Use        = new MenuItem("How to Use");
+        Menu menu_Settings            = new Menu("Settings");
             MenuItem menuItem2_Theme    = new MenuItem("Theme");
-        MenuItem menuItem_Exit       = new MenuItem("Exit");
+        MenuItem menuItem_Exit        = new MenuItem("Exit");
 
         // 设置菜单的快捷键
         menuItem_Open.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN));
+        menuItem_History.setAccelerator(new KeyCodeCombination(KeyCode.H, KeyCombination.CONTROL_DOWN));
         menuItem_PlayOrPause.setAccelerator(new KeyCodeCombination(KeyCode.SPACE));
-        menuItem_FullScreen.setAccelerator(new KeyCodeCombination(KeyCode.F, KeyCombination.CONTROL_DOWN));
-        menuItem_PopUp.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.ALT_DOWN));
+
+        menuItem2_FullScreen.setAccelerator(new KeyCodeCombination(KeyCode.F, KeyCombination.CONTROL_DOWN));
+        menuItem2_PopUp.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.ALT_DOWN));
+
         menuItem_Exit.setAccelerator(new KeyCodeCombination(KeyCode.F4, KeyCombination.ALT_DOWN));
 
         menuItem2_About.setAccelerator(new KeyCodeCombination(KeyCode.A, KeyCombination.CONTROL_DOWN));
@@ -178,25 +202,29 @@ public class mainStage {
 
         menuItem2_Theme.setAccelerator(new KeyCodeCombination(KeyCode.T, KeyCombination.CONTROL_DOWN));
 
+        menu_View.getItems().addAll(menuItem2_FullScreen, menuItem2_PopUp);
         menu_Help.getItems().addAll(menuItem2_About, menuItem2_Use);
         menu_Settings.getItems().addAll(menuItem2_Theme);
 
-        contextMenu.getItems().addAll(menuItem_Open, menuItem_PlayOrPause, menuItem_FullScreen, menuItem_PopUp, menu_Settings, menu_Help, menuItem_Exit);
+        contextMenu.getItems().addAll(menuItem_Open, menuItem_History, menuItem_PlayOrPause, menu_View, menu_Settings, menu_Help, menuItem_Exit);
 
         // 添加分割线
         SeparatorMenuItem br1 = new SeparatorMenuItem();
         SeparatorMenuItem br2 = new SeparatorMenuItem();
-        contextMenu.getItems().add(4, br1);
-        contextMenu.getItems().add(7, br2);
+        SeparatorMenuItem br3 = new SeparatorMenuItem();
+        contextMenu.getItems().add(3, br1);
+        contextMenu.getItems().add(5, br2);
+        contextMenu.getItems().add(8, br3);
 
         // 设置右键菜单的点击事件
         menuItem_Open.setOnAction(e -> openFile());
         menuItem_PlayOrPause.textProperty().bind(menu_playOrPause.textProperty());  // 绑定右键菜单的文字
         menuItem_PlayOrPause.setOnAction(e -> playOrPause());
-        menuItem_FullScreen.textProperty().bind(menu_fullScreen.textProperty());
-        menuItem_FullScreen.setOnAction(e -> setFullScreen());
-        menuItem_PopUp.textProperty().bind(menu_popUp.textProperty());
-        menuItem_PopUp.setOnAction(e -> setPopUp());
+        menuItem_History.setOnAction(e -> showHistory());
+        menuItem2_FullScreen.textProperty().bind(menu_fullScreen.textProperty());
+        menuItem2_FullScreen.setOnAction(e -> setFullScreen());
+        menuItem2_PopUp.textProperty().bind(menu_popUp.textProperty());
+        menuItem2_PopUp.setOnAction(e -> setPopUp());
 
         menuItem2_About.setOnAction(e -> {
             try {
@@ -270,8 +298,9 @@ public class mainStage {
                 contextMenu.setStyle(backgroundStyle);
                 speed_list.setStyle(backgroundStyle);
                 volumnControl.setStyle(backgroundStyle);
+                historyAnchorPane.setStyle("-fx-background-color: rgba(" + color.getInt("red") + "," + color.getInt("green") + "," + color.getInt("blue") + ", 0.8);");
+                historyParent.setStyle("-fx-background-color: rgba(" + color.getInt("red") + "," + color.getInt("green") + "," + color.getInt("blue") + ", 0.8);");
             }
-
             ResultSet volume = statement.executeQuery("select * from volume");
             while(volume.next()){
                 currentVolume = volume.getInt("value");
@@ -300,6 +329,8 @@ public class mainStage {
                 control_bar.setStyle("-fx-background-color: rgba(59, 200, 255, 0.5);");
                 contextMenu.setStyle("-fx-background-color: rgba(59, 200, 255, 0.5);");
                 speed_list.setStyle("-fx-background-color: rgba(59, 200, 255, 0.5);");
+                historyAnchorPane.setStyle("-fx-background-color: rgba(59, 200, 255, 0.8);");
+                historyParent.setStyle("-fx-background-color: rgba(59, 200, 255, 0.8);");
 
                 // 配置音量
                 statement.execute("create table volume(volume text, value integer)");
@@ -312,11 +343,55 @@ public class mainStage {
         }
     }
 
+    private void getHistory(){
+        try{
+            Class.forName("org.sqlite.JDBC");
+
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:./History.db");
+            Statement statement = connection.createStatement();
+
+            ResultSet history = statement.executeQuery("select * from history");
+
+            while(history.next()){
+                historyDate.add(history.getString("date"));
+                historyTime.add(history.getInt("duration"));
+                historyUrl.add(history.getString("url"));
+                historyType.add(history.getString("type"));
+                System.out.println(history.getString("date"));
+                System.out.println(history.getInt("duration"));
+                System.out.println(history.getString("url"));
+                System.out.println(history.getString("type"));
+                System.out.println("-----------------------------");
+            }
+
+
+            connection.close();
+            statement.close();
+            history.close();
+        } catch (SQLException | ClassNotFoundException throwables) {
+            try{
+                // 设置历史表
+                Connection connection = DriverManager.getConnection("jdbc:sqlite:./History.db");
+
+                Statement statement = connection.createStatement();
+
+                statement.execute("create table history(date text, duration integer, url text, type text)");
+
+                connection.close();
+                statement.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     // 应用加载事件
     public void loading(){
 
         createContextMenu();    // 创建右键菜单
         setConfiguration(); // 设置应用的颜色
+        new Thread(this::getHistory).start();   // 加载历史记录
 
         // 初始化按钮图片
         String voluImg = "volu";
@@ -380,6 +455,33 @@ public class mainStage {
     }
     // ** Media Player End ** //
 
+    public void durationJump(String x){
+        if(mediaUrl == null)
+            return;
+        isTrackDuration = false;
+        int currentTime = (int) mediaPlayer.getCurrentTime().toMillis();
+        int totalTime = (int) mediaPlayer.getTotalDuration().toMillis();
+        int seekTime;
+        if(x.equals("+")){
+            if(currentTime > totalTime - 5000)
+                seekTime = totalTime;
+            else
+                seekTime = currentTime + 5000;
+        }else{
+            if(currentTime < 5000)
+                seekTime = 0;
+            else
+                seekTime = currentTime - 5000;
+        }
+        if(isToReplay) {
+            on_screen_center_play.setVisible(false);
+            isToReplay = false;
+            mediaDuration.setDisable(false);
+        }
+        mediaPlayer.seek(new Duration(seekTime));
+        isTrackDuration = true;
+    }
+
     // ** Control Event Start ** //
     // 设置播放或暂停视频
     public void playOrPause(){
@@ -409,16 +511,186 @@ public class mainStage {
             isPlaying = btnControl.playOrPause(mediaPlayer, isPlaying, img_play, border_pane_volumeShow, on_screen_center_play, mediaName, menu_playOrPause);
         }
     }
+    private void updateHistory(){
+        int index = historyUrl.indexOf(mediaUrl);
+        historyType.remove(index);
+        historyTime.remove(index);
+        historyDate.remove(index);
+        historyUrl.remove(index);
+        try{
+            Class.forName("org.sqlite.JDBC");
+
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:./History.db");
+            Statement statement = connection.createStatement();
+
+            statement.executeUpdate("delete from history where url = '" + mediaUrl + "'");
+
+            connection.close();
+            statement.close();
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        addNewHistory();
+    }
+    private void addNewHistory(){
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentDate = dateFormat.format(date);
+        try{
+            Class.forName("org.sqlite.JDBC");
+
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:./History.db");
+            Statement statement = connection.createStatement();
+
+            statement.executeUpdate("insert into history(date, duration, url, type) values ('" + currentDate + "'," + (int) mediaPlayer.getCurrentTime().toMillis() + ",'" + mediaUrl + "','" + getMediaType.getType(mediaUrl) +"')");
+            historyUrl.add(mediaUrl);
+            historyDate.add(currentDate);
+            historyTime.add((int) mediaPlayer.getCurrentTime().toMillis());
+            historyType.add(getMediaType.getType(mediaUrl));
+
+            connection.close();
+            statement.close();
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public void historyOnClick(String url, int toSeek){
+        mediaStop();
+        mediaUrl = url;
+        File tempFile = new File(mediaUrl);
+        fileName = tempFile.getName();
+        fileName = fileName.replaceAll("%20", " ");
+        closeHistory();
+        playMedia(toSeek);
+    }
+
+    public void delHistoryClick(String delUrl, BorderPane borderPane){
+        historyParent.getChildren().remove(borderPane);
+        if(historyUrl.contains(delUrl)){
+            int index = historyUrl.indexOf(delUrl);
+            historyType.remove(index);
+            historyTime.remove(index);
+            historyDate.remove(index);
+            historyUrl.remove(index);
+            delDataBase(" where url = '" + delUrl + "'");
+        }
+    }
+
+    public void delAllHistory(){
+        historyUrl.clear();
+        historyTime.clear();
+        historyType.clear();
+        historyDate.clear();
+        btn_delAllHistory.setVisible(false);
+        historyParent.getChildren().remove(0, historyParent.getChildren().size());
+        delDataBase("");
+    }
+
+    public void delDataBase(String where){
+        try{
+            Class.forName("org.sqlite.JDBC");
+
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:./History.db");
+            Statement statement = connection.createStatement();
+
+            statement.executeUpdate("delete from history" + where);
+
+            connection.close();
+            statement.close();
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public void showHistory(){
+        new Thread(() -> Platform.runLater(() -> {
+            if(historyUrl.size() > 0)
+                btn_delAllHistory.setVisible(true);
+            if(historyParent.getChildren().size() > 0) {
+                historyParent.getChildren().remove(0, historyParent.getChildren().size());
+            }
+            for(int i = historyUrl.size() - 1; i >= 0; i--){
+                BorderPane borderPane = new BorderPane();
+                Label showDate = new Label(historyDate.get(i));
+                showDate.setPrefHeight(50);
+                showDate.setStyle("-fx-text-fill: #fff;");
+
+                String displayTime = timeConvert.secondToTime(historyTime.get(i) / 1000);
+                Label showTime = new Label(displayTime);
+                Label showType = new Label(historyType.get(i));
+                showTime.setPrefHeight(50);showTime.setPrefWidth(75);
+                showType.setPrefHeight(50);showType.setPrefWidth(50);
+                showTime.setStyle("-fx-text-fill: #fff;");
+                showType.setStyle("-fx-text-fill: #fff;");
+                BorderPane timeAndType = new BorderPane();
+                timeAndType.setLeft(showTime);
+                timeAndType.setRight(showType);
+
+                Label showUrl  = new Label(historyUrl.get(i).replaceAll("%20", " "));
+                showUrl.setPrefHeight(50);
+                showUrl.setStyle("-fx-text-fill: #fff;-fx-padding: 20;");
+                BorderPane showUrlBorder = new BorderPane();
+                showUrlBorder.setTop(showUrl);
+                BorderPane centerArea = new BorderPane();
+                centerArea.setCenter(showUrlBorder);
+                centerArea.setRight(timeAndType);
+
+                Label realTime = new Label(historyTime.get(i).toString());
+                Label realUrl  = new Label(historyUrl.get(i));
+                realUrl.setVisible(false);
+                realTime.setVisible(false);
+
+                ImageView playHistory = new ImageView();
+                ImageView delHistory  = new ImageView();
+                playHistory.setFitHeight(50);playHistory.setFitWidth(50);
+                delHistory.setFitHeight(50);delHistory.setFitWidth(50);
+                changeBtnPicture.changeBtnPicture("play", playHistory);
+                changeBtnPicture.changeBtnPicture("Delete", delHistory);
+                BorderPane buttonArea = new BorderPane();
+                buttonArea.setLeft(playHistory);
+                buttonArea.setRight(delHistory);
+
+                playHistory.setOnMouseClicked(e -> historyOnClick(realUrl.getText(), Integer.parseInt(realTime.getText())));
+                delHistory.setOnMouseClicked(e -> delHistoryClick(realUrl.getText(), borderPane));
+
+                borderPane.setLeft(showDate);
+                borderPane.setRight(buttonArea);
+                borderPane.setCenter(centerArea);
+
+                borderPane.setPrefHeight(100);
+                borderPane.prefWidthProperty().bind(parentPane.getScene().widthProperty());
+
+                historyParent.getChildren().add(borderPane);
+            }
+        })).start();
+
+        historyScroll.setContent(historyParent);
+        historyAnchorPane.setVisible(true);
+    }
+
+    public void closeHistory(){
+        historyAnchorPane.setVisible(false);
+        btn_delAllHistory.setVisible(false);
+    }
     // 设置停止播放
     public void mediaStop(){
 
-        mediaPlayer.pause();
-        System.out.println((int) mediaPlayer.getCurrentTime().toMillis());
         btn_play.requestFocus();    // 点按此按钮后 将焦点聚回 播放 按钮 以达到空格键播放和暂停
 
         // 若 mediaUrl 为空 则不执行任何语句
         if(mediaUrl == null)
             return;
+
+        mediaPlayer.pause();
+
+        if(historyUrl.contains(mediaUrl)){
+            System.out.println("yes");
+            updateHistory();
+        }else{
+            System.out.println("no");
+            addNewHistory();
+        }
 
         mediaName.setText("");  // 将显示当前播放的 Label 清空
 
@@ -446,16 +718,16 @@ public class mainStage {
     // ** Control Event End ** //
 
     public void volumeUp(){
-        scrollView.volumeUp(volumnControl, volumeShow);
+        currentVolume = scrollView.volumeUp(volumnControl, volumeShow);
     }
     public void volumeDown(){
         volumeShow.setVisible(true);
         border_pane_volumeShow.setVisible(true);
-        scrollView.volumeDown(volumnControl, volumeShow);
+        currentVolume = scrollView.volumeDown(volumnControl, volumeShow, currentVolume);
     }
 
     // 媒体播放事件
-    private void playMedia(){
+    private void playMedia(int toSeek){
         mediaPlayer.stop();
 
         if(isMusicPlay) {
@@ -494,7 +766,11 @@ public class mainStage {
         volumeHover();
         border_pane_media_player.setStyle("-fx-background-color: black;");
 
-        mediaPlayer.setOnReady(this::mediaPlayerReady);  // 设置 onready 事件
+        mediaPlayer.setOnReady(() -> {
+            mediaPlayerReady();
+            if(toSeek != -1)
+                mediaPlayer.seek(new Duration(toSeek));
+        });  // 设置 onready 事件
         mediaPlayer.setOnEndOfMedia(() -> {
             changeBtnPicture.changeBtnPicture("replay", img_play);
             changeBtnPicture.changeBtnPicture("replay", on_screen_center_play);
@@ -504,6 +780,7 @@ public class mainStage {
 
             isToReplay = !isToReplay;
             isPlaying = !isPlaying;
+            current_time.setText(total_time.getText());
             mediaDuration.setDisable(true);
 
             if(isMusicPlay)
@@ -636,8 +913,11 @@ public class mainStage {
             mediaStop();
 
         mediaUrl = file.toURI().toString();  // 将文件转换为字符串路径
+        int setSeek = -1;
+        if(historyUrl.contains(mediaUrl))
+            setSeek = historyTime.get(historyUrl.indexOf(mediaUrl));
 
-        playMedia();    //播放媒体
+        playMedia(setSeek);    //播放媒体
     }
 
     // 设置拖拽打开文件
@@ -656,7 +936,10 @@ public class mainStage {
             File fileDrop = dragboard.getFiles().get(0);
             fileName = fileDrop.getName();
             mediaUrl = fileDrop.toURI().toString();
-            playMedia();
+            int setSeek = -1;
+            if(historyUrl.contains(mediaUrl))
+                setSeek = historyTime.get(historyUrl.indexOf(mediaUrl));
+            playMedia(setSeek);
         }
     }
 

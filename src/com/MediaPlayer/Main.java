@@ -39,6 +39,12 @@ public class Main extends Application {
                 case ESCAPE:
                     controller.setFullScreen();
                     break;
+                case RIGHT:
+                    controller.durationJump("+");
+                    break;
+                case LEFT:
+                    controller.durationJump("-");
+                    break;
             }
         });
 
