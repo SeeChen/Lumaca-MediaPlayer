@@ -74,6 +74,9 @@ public class mainStage {
         // 顶部菜单栏元素
         @FXML
         MenuBar menu_bar;
+        // Open 子菜单
+            @FXML
+            MenuItem menu_PlayList;
         //  View 子菜单
             @FXML
             MenuItem menu_playOrPause;
@@ -191,6 +194,7 @@ public class mainStage {
 
         // 设置菜单的文字
         MenuItem menuItem_Open        = new MenuItem("Open");
+        MenuItem menuItem_PlayList    = new MenuItem("Play List");
         MenuItem menuItem_History     = new MenuItem("History");
         MenuItem menuItem_PlayOrPause = new MenuItem("Play");
         Menu menu_View                = new Menu("View");
@@ -205,6 +209,7 @@ public class mainStage {
 
         // 设置菜单的快捷键
         menuItem_Open.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN));
+        menuItem_PlayList.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.CONTROL_DOWN));
         menuItem_History.setAccelerator(new KeyCodeCombination(KeyCode.H, KeyCombination.CONTROL_DOWN));
         menuItem_PlayOrPause.setAccelerator(new KeyCodeCombination(KeyCode.SPACE));
 
@@ -222,20 +227,22 @@ public class mainStage {
         menu_Help.getItems().addAll(menuItem2_About, menuItem2_Use);
         menu_Settings.getItems().addAll(menuItem2_Theme);
 
-        contextMenu.getItems().addAll(menuItem_Open, menuItem_History, menuItem_PlayOrPause, menu_View, menu_Settings, menu_Help, menuItem_Exit);
+        contextMenu.getItems().addAll(menuItem_Open, menuItem_PlayList, menuItem_History, menuItem_PlayOrPause, menu_View, menu_Settings, menu_Help, menuItem_Exit);
 
         // 添加分割线
         SeparatorMenuItem br1 = new SeparatorMenuItem();
         SeparatorMenuItem br2 = new SeparatorMenuItem();
         SeparatorMenuItem br3 = new SeparatorMenuItem();
-        contextMenu.getItems().add(3, br1);
-        contextMenu.getItems().add(5, br2);
-        contextMenu.getItems().add(8, br3);
+        contextMenu.getItems().add(4, br1);
+        contextMenu.getItems().add(6, br2);
+        contextMenu.getItems().add(9, br3);
 
         // 设置右键菜单的点击事件
         menuItem_Open.setOnAction(e -> openFile());
         menuItem_PlayOrPause.textProperty().bind(menu_playOrPause.textProperty());  // 绑定右键菜单的文字
         menuItem_PlayOrPause.setOnAction(e -> playOrPause());
+        menuItem_PlayList.setOnAction(e -> displayArrayList());
+        menuItem_PlayList.disableProperty().bind(menu_PlayList.disableProperty());
         menuItem_History.setOnAction(e -> showHistory());
         menuItem2_FullScreen.textProperty().bind(menu_fullScreen.textProperty());
         menuItem2_FullScreen.setOnAction(e -> setFullScreen());
@@ -960,6 +967,7 @@ public class mainStage {
             }
         })).start();
         mediaArrayScroll.setContent(mediaArrayList);
+        menu_PlayList.setDisable(false);
     }
 
     public void arrayListClick(int index){

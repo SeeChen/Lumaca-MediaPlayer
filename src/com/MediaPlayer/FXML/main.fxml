@@ -26,9 +26,10 @@
         <MenuBar fx:id="menu_bar" layoutX="14.0" layoutY="-2.0" prefHeight="45.0" prefWidth="1080.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <!-- 菜单 File
                 子级元素：
-                    Open    ->  打开电脑里的媒体文件
-                    History ->  打开历史记录
-                    Exit    ->  关闭此应用
+                    Open      ->  打开电脑里的媒体文件
+                    Play List ->    打开播放列表
+                    History   ->  打开历史记录
+                    Exit      ->  关闭此应用
             -->
             <menus>
                 <Menu mnemonicParsing="false" text="_File">
@@ -38,6 +39,14 @@
                             <accelerator>
                                 <!-- 设置 Open 的快捷键为 Crtl + O -->
                                 <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+
+                        <!-- 子级菜单 Play List -->
+                        <MenuItem fx:id="menu_PlayList" mnemonicParsing="true" text="_Play List" onAction="#displayArrayList" disable="true" >
+                            <accelerator>
+                                <!-- 设置 Play List 的快捷键为 Crtl + P -->
+                                <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                             </accelerator>
                         </MenuItem>
 
