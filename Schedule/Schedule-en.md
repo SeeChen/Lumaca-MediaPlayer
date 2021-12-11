@@ -155,9 +155,9 @@ All Date Format follow [ YYYY - MM - DD ]
 |`2021 - 12 - 02`|When you double-tap the screen, it will pause and then resume playback|[issues #13](https://github.com/SeeChen/TermProject_MediaPlayer/issues/13)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 |`2021 - 12 - 02`|After double-clicking the screen to full screen, the control will be selected|[issues #16](https://github.com/SeeChen/TermProject_MediaPlayer/issues/16)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 |`2021 - 12 - 06`|Audio is distorted when playing at double speed|[issues #18](https://github.com/SeeChen/TermProject_MediaPlayer/issues/18)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
-|`2021 - 12 - 07`|When dragging the progress bar and volume bar, the control bar is still automatically hidden|[issues #19](https://github.com/SeeChen/TermProject_MediaPlayer/issues/19)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 |`2021 - 12 - 07`|After pausing to video selection, the play button in the middle of the screen will not change and hide|[issues #20](https://github.com/SeeChen/TermProject_MediaPlayer/issues/20)|![Pending](https://img.shields.io/badge/PENDING-red?style=flat)|
 |`2021 - 12 - 09`|Sometimes after the playback is complete, the time display is still one second away|[issues #12](https://github.com/SeeChen/TermProject_MediaPlayer/issues/12)|![Pending](https://img.shields.io/badge/FIXED-sussex?style=flat)|
+|`2021 - 12 - 11`|When dragging the progress bar and volume bar, the control bar is still automatically hidden|[issues #19](https://github.com/SeeChen/TermProject_MediaPlayer/issues/19)|![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)|
 
 <!-- Label for bugs -->
 <!--![Fixed](https://img.shields.io/badge/FIXED-sussex?style=flat)--><!--bug fixed-->
