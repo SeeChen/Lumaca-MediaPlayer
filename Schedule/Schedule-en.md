@@ -15,6 +15,7 @@ All Date Format follow [ YYYY - MM - DD ]
 1. Added the history record, you can find the videos before you watched, and continue to watch from the before progress.
 2. When playing a video, if you have watched the video before, you will continue to watch it directly from the last time progress.
 3. If the last time it was end of watched, the video will be restart.
+4. Multiple media files can be listed, and the next media file will be played automatically when the current media ends.
 ```
 **`2021 - 12 - 09`**
 ```
@@ -113,6 +114,7 @@ All Date Format follow [ YYYY - MM - DD ]
 |`2021 - 12 - 09`|Fixed [issues #12](https://github.com/SeeChen/TermProject_MediaPlayer/issues/12)||
 |`2021 - 12 - 09`|Key left and right to adjust media current time||
 |`2021 - 12 - 11`|Finished Development [issues #3](https://github.com/SeeChen/TermProject_MediaPlayer/issues/3)||
+|`2021 - 12 - 11`|Finished Development [issues #4](https://github.com/SeeChen/TermProject_MediaPlayer/issues/4)||
 
 </details>
 
@@ -130,10 +132,10 @@ All Date Format follow [ YYYY - MM - DD ]
 | `2021 - 12 - 02` |Mouse wheel to adjust volume|[issues #15](https://github.com/SeeChen/TermProject_MediaPlayer/issues/15)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 04` |Automatically hide the control bar when playing  media|[issues #5](https://github.com/SeeChen/TermProject_MediaPlayer/issues/5)|![Pending](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 | `2021 - 12 - 11` |Record the history playing|[issues #3](https://github.com/SeeChen/TermProject_MediaPlayer/issues/3)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
-| `2021 - 12 - 11` |Queue multiple media|[issues #4](https://github.com/SeeChen/TermProject_MediaPlayer/issues/4)|![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)|
+| `2021 - 12 - 11` |Queue multiple media|[issues #4](https://github.com/SeeChen/TermProject_MediaPlayer/issues/4)|![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)|
 
 <!-- Label for to developer -->
-<!--![Completa](https://img.shields.io/badge/COMPLETE-sussex?style=flat)--><!--complete the function development-->
+<!--![Complete](https://img.shields.io/badge/COMPLETE-sussex?style=flat)--><!--complete the function development-->
 <!--![In Progress](https://img.shields.io/badge/IN%20PROGRESS-yellow?style=flat)--><!--already know and wating to development-->
 <!--![Pending](https://img.shields.io/badge/PENDING-red?style=flat)--><!--new request-->
 

@@ -60,9 +60,9 @@ public class Main extends Application {
 
         // 对播放器进行宽高绑定，实时调整宽高
         controller.mediaViewBind(scene);
+        controller.setOnCloseRequest(primaryStage);
 
         primaryStage.setScene(scene);   // 设置初始 stage 的 scene
-        primaryStage.setOnCloseRequest(e -> controller.closeApp());
         primaryStage.setMinHeight(480);primaryStage.setMinWidth(720);  // 设置 stage 的最小高度以及最小宽度
         primaryStage.setTitle("Lumaca");  // 设置标题
         primaryStage.getIcons().add(new Image("com/MediaPlayer/RESOURCES/ICON/icon.png"));  // 设置 icon
