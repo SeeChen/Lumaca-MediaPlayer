@@ -18,7 +18,7 @@ public class loadAnother {
 
     public void about(ActionEvent actionEvent) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("./FXML/aboutPage.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("FXML/aboutPage.fxml"));
         Parent root = fxmlLoader.load();
         about_Main controller = fxmlLoader.getController();
         Scene scene = new Scene(root, 720, 480);
@@ -37,7 +37,7 @@ public class loadAnother {
 
     public void howToUse() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("./FXML/howToUsePage.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("FXML/howToUsePage.fxml"));
         Parent root = fxmlLoader.load();
         tutorial_main controller = fxmlLoader.getController();
         Scene scene = new Scene(root, 720, 480);
@@ -56,7 +56,7 @@ public class loadAnother {
 
     public void themePick() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("./FXML/themePick.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("FXML/themePick.fxml"));
         Parent root = fxmlLoader.load();
         theme_Main controller = fxmlLoader.getController();
         Scene scene = new Scene(root, 720, 480);

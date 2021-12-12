@@ -20,7 +20,7 @@ public class Main extends Application {
         // 加载 FXML 文件
         FXMLLoader fxmlLoader = new FXMLLoader();
         // 设置 FXML 路径
-        fxmlLoader.setLocation(getClass().getResource("./FXML/main.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("FXML/main.fxml"));
 
         // 定义 root 的 FXML 场景
         Parent root = fxmlLoader.load();

@@ -10,8 +10,8 @@ public class changeButtonPicture {
 
     //     更改按钮的图片
     public void changeBtnPicture(String imageName, ImageView btnId){
-
-        String toChangeUrl = "src/com/MediaPlayer/RESOURCES/ICON/" + imageName + ".png";    // 获取路径
+        String path = System.getProperty("user.dir")+ "\\RESOURCES\\ICON\\";
+        String toChangeUrl = path + imageName + ".png";    // 获取路径
 
         // 将路径转换为文字
         File fileChange = new File(toChangeUrl);

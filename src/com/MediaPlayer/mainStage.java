@@ -298,7 +298,8 @@ public class mainStage {
     }
     // 加载初始界面
     public void loadNormalVideo(){
-        String startUrl = Objects.requireNonNull(getClass().getResource("./RESOURCES/VIDEO/normal.mp4")).toString();    // 设置路径
+        String startUrl = "file:/" + System.getProperty("user.dir") + "/RESOURCES/VIDEO/normal.mp4";    // 设置路径
+        startUrl = startUrl.replaceAll("\\\\", "/");
 
         Media media = new Media(startUrl);
         mediaPlayer = new MediaPlayer(media);
@@ -843,7 +844,8 @@ public class mainStage {
 
         // 判断文件是音频文件还是视频文件
         if(fileExtension.equals("mp3")){
-            String musicUrl = Objects.requireNonNull(getClass().getResource("./RESOURCES/VIDEO/musicBack.mp4")).toString();
+            String musicUrl = "file:/" + System.getProperty("user.dir") + "/RESOURCES/VIDEO/musicBack.mp4";
+            musicUrl = musicUrl.replaceAll("\\\\", "/");
             Media musicPlayback = new Media(musicUrl);
             musicPlayer = new MediaPlayer(musicPlayback);
             musicPlayer.setAutoPlay(true);
